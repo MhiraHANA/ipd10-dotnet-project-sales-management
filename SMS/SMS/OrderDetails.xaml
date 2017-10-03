@@ -1,11 +1,11 @@
-﻿<Window x:Class="SMS.MainWindow"
+﻿<Window x:Class="SMS.OrderDetails"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Order Details" Height="516.897" Width="525">
+        Title="OrderDetails" Height="500" Width="422.069">
     <Grid>
         <DocumentViewer HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="459"/>
         <Label Content="Customer Details:" HorizontalAlignment="Left" Margin="18,65,0,0" VerticalAlignment="Top" Width="127" Height="23"/>
@@ -24,5 +24,6 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="185,316,0,0" TextWrapping="Wrap" Text="100.23$" VerticalAlignment="Top" Width="145"/>
         <Label Content="Order Date" HorizontalAlignment="Left" Margin="77,356,0,0" VerticalAlignment="Top" Width="68"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="185,359,0,0" TextWrapping="Wrap" Text="2017/02/12" VerticalAlignment="Top" Width="145"/>
+
     </Grid>
 </Window>
