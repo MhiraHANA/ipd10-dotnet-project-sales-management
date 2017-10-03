@@ -6,46 +6,81 @@
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
         Title="Sales Managment System" Height="350" Width="525">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Employees">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="_Products">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="_Suppliers">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="_Customers">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="_Orders">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-        </Menu>
+    <TabControl HorizontalAlignment="Left"
+                    Height="299"
+                    Margin="10,10,0,0"
+                    VerticalAlignment="Top"
+                    Width="470"
+                  >
+        <TabItem Header="Employees">
+            <Grid Background="#FFE5E5E5" Margin="-8,0,0,0">
+                <Label Content="Search BY:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="81"/>
+                <Label Content="Employee Name" HorizontalAlignment="Left" Margin="30,41,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="145,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+                <Button Content="Add Emplyee " HorizontalAlignment="Left" Margin="30,89,0,0" VerticalAlignment="Top" Width="95"/>
+                <Label Content="List of All Emplolyees " HorizontalAlignment="Left" Margin="20,121,0,0" VerticalAlignment="Top" Width="129"/>
+                <Button Content="Search" HorizontalAlignment="Left" Margin="366,48,0,0" VerticalAlignment="Top" Width="75"/>
+                <Label Content="Name" HorizontalAlignment="Left" Margin="30,147,0,0" VerticalAlignment="Top"/>
+                <Label Content="Address" HorizontalAlignment="Left" Margin="96,147,0,0" VerticalAlignment="Top"/>
+                <Label Content="Hire Date" HorizontalAlignment="Left" Margin="184,147,0,0" VerticalAlignment="Top"/>
+                <Label Content="Photo" HorizontalAlignment="Left" Margin="270,147,0,0" VerticalAlignment="Top"/>
+                <Label Content="Jerry" HorizontalAlignment="Left" Margin="30,189,0,0" VerticalAlignment="Top" Width="42"/>
+                <Label Content="1388 rue viel H3M 1E8" HorizontalAlignment="Left" Margin="77,189,0,0" VerticalAlignment="Top" Width="81"/>
+                <Label Content="2017/01/02" HorizontalAlignment="Left" Margin="191,189,0,0" VerticalAlignment="Top"/>
+                <Button Content="delete" HorizontalAlignment="Left" Margin="355,189,0,0" VerticalAlignment="Top" Width="44"/>
+                <Button Content="Edit" HorizontalAlignment="Left" Margin="416,189,0,0" VerticalAlignment="Top" Width="46"/>
 
-        <Grid/>
 
-    </DockPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Customers">
+            <Grid Background="#FFE5E5E5">
+                <TextBlock HorizontalAlignment="Left"
+                               Margin="10"
+                               TextWrapping="Wrap"
+                               Text="Product Name"
+                               VerticalAlignment="Top"
+                               Width="470"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Products">
+            <Grid Background="#FFE5E5E5">
+                <TextBlock HorizontalAlignment="Left"
+                               Margin="10"
+                               TextWrapping="Wrap"
+                               Text="Product Name"
+                               VerticalAlignment="Top"
+                               Width="470"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Suppliers">
+            <Grid Background="#FFE5E5E5">
+                <TextBlock HorizontalAlignment="Left"
+                               Margin="10"
+                               TextWrapping="Wrap"
+                               Text="Product Name"
+                               VerticalAlignment="Top"
+                               Width="470"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Orders">
+            <Grid Background="#FFE5E5E5">
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Reports">
+            <Grid Background="#FFE5E5E5">
+                <TextBlock HorizontalAlignment="Left"
+                               Margin="10"
+                               TextWrapping="Wrap"
+                               Text="Product Name"
+                               VerticalAlignment="Top"
+                               Width="470"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+
+
+
+
 </Window>
