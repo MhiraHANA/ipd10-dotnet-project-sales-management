@@ -5,24 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Order Details" Height="516.897" Width="525">
-    <Grid>
-        <DocumentViewer HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="459"/>
-        <Label Content="Customer Details:" HorizontalAlignment="Left" Margin="18,65,0,0" VerticalAlignment="Top" Width="127" Height="23"/>
-        <Label Content="Name Customer:" HorizontalAlignment="Left" Margin="63,93,0,0" VerticalAlignment="Top" Width="103" Height="23"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="185,93,0,0" TextWrapping="Wrap" Text="John Smith" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Address " HorizontalAlignment="Left" Margin="63,121,0,0" VerticalAlignment="Top" Width="92"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="185,125,0,0" TextWrapping="Wrap" Text="1388, rue viel H3M 1E8" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Phone" HorizontalAlignment="Left" Margin="63,152,0,0" VerticalAlignment="Top" Width="61"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="185,156,0,0" TextWrapping="Wrap" Text="514 296 2489" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Product Details:" HorizontalAlignment="Left" Margin="29,201,0,0" VerticalAlignment="Top" Width="95"/>
-        <Label Content="Product Name" HorizontalAlignment="Left" Margin="69,232,0,0" VerticalAlignment="Top" Width="86"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="185,232,0,0" TextWrapping="Wrap" Text="Diodes" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Quantity " HorizontalAlignment="Left" Margin="77,276,0,0" VerticalAlignment="Top" Width="68"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="185,276,0,0" TextWrapping="Wrap" Text="35" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Cost " HorizontalAlignment="Left" Margin="77,316,0,0" VerticalAlignment="Top" Width="56"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="185,316,0,0" TextWrapping="Wrap" Text="100.23$" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Order Date" HorizontalAlignment="Left" Margin="77,356,0,0" VerticalAlignment="Top" Width="68"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="185,359,0,0" TextWrapping="Wrap" Text="2017/02/12" VerticalAlignment="Top" Width="145"/>
-    </Grid>
+        Title="Sales Managment System" Height="350" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Employees">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Products">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Suppliers">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Customers">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Orders">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+        </Menu>
+
+        <Grid/>
+
+    </DockPanel>
 </Window>
