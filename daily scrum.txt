@@ -9,3 +9,15 @@ date and name
 1. I implemented X and didn't implement Y
 2. I Will implement ABC and KLJIG
 3. I need to find a library for pdf and do a small research 
+
+2017/10/04 Mhira Hana
+1. finish proposal
+2. create all of tables in database and create diagram relationship 
+3. serching for azure and entity framework
+3. TODO: create the class instal Azure 
+
+2017/10/04 Hadi Mohamed
+1. finish the porposal
+2. create database in SQL SERVER
+3. searching for data 
+4. TODO : insert data in database 
