@@ -64,7 +64,7 @@ namespace SMS
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             tbUsername.Text = "";
-            tbPassword.Password = "";
+            tbPassword.Password = ""
         }
     }
 }
