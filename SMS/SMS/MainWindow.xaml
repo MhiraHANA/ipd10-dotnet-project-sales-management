@@ -5,82 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Sales Managment System" Height="350" Width="525">
-    <TabControl HorizontalAlignment="Left"
-                    Height="299"
-                    Margin="10,10,0,0"
-                    VerticalAlignment="Top"
-                    Width="470"
-                  >
-        <TabItem Header="Employees">
-            <Grid Background="#FFE5E5E5" Margin="-8,0,0,0">
-                <Label Content="Search BY:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="81"/>
-                <Label Content="Employee Name" HorizontalAlignment="Left" Margin="30,41,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="145,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-                <Button Content="Add Emplyee " HorizontalAlignment="Left" Margin="30,89,0,0" VerticalAlignment="Top" Width="95"/>
-                <Label Content="List of All Emplolyees " HorizontalAlignment="Left" Margin="20,121,0,0" VerticalAlignment="Top" Width="129"/>
-                <Button Content="Search" HorizontalAlignment="Left" Margin="366,48,0,0" VerticalAlignment="Top" Width="75"/>
-                <Label Content="Name" HorizontalAlignment="Left" Margin="30,147,0,0" VerticalAlignment="Top"/>
-                <Label Content="Address" HorizontalAlignment="Left" Margin="96,147,0,0" VerticalAlignment="Top"/>
-                <Label Content="Hire Date" HorizontalAlignment="Left" Margin="184,147,0,0" VerticalAlignment="Top"/>
-                <Label Content="Photo" HorizontalAlignment="Left" Margin="270,147,0,0" VerticalAlignment="Top"/>
-                <Label Content="Jerry" HorizontalAlignment="Left" Margin="30,189,0,0" VerticalAlignment="Top" Width="42"/>
-                <Label Content="1388 rue viel H3M 1E8" HorizontalAlignment="Left" Margin="77,189,0,0" VerticalAlignment="Top" Width="81"/>
-                <Label Content="2017/01/02" HorizontalAlignment="Left" Margin="191,189,0,0" VerticalAlignment="Top"/>
-                <Button Content="delete" HorizontalAlignment="Left" Margin="355,189,0,0" VerticalAlignment="Top" Width="44"/>
-                <Button Content="Edit" HorizontalAlignment="Left" Margin="416,189,0,0" VerticalAlignment="Top" Width="46"/>
+        Title="Sales Managment System" Height="350" Width="607" WindowStartupLocation="CenterScreen">
+    <Grid>
 
+        <Grid>
+            <TabControl>
+                <TabItem Margin="-2,-2,-7,0">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="D:/SMS/SMS/Images/employee.png" Height="66" Width="53" />
 
-            </Grid>
-        </TabItem>
-        <TabItem Header="Customers">
-            <Grid Background="#FFE5E5E5">
-                <TextBlock HorizontalAlignment="Left"
-                               Margin="10"
-                               TextWrapping="Wrap"
-                               Text="Product Name"
-                               VerticalAlignment="Top"
-                               Width="470"/>
-            </Grid>
-        </TabItem>
-        <TabItem Header="Products">
-            <Grid Background="#FFE5E5E5">
-                <TextBlock HorizontalAlignment="Left"
-                               Margin="10"
-                               TextWrapping="Wrap"
-                               Text="Product Name"
-                               VerticalAlignment="Top"
-                               Width="470"/>
-            </Grid>
-        </TabItem>
-        <TabItem Header="Suppliers">
-            <Grid Background="#FFE5E5E5">
-                <TextBlock HorizontalAlignment="Left"
-                               Margin="10"
-                               TextWrapping="Wrap"
-                               Text="Product Name"
-                               VerticalAlignment="Top"
-                               Width="470"/>
-            </Grid>
-        </TabItem>
-        <TabItem Header="Orders">
-            <Grid Background="#FFE5E5E5">
+                        </StackPanel>
 
-            </Grid>
-        </TabItem>
-        <TabItem Header="Reports">
-            <Grid Background="#FFE5E5E5">
-                <TextBlock HorizontalAlignment="Left"
-                               Margin="10"
-                               TextWrapping="Wrap"
-                               Text="Product Name"
-                               VerticalAlignment="Top"
-                               Width="470"/>
-            </Grid>
-        </TabItem>
-    </TabControl>
+                    </TabItem.Header>
 
+                    <Button Content="Add Employee" x:Name="btnAddEmployee" Margin="10,24,469,176"></Button>
 
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="D:\SMS\SMS\Images\customer.png" Width="62" Height="66" />
 
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="D:\SMS\SMS\Images\order.png" Width="68" Height="69" />
 
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="D:\SMS\SMS\Images\product.png" Width="69" Height="72" />
+
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="D:\SMS\SMS\Images\reporting.png" Width="68" Height="72" />
+
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="D:\SMS\SMS\Images\supplier.png" Width="68" Height="74" />
+
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem >
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="D:\SMS\SMS\Images\calender.png" Width="68" Height="74" />
+
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
 </Window>
