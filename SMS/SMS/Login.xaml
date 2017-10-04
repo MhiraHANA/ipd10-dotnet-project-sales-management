@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Login" Height="300" Width="300" Background="#04c582">
+        Title="Login" Height="300" Width="400" Background="#04c582" WindowStartupLocation="CenterScreen">
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         <StackPanel Margin="20">
             <Label Content="Login" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
@@ -14,8 +14,8 @@
             <TextBox Name="tbUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
             <Label Content="Password" Foreground="White"/>
             <PasswordBox Name="tbPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Button Name="btnOK" Content="OK" Margin="70 10" Background="#545d6a" Foreground="White" FontSize="18" Click="btnOK_Click"/>
-            <Button Content="Button"/>
+            <Button x:Name="btnOK" Content="OK"  Margin="0 10 200 10" Background="#545d6a" Foreground="White" FontSize="18" Click="btnOK_Click"/>
+            <Button x:Name="btnClear" Content="Clear"  Margin="200 -39 0 10" Background="#545d6a" Foreground="White" FontSize="18" Click="btnClear_Click" />
         </StackPanel>
     </Border>
 </Window>
