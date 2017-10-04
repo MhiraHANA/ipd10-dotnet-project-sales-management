@@ -13,7 +13,7 @@
                 <TabItem Margin="-2,-2,-7,0">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:/SMS/SMS/Images/employee.png" Height="66" Width="53" />
+                            <Image Source="/Images/employee.png" Height="66" Width="53" />
 
                         </StackPanel>
 
@@ -25,7 +25,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\customer.png" Width="62" Height="66" />
+                            <Image Source="Images\customer.png" Width="62" Height="66" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -33,7 +33,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\order.png" Width="68" Height="69" />
+                            <Image Source="Images\order.png" Width="68" Height="69" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -41,7 +41,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\product.png" Width="69" Height="72" />
+                            <Image Source="Images\product.png" Width="69" Height="72" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -49,7 +49,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\reporting.png" Width="68" Height="72" />
+                            <Image Source="Images\reporting.png" Width="68" Height="72" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -57,7 +57,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\supplier.png" Width="68" Height="74" />
+                            <Image Source="Images\supplier.png" Width="68" Height="74" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -65,7 +65,7 @@
                 <TabItem >
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\calender.png" Width="68" Height="74" />
+                            <Image Source="Images\calender.png" Width="68" Height="74" />
 
                         </StackPanel>
                     </TabItem.Header>
