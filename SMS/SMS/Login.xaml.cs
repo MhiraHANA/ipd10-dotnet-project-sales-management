@@ -47,7 +47,7 @@ namespace SMS
                 }
                 else
                 {
-                    MessageBox.Show("Username or Password is incorrect.");
+                    MessageBox.Show("Username or Password is incorrect.", "SMS Application", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
 
             }
@@ -64,7 +64,7 @@ namespace SMS
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             tbUsername.Text = "";
-            tbPassword.Password = ""
+            tbPassword.Password = "";
         }
     }
 }
