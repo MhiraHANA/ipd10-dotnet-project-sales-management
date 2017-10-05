@@ -27,7 +27,12 @@ namespace SMS
         }
         private void Show_AddEmployee(object sender, RoutedEventArgs e)
         {
-            AddEmployee inputDialog = new AddEmployee();            
+            AddEmployee inputDialog = new AddEmployee();
+            if (inputDialog.ShowDialog() == true)
+            {
+                
+
+            }
         }
      
 
@@ -53,7 +58,52 @@ namespace SMS
 
         private void Show_AddCustomer(object sender, RoutedEventArgs e)
         {
-            AddCustomer inputDialog = new AddCustomer();            
+            AddCustomer inputDialog = new AddCustomer();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
+
+        private void Show_AddProduct(object sender, RoutedEventArgs e)
+        {
+            AddCustomer inputDialog = new AddCustomer();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
+
+        private void Show_AddOrder(object sender, RoutedEventArgs e)
+        {
+            AddCustomer inputDialog = new AddCustomer();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
+
+        private void Show_AddReport(object sender, RoutedEventArgs e)
+        {
+            AddCustomer inputDialog = new AddCustomer();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
+
+        private void Show_AddSupplier(object sender, RoutedEventArgs e)
+        {
+            AddCustomer inputDialog = new AddCustomer();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
         }
     }
 }
