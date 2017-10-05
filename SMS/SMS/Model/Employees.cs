@@ -13,6 +13,7 @@ namespace SMS
         public String FirstName { get; set; }
         public DateTime HireDate { get; set; }
         public String Address { get; set; }
+     //   public String Phone { get; set; }
         public Byte[] Photo { get; set; }
 
         private String _username;

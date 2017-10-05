@@ -19,7 +19,7 @@
                     <Grid>
                         <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddEmployee">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
+                                <Image Source="/Images/addEmployee.png"  Width="86" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>

@@ -5,24 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Add Employee" Height="385.016" Width="401.628" Background="#04c582" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="40,313,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="248,313,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
-        <Label x:Name="lblFirstName" Content="First Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="124,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblLastName" Content="Last Name: " HorizontalAlignment="Left" Margin="29,80,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="23" Margin="124,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblHireDate" Content="Hire Date: " HorizontalAlignment="Left" Margin="29,130,0,0" VerticalAlignment="Top" Width="62" Grid.Row="1"/>
-        <DatePicker HorizontalAlignment="Left"
+        Title="Add Employee" Height="730.787" Width="500.093" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/bac.jpg" />
+    </Window.Background>
+    <Grid Margin="0,0,0,-44" Height="444" VerticalAlignment="Top">
+        <Button FontWeight="Bold" x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="65,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
+        <Button FontWeight="Bold" x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="261,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Label FontWeight="Bold" x:Name="lblFirstName" Content="First Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="124,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label FontWeight="Bold" x:Name="lblLastName" Content="Last Name: " HorizontalAlignment="Left" Margin="29,80,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="23" Margin="124,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label FontWeight="Bold"  x:Name="lblHireDate" Content="Hire Date: " HorizontalAlignment="Left" Margin="29,130,0,0" VerticalAlignment="Top" Width="62" Grid.Row="1"/>
+        <DatePicker x:Name="tbHireDate" HorizontalAlignment="Left"
                     Margin="124,130,0,0"
                     VerticalAlignment="Top"
-                    SelectedDateChanged="DatePicker_SelectedDateChanged" Width="228" Height="26"/>
-        <Label x:Name="lblAddress" Content="Address: " HorizontalAlignment="Left" Margin="29,170,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="124,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblPhoto" Content="Photo:  " HorizontalAlignment="Left" Margin="29,220,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="tbPoto" HorizontalAlignment="Left" Height="23" Margin="124,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="124,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    SelectedDateChanged="DatePicker_SelectedDateChanged" Width="241" Height="26"/>
+        <Label FontWeight="Bold"  x:Name="lblAddress" Content="Address: " HorizontalAlignment="Left" Margin="29,170,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="124,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label FontWeight="Bold" Content="User Name" HorizontalAlignment="Left" Margin="29,220,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbUserName" HorizontalAlignment="Left" Height="23" Margin="124,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label FontWeight="Bold" x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="124,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="318,427,0,-6" Name="btnBrowse" VerticalAlignment="Top" Width="142" Click="btnBrowse_Click" />
+        <Image Height="228" HorizontalAlignment="Left" Margin="29,397,0,-181" x:Name="imageEmployee" Stretch="Fill" VerticalAlignment="Top" Width="259" />
+        <TextBox x:Name="tbNameImage" HorizontalAlignment="Left" Height="23" Margin="29,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="431"/>
+        <Label FontWeight="Bold" x:Name="lbPassword" Content="Password:  " HorizontalAlignment="Left" Margin="29,318,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Height="23" Margin="124,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+
     </Grid>
 </Window>
