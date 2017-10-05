@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Sales Managment System" Height="350" Width="607" WindowStartupLocation="CenterScreen">
+        Title="Sales Managment System" Height="394.286" Width="607" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid>
@@ -13,19 +13,59 @@
                 <TabItem Margin="-2,-2,-7,0">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:/SMS/SMS/Images/employee.png" Height="66" Width="53" />
+                            <Image Source="/Images/employee.png" Height="66" Width="53" />
 
                         </StackPanel>
 
                     </TabItem.Header>
+                    <Grid>
+                        <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddEmployee">
+                            <DockPanel Height="122">
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63"/>
 
-                    <Button Content="Add Employee" x:Name="btnAddEmployee" Margin="10,24,469,176"></Button>
+                            </DockPanel>
+                        </Button>
 
+                        <Popup Name="PopupAddEmployee" StaysOpen="False" >
+                            <StackPanel Background="PaleGreen" Height="578" Width="659">
+                                <Grid Margin="0,0,52,0">
+
+                                    <Label Content="Last Name: " HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="26" Margin="121,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="281"/>
+                                    <Label Content="First Name:" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Width="67"/>
+                                    <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="121,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="281"/>
+
+                                    <Label Content="Hire Date :" HorizontalAlignment="Left" Margin="20,72,0,0" VerticalAlignment="Top" Width="67"/>
+                                    <DatePicker HorizontalAlignment="Left"
+                    Margin="121,74,0,0"
+                    VerticalAlignment="Top"
+                    SelectedDateChanged="DatePicker_SelectedDateChanged" Width="281"/>
+                                    <Label Content="Address :" HorizontalAlignment="Left" Margin="20,112,0,0" VerticalAlignment="Top" Width="55"/>
+                                    <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="121,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="281"/>
+
+                                    <Label Content="User Name :" HorizontalAlignment="Left" Margin="20,143,0,0" VerticalAlignment="Top" Width="83"/>
+                                    <TextBox x:Name="tbUserName" HorizontalAlignment="Left" Height="23" Margin="121,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="281"/>
+                                    <Label Content="Password :" HorizontalAlignment="Left" Margin="20,174,0,0" VerticalAlignment="Top" Width="67"/>
+                                    <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Height="23" Margin="121,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="281"/>
+
+                                    <Image Height="163" HorizontalAlignment="Left" Margin="20,223,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="169" StretchDirection="Both"  />
+                                    <TextBox Height="23" HorizontalAlignment="Left" Margin="20,401,0,0" x:Name="txtBrowseFile" VerticalAlignment="Top" Width="217" />
+                                    <Button Content="Browse Image" Height="23" HorizontalAlignment="Left" Margin="254,241,0,0" x:Name="btnBrowse" VerticalAlignment="Top" Width="125" Click="btnBrowse_Click" />
+                                    <Button Content="Upload Image" Height="23" HorizontalAlignment="Left" Margin="254,326,0,0" x:Name="btnUpload" VerticalAlignment="Top" Width="125" Click="btnUpload_Click" />
+
+                                    <Button Content="Add " Margin="367,503,186,0" VerticalAlignment="Top" Height="35"/>
+                                    <Button Content="Cancel" HorizontalAlignment="Left" Margin="153,503,0,0" VerticalAlignment="Top" Width="84" Height="35"/>
+
+
+                                </Grid>
+                            </StackPanel>
+                        </Popup>
+                    </Grid>
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\customer.png" Width="62" Height="66" />
+                            <Image Source="Images\customer.png" Width="62" Height="66" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -33,7 +73,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\order.png" Width="68" Height="69" />
+                            <Image Source="Images\order.png" Width="68" Height="69" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -41,7 +81,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\product.png" Width="69" Height="72" />
+                            <Image Source="Images\product.png" Width="69" Height="72" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -49,7 +89,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\reporting.png" Width="68" Height="72" />
+                            <Image Source="Images\reporting.png" Width="68" Height="72" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -57,7 +97,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\supplier.png" Width="68" Height="74" />
+                            <Image Source="Images\supplier.png" Width="68" Height="74" />
 
                         </StackPanel>
                     </TabItem.Header>
@@ -65,7 +105,7 @@
                 <TabItem >
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="D:\SMS\SMS\Images\calender.png" Width="68" Height="74" />
+                            <Image Source="Images\calender.png" Width="68" Height="74" />
 
                         </StackPanel>
                     </TabItem.Header>

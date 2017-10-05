@@ -11,31 +11,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SMS
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Window1 : Window
     {
-        public MainWindow()
+        public Window1()
         {
             InitializeComponent();
         }
-        private void Show_AddEmployee(object sender, RoutedEventArgs e)
-        {
-            PopupAddEmployee.IsOpen = true;
-        }
-        private void Hide_Click(object sender, RoutedEventArgs e)
-        {
-            PopupAddEmployee.IsOpen = false;
-        }
-
         private void DatePicker_SelectedDateChanged(object sender,
-           SelectionChangedEventArgs e)
+            SelectionChangedEventArgs e)
         {
             // ... Get DatePicker reference.
             var picker = sender as DatePicker;
@@ -75,5 +65,6 @@ namespace SMS
                 image1.Source = src;
             }
         }
+
     }
 }
