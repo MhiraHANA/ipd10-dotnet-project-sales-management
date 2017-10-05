@@ -19,9 +19,6 @@ namespace SMS.Model
             conn.ConnectionString = CONN_STRING;
             conn.Open();
         }
-
-
-
     }
 
 }
