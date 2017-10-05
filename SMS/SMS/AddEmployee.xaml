@@ -1,0 +1,28 @@
+﻿<Window x:Class="SMS.AddEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMS"
+        mc:Ignorable="d"
+        Title="Add Employee" Height="385.016" Width="401.628" Background="#04c582" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="40,313,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="248,313,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Label x:Name="lblFirstName" Content="First Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="124,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblLastName" Content="Last Name: " HorizontalAlignment="Left" Margin="29,80,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="23" Margin="124,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblHireDate" Content="Hire Date: " HorizontalAlignment="Left" Margin="29,130,0,0" VerticalAlignment="Top" Width="62" Grid.Row="1"/>
+        <DatePicker HorizontalAlignment="Left"
+                    Margin="124,130,0,0"
+                    VerticalAlignment="Top"
+                    SelectedDateChanged="DatePicker_SelectedDateChanged" Width="228" Height="26"/>
+        <Label x:Name="lblAddress" Content="Address: " HorizontalAlignment="Left" Margin="29,170,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="124,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblPhoto" Content="Photo:  " HorizontalAlignment="Left" Margin="29,220,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbPoto" HorizontalAlignment="Left" Height="23" Margin="124,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="124,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+    </Grid>
+</Window>

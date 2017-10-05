@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,26 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SMS
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddEmployee.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddEmployee : Window
     {
-        public MainWindow()
+        public AddEmployee()
         {
             InitializeComponent();
         }
-        private void Show_AddEmployee(object sender, RoutedEventArgs e)
-        {
-            AddEmployee inputDialog = new AddEmployee();            
-        }
-     
 
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void DatePicker_SelectedDateChanged(object sender,
            SelectionChangedEventArgs e)
         {
@@ -39,21 +36,12 @@ namespace SMS
 
             // ... Get nullable DateTime from SelectedDate.
             DateTime? date = picker.SelectedDate;
-            if (date == null)
-            {
-                // ... A null object.
-                this.Title = "No date";
-            }
-            else
-            {
-                // ... No need to display the time.
-                this.Title = date.Value.ToShortDateString();
-            }
+            
         }
 
-        private void Show_AddCustomer(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            AddCustomer inputDialog = new AddCustomer();            
+            Close();
         }
     }
 }
