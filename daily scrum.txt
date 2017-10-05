@@ -27,3 +27,8 @@ date and name
 4. TODO : insert data in database 
 5. TODO: import data from Excel to sql Server    
 6.  Search and fix the error for import data 
+2017/10/05 Hana
+1. TODO: create mini project to insert record with image to the database
+
+201/10/05 Hadi
+1. create mini project using popup dialog after the click in the bottoun
