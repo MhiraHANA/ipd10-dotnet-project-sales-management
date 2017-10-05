@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SMS
 {
     /// <summary>
-    /// Interaction logic for AddCustomer.xaml
+    /// Interaction logic for AddSupplier.xaml
     /// </summary>
-    public partial class AddCustomer : Window
+    public partial class AddSupplier : Window
     {
-        public AddCustomer()
+        public AddSupplier()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace SMS
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
 
-        }       
+        }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {

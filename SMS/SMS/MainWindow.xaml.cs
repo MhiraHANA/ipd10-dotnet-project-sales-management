@@ -68,7 +68,7 @@ namespace SMS
 
         private void Show_AddProduct(object sender, RoutedEventArgs e)
         {
-            AddCustomer inputDialog = new AddCustomer();
+            AddProduct inputDialog = new AddProduct();
             if (inputDialog.ShowDialog() == true)
             {
 
@@ -98,7 +98,7 @@ namespace SMS
 
         private void Show_AddSupplier(object sender, RoutedEventArgs e)
         {
-            AddCustomer inputDialog = new AddCustomer();
+            AddSupplier inputDialog = new AddSupplier();
             if (inputDialog.ShowDialog() == true)
             {
 

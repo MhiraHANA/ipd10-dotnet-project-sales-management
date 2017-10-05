@@ -19,7 +19,7 @@
                     <Grid>
                         <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddEmployee">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
@@ -38,7 +38,7 @@
                       <Grid>
                         <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddCustomer">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
@@ -56,7 +56,7 @@
                     <Grid>
                         <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddOrder">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
@@ -74,7 +74,7 @@
                     <Grid>
                         <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddProduct">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
@@ -92,7 +92,7 @@
                     <Grid>
                         <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddReport">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
@@ -110,7 +110,7 @@
                     <Grid>
                         <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddSupplier">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>

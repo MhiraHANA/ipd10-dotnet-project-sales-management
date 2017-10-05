@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Add Customer" Height="282.41" Width="401.628" Background="#04c582" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="29,199,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click_1" />
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="29,199,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click" />
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="251,199,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
         <Label x:Name="lblCompanyName" Content="Company Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="98"/>
         <TextBox x:Name="tbCompnayName" HorizontalAlignment="Left" Height="23" Margin="156,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>

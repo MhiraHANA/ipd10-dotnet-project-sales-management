@@ -1,0 +1,24 @@
+﻿<Window x:Class="SMS.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMS"
+        mc:Ignorable="d"
+        Title="Add Product" Height="376.077" Width="401.628" Background="#04c582" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="29,295,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click" />
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="251,295,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Label x:Name="lblProductName" Content="Product Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="98"/>
+        <TextBox x:Name="tbProductName" HorizontalAlignment="Left" Height="23" Margin="156,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblCostPrice" Content="Cost Price: " HorizontalAlignment="Left" Margin="29,131,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbCostPrice" HorizontalAlignment="Left" Height="23" Margin="156,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblUnitInStock" Content="Unit In Stock:" HorizontalAlignment="Left" Margin="29,186,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="tbUnitInStock" HorizontalAlignment="Left" Height="23" Margin="156,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblQuantity" Content="Quantity:" HorizontalAlignment="Left" Margin="29,83,0,0" VerticalAlignment="Top" Width="98"/>
+        <TextBox x:Name="tbQuantity" HorizontalAlignment="Left" Height="23" Margin="156,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblUnitOnOrder" Content="Unit On Order:" HorizontalAlignment="Left" Margin="29,244,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="tbUnitOnOrder" HorizontalAlignment="Left" Height="23" Margin="156,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+
+    </Grid>
+</Window>
