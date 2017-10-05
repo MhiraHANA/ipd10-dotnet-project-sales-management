@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMS.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -21,6 +22,8 @@ namespace SMS
     /// </summary>
     public partial class Login : Window
     {
+        Database db = new Database();
+
         public Login()
         {
             InitializeComponent();
@@ -28,16 +31,11 @@ namespace SMS
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ipd\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30");
-
-            //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Hana\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30
-         //   SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Hana\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30");
+            
             try
             {
-                if (conn.State == ConnectionState.Closed)
-                    conn.Open();
                 string query = "SELECT COUNT(1) FROM Employees WHERE Username=@Username and Password=@Password";
-                SqlCommand sqlcmd = new SqlCommand(query, conn);
+                SqlCommand sqlcmd = new SqlCommand(query, db.conn);
                 sqlcmd.CommandType = CommandType.Text;
                 sqlcmd.Parameters.AddWithValue("@Username", tbUsername.Text);
                 sqlcmd.Parameters.AddWithValue("@Password", tbPassword.Password);
@@ -58,10 +56,8 @@ namespace SMS
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                conn.Close();
-            }
+           
+          
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
