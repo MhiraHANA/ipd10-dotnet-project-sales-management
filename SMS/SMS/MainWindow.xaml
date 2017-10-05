@@ -27,7 +27,7 @@
                         </Button>
 
                         <Popup Name="PopupAddEmployee" StaysOpen="False" >
-                            <StackPanel Background="PaleGreen" Height="601" Width="659">
+                            <StackPanel Background="PaleGreen" Height="578" Width="659">
                                 <Grid Margin="0,0,52,0">
 
                                     <Label Content="Last Name: " HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top"/>
