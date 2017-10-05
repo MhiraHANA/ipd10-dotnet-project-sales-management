@@ -118,5 +118,8 @@
     <Resource Include="Images\reporting.png" />
     <Resource Include="Images\supplier.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon1.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
