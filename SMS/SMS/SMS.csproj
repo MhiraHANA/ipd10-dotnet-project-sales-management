@@ -129,11 +129,10 @@
     <Resource Include="Images\supplier.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Resource Include="Icon1.ico" />
-=======
+
+   
     <Resource Include="Images\addEmployee.png" />
->>>>>>> 0888b2369c6266b5a1dcce62877bd544fe19b607
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
