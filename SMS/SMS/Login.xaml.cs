@@ -28,10 +28,10 @@ namespace SMS
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-         //   SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ipd\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ipd\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30");
 
             //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Hana\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Hana\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30");
+         //   SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Hana\Documents\SMSDB.mdf;Integrated Security=True;Connect Timeout=30");
             try
             {
                 if (conn.State == ConnectionState.Closed)
