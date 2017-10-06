@@ -25,7 +25,6 @@
         <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="124,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Label FontWeight="Bold" Content="User Name" HorizontalAlignment="Left" Margin="29,220,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbUserName" HorizontalAlignment="Left" Height="23" Margin="124,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
-<<<<<<< HEAD
         <Label FontWeight="Bold" x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,321,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="124,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="318,427,0,-6" Name="btnBrowse" VerticalAlignment="Top" Width="142" Click="btnBrowse_Click" />
@@ -33,7 +32,6 @@
         <TextBox x:Name="tbNameImage" HorizontalAlignment="Left" Height="23" Margin="29,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="431"/>
         <Label FontWeight="Bold" x:Name="lbPassword" Content="Password:  " HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Height="23" Margin="124,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
-=======
         <Label FontWeight="Bold" x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,331,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="124,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="318,522,0,-101" Name="btnBrowse" VerticalAlignment="Top" Width="142" Click="btnBrowse_Click" />
@@ -42,7 +40,7 @@
         <Label FontWeight="Bold" x:Name="lbPassword" Content="Password:  " HorizontalAlignment="Left" Margin="29,275,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Height="23" Margin="124,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Label FontWeight="Bold" x:Name="lbPhoto" Content="Photo:  " HorizontalAlignment="Left" Margin="29,374,0,0" VerticalAlignment="Top" Width="75"/>
->>>>>>> 5846e96ec070ed81bd642a3eb2f51deef19672df
+
 
     </Grid>
 </Window>
