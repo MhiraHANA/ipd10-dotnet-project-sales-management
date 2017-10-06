@@ -170,5 +170,8 @@
   <ItemGroup>
     <Resource Include="Images\bac.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Model\ProductsXMLFile.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

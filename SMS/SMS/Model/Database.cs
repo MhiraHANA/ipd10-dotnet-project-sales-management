@@ -32,7 +32,7 @@ namespace SMS.Model
             insertCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
             insertCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
             insertCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
-          //  insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
+            insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
             insertCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
             insertCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             insertCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
@@ -58,7 +58,6 @@ namespace SMS.Model
             updateCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
             updateCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             updateCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
-
             updateCommand.ExecuteNonQuery();
 
         }
