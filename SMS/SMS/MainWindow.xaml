@@ -126,6 +126,7 @@
                         </StackPanel>
                     </TabItem.Header>
                 </TabItem>
+                <WindowsFormsHost Height="100" Width="100"/>
             </TabControl>
         </Grid>
     </Grid>
