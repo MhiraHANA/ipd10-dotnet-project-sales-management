@@ -32,11 +32,11 @@ namespace SMS.Model
             insertCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
             insertCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
             insertCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
-<<<<<<< HEAD
+
           // insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
-=======
+
             insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
->>>>>>> 5846e96ec070ed81bd642a3eb2f51deef19672df
+
             insertCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
             insertCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             insertCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
