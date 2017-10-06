@@ -1,16 +1,16 @@
-﻿<Window x:Class="SMS.AddEmployee"
+﻿<Window x:Class="SMS.UpdateEmployee"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Add Employee" Height="730.787" Width="500.093" WindowStartupLocation="CenterScreen">
+        Title="UpdateEmployee" Height="730.787" Width="500.093" WindowStartupLocation="CenterScreen" >
     <Window.Background>
         <ImageBrush ImageSource="Images/bac.jpg" />
     </Window.Background>
     <Grid Margin="0,0,0,-44" Height="444" VerticalAlignment="Top">
-        <Button FontWeight="Bold" x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="65,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
+        <Button FontWeight="Bold" x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="65,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnUpdate_Click"/>
         <Button FontWeight="Bold" x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="261,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
         <Label FontWeight="Bold" x:Name="lblFirstName" Content="First Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="124,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>

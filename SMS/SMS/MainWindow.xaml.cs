@@ -1,6 +1,10 @@
 ﻿using Microsoft.Win32;
+using SMS.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +25,12 @@ namespace SMS
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Database DB = new Database();
         public MainWindow()
         {
             InitializeComponent();
+            FillDataGrid();
         }
         private void Show_AddEmployee(object sender, RoutedEventArgs e)
         {
@@ -105,5 +112,104 @@ namespace SMS
 
             }
         }
+
+        //Employee View
+        private void FillDataGrid()
+        {
+
+            string CmdString = "SELECT * FROM Employees";
+            SqlCommand cmd = new SqlCommand(CmdString, DB.conn);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Employees");
+            sda.Fill(dt);
+            dgEmployees.ItemsSource = dt.DefaultView;
+
+        }
+        //convert byte to image 
+        public static BitmapImage ConvertByteArrayToBitmapImage(Byte[] bytes)
+        {
+            var stream = new MemoryStream(bytes);
+            stream.Seek(0, SeekOrigin.Begin);
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.EndInit();
+            return image;
+        }
+        //The below method is actually converting the Image/Video to bytes array
+        private static byte[] ConvertImageToBinary(string p_postedImageFileName)
+
+        {
+
+            try
+
+            {
+
+                FileStream fs = new FileStream(p_postedImageFileName, FileMode.Open, FileAccess.Read);
+
+                BinaryReader br = new BinaryReader(fs);
+
+                byte[] image = br.ReadBytes((int)fs.Length);
+
+                br.Close();
+
+                fs.Close();
+
+                return image;
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "People DB", MessageBoxButton.YesNo);
+
+            object item = dgEmployees.SelectedItem;
+            string ID = (dgEmployees.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            if (id < 0)
+            {
+
+                MessageBox.Show("You must select Employee.");
+            }
+            else
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    DB.DeleteEmployee(id);
+                    FillDataGrid();
+                    MessageBox.Show("Delete successful.");
+                  
+                }
+
+            }
+        }
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+            object item = dgEmployees.SelectedItem;
+            string ID = (dgEmployees.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+
+            UpdateEmployee inputDialog = new UpdateEmployee();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+            }
+            FillDataGrid();
+        }
+
+
+
     }
 }

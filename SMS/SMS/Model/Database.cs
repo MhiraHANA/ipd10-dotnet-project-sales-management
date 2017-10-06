@@ -32,7 +32,7 @@ namespace SMS.Model
             insertCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
             insertCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
             insertCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
-          //  insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
+          // insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
             insertCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
             insertCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             insertCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
@@ -42,14 +42,16 @@ namespace SMS.Model
 
         public void DeleteEmployee(int Id)
         {
-            string sqlDelete = "DELETE FROM Employees WHERE Id =Id;";
+            string sqlDelete = "DELETE FROM Employees WHERE @Id = Id;";
             SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
-            //deleteCommand.ExecuteNonQuery();
+            deleteCommand.Parameters.AddWithValue("@Id", Id);
+            deleteCommand.ExecuteNonQuery();
+            
         }
 
         public void UpdateEmployee(Employees emp)
         {
-            string sql = "UPDATE Person(LastName, FirstName, HireDate, Address, Photo, UserName, Password) VALUES (@LastNameName,@FirstName,@HireDate,@Address,@Photo,@UserName,@Password)";
+            string sql = "UPDATE Employees SET (LastName, FirstName, HireDate, Address, Photo, UserName, Password) VALUES (@LastNameName,@FirstName,@HireDate,@Address,@Photo,@UserName,@Password)";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.Add(new SqlParameter("@LastName", emp.LastName));
             updateCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));

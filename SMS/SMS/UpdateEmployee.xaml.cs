@@ -18,41 +18,35 @@ using System.Windows.Shapes;
 namespace SMS
 {
     /// <summary>
-    /// Interaction logic for AddEmployee.xaml
+    /// Interaction logic for UpdateEmployee.xaml
     /// </summary>
-    public partial class AddEmployee : Window
+    public partial class UpdateEmployee : Window
     {
         Database db = new Database();
-        public AddEmployee()
+        public UpdateEmployee()
         {
             InitializeComponent();
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+          
             Employees emp = new Employees();
             emp.FirstName = tbFirstName.Text;
             emp.LastName = tbLastName.Text;
-            emp.HireDate = DateTime.Parse( tbHireDate.Text);
+            emp.HireDate = DateTime.Parse(tbHireDate.Text);
             emp.Address = tbAddress.Text;
             emp.UserName = tbUserName.Text;
             emp.Password = tbPassword.Text;
-          //  emp.Phone = tbPhone.Text;
+            //  emp.Phone = tbPhone.Text;
             emp.Photo = ConvertImageToBinary(tbNameImage.Text);
-            db.AddEmployee(emp);
+            db.UpdateEmployee(emp);
             MessageBox.Show("Succeful adding employee..");
-            tbFirstName.Clear();
-            tbLastName.Clear();
-           // tbHireDate.ClearValue();
-            tbAddress.Clear();
-            tbUserName.Clear();
-            tbPassword.Clear();
-            tbPhone.Clear();
-            tbNameImage.Clear();
-          
+
         }
         private void DatePicker_SelectedDateChanged(object sender,
-           SelectionChangedEventArgs e)
+     SelectionChangedEventArgs e)
         {
             // ... Get DatePicker reference.
             var picker = sender as DatePicker;
@@ -81,41 +75,40 @@ namespace SMS
                 string fileName = op.FileName;
 
                 tbNameImage.Text = fileName;
-                }
-
-
             }
 
-            //The below method is actually converting the Image/Video to bytes array
-         private static byte[] ConvertImageToBinary(string p_postedImageFileName)
-        {
-          try
 
-          {
+        }
+
+        //The below method is actually converting the Image/Video to bytes array
+        private static byte[] ConvertImageToBinary(string p_postedImageFileName)
+        {
+            try
+
+            {
                 FileStream fs = new FileStream(p_postedImageFileName, FileMode.Open, FileAccess.Read);
 
-                    BinaryReader br = new BinaryReader(fs);
+                BinaryReader br = new BinaryReader(fs);
 
-                    byte[] image = br.ReadBytes((int)fs.Length);
+                byte[] image = br.ReadBytes((int)fs.Length);
 
-                    br.Close();
+                br.Close();
 
-                    fs.Close();
+                fs.Close();
 
-                    return image;
-
-                }
-
-                catch (Exception ex)
-
-                {
-
-                    throw ex;
-
-                }
+                return image;
 
             }
 
-        
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+        }
+
     }
 }
