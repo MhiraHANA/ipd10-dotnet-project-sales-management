@@ -37,7 +37,7 @@ namespace SMS
             emp.Address = tbAddress.Text;
             emp.UserName = tbUserName.Text;
             emp.Password = tbPassword.Text;
-          //  emp.Phone = tbPhone.Text;
+            emp.Phone = tbPhone.Text;
             emp.Photo = ConvertImageToBinary(tbNameImage.Text);
             db.AddEmployee(emp);
             MessageBox.Show("Succeful adding employee..");

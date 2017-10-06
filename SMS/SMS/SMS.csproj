@@ -178,10 +178,14 @@
     <Resource Include="Images\bac.jpg" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="Images\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\edit.png" />
+=======
+    <Resource Include="Model\ProductsXMLFile.xml" />
+>>>>>>> 5846e96ec070ed81bd642a3eb2f51deef19672df
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
