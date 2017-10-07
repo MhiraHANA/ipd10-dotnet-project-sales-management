@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SMS
 {
@@ -31,6 +32,7 @@ namespace SMS
         {
             InitializeComponent();
             FillDataGrid();
+            startClock();
         }
         private void Show_AddEmployee(object sender, RoutedEventArgs e)
         {
@@ -209,7 +211,19 @@ namespace SMS
             FillDataGrid();
         }
 
+        private void startClock()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += tickevent;
+            timer.Start();
 
+        }
+        private void tickevent(Object sender, EventArgs e)
+        {
+
+            datelbl.Text = DateTime.Now.ToString();
+        }
 
     }
 }

@@ -181,6 +181,7 @@
 
                         </StackPanel>
                     </TabItem.Header>
+                    <TextBlock x:Name="datelbl" FontSize="18" HorizontalAlignment="Left" Margin="57,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="47" Width="133"/>
                 </TabItem>
                 <WindowsFormsHost Height="100" Width="100"/>
             </TabControl>
