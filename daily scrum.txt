@@ -32,3 +32,14 @@ date and name
 
 201/10/05 Hadi
 1. create mini project using popup dialog after the click in the bottoun
+
+2017/10/06 Hana
+1. implementation du datagrid with update and delete 
+2. search how to implement calender
+
+2017/10/06 Hadi
+1. create mini project to do the reporting
+
+2017/10/07 Hana
+
+1.Work in the project calendar 
