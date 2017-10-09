@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMS.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +20,24 @@ namespace SMS
     /// </summary>
     public partial class AddProduct : Window
     {
+        Database db = new Database();
+
         public AddProduct()
         {
             InitializeComponent();
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            var listOfSuppliers = new List<Suppliers>();
+            listOfSuppliers = db.GetAllSuppliers();
+            cmbSuppliers.Items.Clear();
+            foreach (var item in listOfSuppliers)
+            {
+                cmbSuppliers.Items.Add(new { name = Convert.ToString(item.CompanyName), value = Convert.ToString(item.SupplierID) });
+            }
+            cmbSuppliers.DisplayMemberPath = "CompanyName";
+             cmbSuppliers.SelectedValuePath = "SupplierID";
+         
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

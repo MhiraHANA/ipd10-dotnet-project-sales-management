@@ -11,7 +11,7 @@ namespace SMS.Model
         public int SupplierID { get; set; }
         public String CompanyName { get; set; }
         public String ContactName { get; set; }
-        public String Address { get; set; }
-        public String Phone { get; set; }
+        public String SuppliersAddress { get; set; }
+        public String SuppliersPhone { get; set; }
     }
 }

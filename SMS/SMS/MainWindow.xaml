@@ -138,15 +138,68 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddProduct">
+                        <Button Margin="21,0,818,622" Height="58" VerticalAlignment="Bottom" Click="Show_AddProduct">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
+                                <Image Source="/Images/addProduct.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
+                        <Button Margin="861,18,10,634" Click="SearchEmployee_Click">
+                            <DockPanel Height="108">
+                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
 
+                            </DockPanel>
+
+                        </Button>
+                        <TextBox x:Name="tbProductSearch" HorizontalAlignment="Center" Height="51" Margin="717,21,140,634" TextWrapping="Wrap" Text="&#xD;&#xA;   Search By Name" Foreground="Gray" VerticalAlignment="Center" Width="106" />
+                        <DataGrid Name="dgProducts"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,114,2,121">
+                            <DataGrid.RenderTransform>
+                                <TransformGroup>
+
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </DataGrid.RenderTransform>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Product ID" Width="100" Binding="{Binding ProductID}"/>
+                                <DataGridTextColumn Header="Product Name" Width="100" Binding="{Binding ProductName}"/>
+                                <DataGridTextColumn Header="Quantity" Width="100" Binding="{Binding Quantity}"/>
+                                <DataGridTextColumn Header="Hire Date" Width="100" Binding="{Binding HireDate}"/>
+                                <DataGridTextColumn Header="CostPrice" Width="100" Binding="{Binding CostPrice}"/>
+                                <DataGridTextColumn Header="UnitInStock" Width="100" Binding="{Binding UnitInStock}"/>
+                                <DataGridTextColumn Header="UnitInOrder" Width="100" Binding="{Binding UnitInOrder}"/>
+                                <DataGridTextColumn Header="SupplierID" Width="100" Binding="{Binding SupplierID}"/>
+
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="btnUpdate"   Click="btnUpdateProduct_Click"
+                               >
+
+
+                                                <Image Width="25" Height="25" Source="Images/edit.png"></Image>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button  x:Name="btnDelete" Click="btnDeleteProduct_Click"
+                           >
+                                                <Image Width="25" Height="25" Source="Images/delete.png"></Image>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
 
                     </Grid>
+
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
@@ -174,12 +227,63 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Button Margin="21,0,480,174" Height="58" VerticalAlignment="Bottom" Click="Show_AddSupplier">
+                        <Button Margin="21,0,828,625" Height="58" VerticalAlignment="Bottom" Click="Show_AddSupplier">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,67" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
+                        <Button Margin="855,23,10,625" Click="SearchEmployee_Click">
+                            <DockPanel Height="108">
+                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
+
+                            </DockPanel>
+
+                        </Button>
+                        <TextBox x:Name="tbSupplierSearch" HorizontalAlignment="Center" Height="58" Margin="739,23,118,625" TextWrapping="Wrap" Text="&#xD;&#xA;   Search By Name" Foreground="Gray" VerticalAlignment="Center" Width="106" />
+                        <DataGrid Name="dgSuppliers"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,114,2,121">
+                            <DataGrid.RenderTransform>
+                                <TransformGroup>
+
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </DataGrid.RenderTransform>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Supplier ID" Width="100" Binding="{Binding SupplierID}"/>
+                                <DataGridTextColumn Header="Company Name" Width="100" Binding="{Binding CompanyName}"/>
+                                <DataGridTextColumn Header="Contact Name" Width="100" Binding="{Binding ContactName}"/>
+                                <DataGridTextColumn Header="Address" Width="100" Binding="{Binding Address}"/>
+                                <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Phone}"/>
+                               
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="btnUpdate"   Click="btnUpdateSupplier_Click"
+                               >
+
+
+                                                <Image Width="25" Height="25" Source="Images/edit.png"></Image>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button  x:Name="btnDelete" Click="btnDeleteSupplier_Click"
+                           >
+                                                <Image Width="25" Height="25" Source="Images/delete.png"></Image>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
 
 
                     </Grid>

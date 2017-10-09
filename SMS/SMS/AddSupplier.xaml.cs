@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMS.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace SMS
     /// </summary>
     public partial class AddSupplier : Window
     {
+        Database db = new Database();
         public AddSupplier()
         {
             InitializeComponent();
@@ -26,6 +28,19 @@ namespace SMS
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            Suppliers s = new Suppliers();
+            s.CompanyName = tbCompnayName.Text;
+            s.ContactName = tbContactName.Text;
+            s.SuppliersAddress = tbAddress.Text;
+            s.SuppliersPhone = tbPhone.Text;
+            db.AddSuppliers(s);
+            MessageBox.Show("Succeful adding supplier..");
+            tbCompnayName.Clear();
+            tbContactName.Clear();
+            tbAddress.Clear();
+       
+            tbPhone.Clear();
+        
 
         }
 
