@@ -147,30 +147,6 @@ namespace SMS.Model
             updateCommand.ExecuteNonQuery();
 
         }
-        public List<Suppliers> GetAllSuppliers()
-        {
-            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Suppliers ORDER BY Id", conn);
-
-            var listOfSuppliers = new List<Suppliers>();
-
-            using (SqlDataReader reader = selectCommand.ExecuteReader())
-            {
-
-                while (reader.Read())
-                {
-                    var s = new Suppliers();
-                    s.SupplierID= Convert.ToInt32(reader["SupplierID"].ToString());
-                    s.CompanyName = reader["CompanyName"].ToString();
-                    s.ContactName = reader["ContactName"].ToString();
-                    s.SuppliersAddress = reader["SuppliersAddress"].ToString();
-                    s.SuppliersPhone = reader["SuppliersPhone"].ToString();
-                   
-                    listOfSuppliers.Add(s);
-                }
-            }
-            return listOfSuppliers;
-
-        }
 
     }
 
