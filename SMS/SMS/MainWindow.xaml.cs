@@ -32,19 +32,11 @@ namespace SMS
         {
             InitializeComponent();
             FillDataGrid();
+            
             startClock();
-        }
-        private void Show_AddEmployee(object sender, RoutedEventArgs e)
-        {
-            AddEmployee inputDialog = new AddEmployee();
-            if (inputDialog.ShowDialog() == true)
-            {
-                
-
-            }
+            FillDataGridSupplier();
         }
      
-
         private void DatePicker_SelectedDateChanged(object sender,
            SelectionChangedEventArgs e)
         {
@@ -75,15 +67,7 @@ namespace SMS
             }
         }
 
-        private void Show_AddProduct(object sender, RoutedEventArgs e)
-        {
-            AddProduct inputDialog = new AddProduct();
-            if (inputDialog.ShowDialog() == true)
-            {
-
-
-            }
-        }
+     
 
         private void Show_AddOrder(object sender, RoutedEventArgs e)
         {
@@ -105,15 +89,19 @@ namespace SMS
             }
         }
 
-        private void Show_AddSupplier(object sender, RoutedEventArgs e)
+     
+
+        /**********************************Employee***************************************/
+        private void Show_AddEmployee(object sender, RoutedEventArgs e)
         {
-            AddSupplier inputDialog = new AddSupplier();
+            AddEmployee inputDialog = new AddEmployee();
             if (inputDialog.ShowDialog() == true)
             {
 
 
             }
         }
+
 
         //Employee View
         private void FillDataGrid()
@@ -259,7 +247,100 @@ namespace SMS
 
         }
 
+<<<<<<< HEAD
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+=======
+
+
+        /********************************* Product **********************************/
+        private void Show_AddProduct(object sender, RoutedEventArgs e)
+        {
+            AddProduct inputDialog = new AddProduct();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
+        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "SMS DB", MessageBoxButton.YesNo);
+
+            object item = dgProducts.SelectedItem;
+            string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            if (id < 0)
+            {
+
+                MessageBox.Show("You must select Product.");
+            }
+            else
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    DB.DeleteEmployee(id);
+                    FillDataGrid();
+                    MessageBox.Show("Delete successful.");
+
+                }
+
+            }
+        }
+        private void btnUpdateProduct_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        /********************************* Suppliers **********************************/
+
+        private void FillDataGridSupplier()
+        {
+
+            string CmdString = "SELECT * FROM Suppliers";
+            SqlCommand cmd = new SqlCommand(CmdString, DB.conn);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Suppliers");
+            sda.Fill(dt);
+            dgSuppliers.ItemsSource = dt.DefaultView;
+
+        }
+        private void Show_AddSupplier(object sender, RoutedEventArgs e)
+        {
+            AddSupplier inputDialog = new AddSupplier();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
+        private void btnDeleteSupplier_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "SMS DB", MessageBoxButton.YesNo);
+
+            object item = dgProducts.SelectedItem;
+            string ID = (dgSuppliers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            if (id < 0)
+            {
+
+                MessageBox.Show("You must select Supplier.");
+            }
+            else
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    DB.DeleteSuppliers(id);
+                    FillDataGridSupplier();
+                    MessageBox.Show("Delete successful.");
+
+                }
+
+            }
+        }
+        private void btnUpdateSupplier_Click(object sender, RoutedEventArgs e)
+>>>>>>> 7f468874c0bca8b6c2adfa311258a308d76f49c4
         {
 
         }

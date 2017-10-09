@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Add Supplier" Height="317.077" Width="401.628" Background="#04c582" WindowStartupLocation="CenterScreen">
+        Title="Add Supplier" Height="317.077" Width="401.628"  WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/bac.jpg" />
+    </Window.Background>
     <Grid>
         <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="29,250,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click" />
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="251,250,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />

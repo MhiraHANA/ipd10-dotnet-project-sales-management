@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Add Product" Height="376.077" Width="401.628" Background="#04c582" WindowStartupLocation="CenterScreen">
+        Title="Add Product" Height="476.077" Width="401.628" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/bac.jpg" />
+    </Window.Background>
     <Grid>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="29,295,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click" />
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="251,295,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="29,387,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click" />
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="238,387,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
         <Label x:Name="lblProductName" Content="Product Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="98"/>
         <TextBox x:Name="tbProductName" HorizontalAlignment="Left" Height="23" Margin="156,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="lblCostPrice" Content="Cost Price: " HorizontalAlignment="Left" Margin="29,131,0,0" VerticalAlignment="Top" Width="75"/>
@@ -19,6 +22,14 @@
         <TextBox x:Name="tbQuantity" HorizontalAlignment="Left" Height="23" Margin="156,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="lblUnitOnOrder" Content="Unit On Order:" HorizontalAlignment="Left" Margin="29,244,0,0" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="tbUnitOnOrder" HorizontalAlignment="Left" Height="23" Margin="156,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label Content="Supplier " HorizontalAlignment="Left" Margin="29,308,0,0" VerticalAlignment="Top" Width="71"/>
+        <ComboBox x:Name="cmbSuppliers" HorizontalAlignment="Left" Margin="156,308,0,0" VerticalAlignment="Top" Width="199"
+                  ItemsSource="{Binding Suppliers}"
+                   DisplayMemberPath="ContactName" 
+                  IsSynchronizedWithCurrentItem="True"
+                
+                  
+                  />
 
     </Grid>
 </Window>
