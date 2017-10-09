@@ -258,5 +258,10 @@ namespace SMS
 
 
         }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
