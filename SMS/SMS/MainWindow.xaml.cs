@@ -198,14 +198,30 @@ namespace SMS
         }
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            Employees emp = new Employees();
             object item = dgEmployees.SelectedItem;
             string ID = (dgEmployees.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
-
+            string querry = "Select * from Employees where EmployeeID = @id";
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);
+            cmd.Parameters.Add("@Id", SqlDbType.Int).Value = id;
+           // cmd.Parameters.AddWithValue("@EmployeeID", id);
+            SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
+            SqlDataReader oReader = cmd.ExecuteReader();
             UpdateEmployee inputDialog = new UpdateEmployee();
             if (inputDialog.ShowDialog() == true)
             {
+                while (oReader.Read())
+                {
+                    emp.FirstName = oReader["FirstName"].ToString();
+                    emp.LastName = oReader["LastName"].ToString();
+                    emp.Address = oReader["Address"].ToString();
+                    emp.HireDate=   (DateTime) oReader["HireDate"];
+                    emp.Phone = oReader["Phone"].ToString();
+                    emp.UserName = oReader["UserName"].ToString();
+                    emp.Password = oReader["Password"].ToString();
+                    emp.Photo =( Byte[])oReader["Photo"];
+                }
 
             }
             FillDataGrid();
@@ -225,5 +241,22 @@ namespace SMS
             datelbl.Text = DateTime.Now.ToString();
         }
 
+        private void SearchEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            string querry = "Select * from Employees where FirstName like '%" + tbSearch.Text + "'";
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);
+          
+
+            SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
+          
+            DataTable dt = new DataTable();
+           
+            da.Fill(dt);
+            dgEmployees.DataContext = dt;
+            dgEmployees.ItemsSource = dt.DefaultView;
+
+
+
+        }
     }
 }

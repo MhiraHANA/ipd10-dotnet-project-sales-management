@@ -29,16 +29,25 @@
                             <ColumnDefinition Width="296*"/>
                             <ColumnDefinition Width="297*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Margin="22,0,342,613" Height="58" VerticalAlignment="Bottom" Click="Show_AddEmployee">
+
+                        <Button Margin="22,0,342,597" Height="58" VerticalAlignment="Bottom" Click="Show_AddEmployee">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,71"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
 
                             </DockPanel>
                         </Button>
-                        <DataGrid Name="dgEmployees"  AutoGenerateColumns="False"    IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,114,2,121">
+
+                        <Button Margin="356,51,10,597" Grid.Column="1" Click="SearchEmployee_Click">
+                            <DockPanel Height="108">
+                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
+
+                            </DockPanel>
+
+                        </Button>
+                        <DataGrid Name="dgEmployees"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,114,2,121">
                             <DataGrid.RenderTransform>
                                 <TransformGroup>
-                                 
+
                                     <SkewTransform/>
                                     <RotateTransform/>
                                     <TranslateTransform/>
@@ -72,7 +81,7 @@
                                             <Button  x:Name="btnDelete" Click="btnDelete_Click"
                            >
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
-                                                
+
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -80,6 +89,7 @@
                             </DataGrid.Columns>
 
                         </DataGrid>
+                        <TextBox x:Name="tbSearch"  Grid.Column="1" HorizontalAlignment="Center" Height="58" Margin="209,53,167,595" TextWrapping="Wrap" Text="&#xD;&#xA;   Search By Name" Foreground="Gray" VerticalAlignment="Center" Width="106" />
 
                     </Grid>
                 </TabItem>
@@ -184,6 +194,7 @@
                     <TextBlock x:Name="datelbl" FontSize="18" HorizontalAlignment="Left" Margin="57,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="47" Width="133"/>
                 </TabItem>
                 <WindowsFormsHost Height="100" Width="100"/>
+
             </TabControl>
         </Grid>
     </Grid>
