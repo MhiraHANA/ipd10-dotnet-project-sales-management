@@ -23,13 +23,15 @@
         <Label x:Name="lblUnitOnOrder" Content="Unit On Order:" HorizontalAlignment="Left" Margin="29,244,0,0" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="tbUnitOnOrder" HorizontalAlignment="Left" Height="23" Margin="156,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
         <Label Content="Supplier " HorizontalAlignment="Left" Margin="29,308,0,0" VerticalAlignment="Top" Width="71"/>
-        <ComboBox x:Name="cmbSuppliers" HorizontalAlignment="Left" Margin="156,308,0,0" VerticalAlignment="Top" Width="199"
-                  ItemsSource="{Binding Suppliers}"
-                   DisplayMemberPath="ContactName" 
-                  IsSynchronizedWithCurrentItem="True"
-                
-                  
-                  />
+        <ComboBox x:Name="cmbSuppliers"
+            ItemsSource="{Binding listOfSuppliers}"
+            
+          Text="{Binding SelectedBroker, Mode=TwoWay}"
+            SelectedValue="{Binding Path=SupplierID}" 
+
+            DisplayMemberPath="ContactName" 
+            SelectedValuePath="SupplierID"  Margin="156,308,39,111"/>
+
 
     </Grid>
 </Window>

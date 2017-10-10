@@ -159,18 +159,24 @@ namespace SMS.Model
                 while (reader.Read())
                 {
                     var s = new Suppliers();
-                    s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
-                    s.CompanyName = reader["CompanyName"].ToString();
-                    s.ContactName = reader["ContactName"].ToString();
-                    s.SuppliersAddress = reader["SuppliersAddress"].ToString();
-                    s.SuppliersPhone = reader["SuppliersPhone"].ToString();
-                    listOfSuppliers.Add(s);
+           
+                    
+                        s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
+                        s.CompanyName = reader["CompanyName"].ToString();
+                        s.ContactName = reader["ContactName"].ToString();
+                        s.SuppliersAddress = reader["Address"].ToString();
+                        s.SuppliersPhone = reader["Phone"].ToString();
+                        listOfSuppliers.Add(s);
+                    
                 }
             }
             return listOfSuppliers;
 
         }
+       
+
+        }
+  
+    
 
     }
-
-}
