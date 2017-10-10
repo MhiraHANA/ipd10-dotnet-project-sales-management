@@ -34,6 +34,7 @@ namespace SMS
             FillDataGrid();
             startClock();
             FillDataGridSupplier();
+            FillDataGridProducts();
         }
      
         private void DatePicker_SelectedDateChanged(object sender,
@@ -248,6 +249,7 @@ namespace SMS
 
 
             }
+            FillDataGridProducts();
         }
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
@@ -266,8 +268,8 @@ namespace SMS
             {
                 if (result == MessageBoxResult.Yes)
                 {
-                    DB.DeleteEmployee(id);
-                    FillDataGrid();
+                    DB.DeleteProduct(id);
+                    FillDataGridProducts();
                     MessageBox.Show("Delete successful.");
 
                 }
@@ -276,7 +278,18 @@ namespace SMS
         }
         private void btnUpdateProduct_Click(object sender, RoutedEventArgs e)
         {
-            
+            FillDataGridProducts();
+        }
+        public void FillDataGridProducts()
+        {
+
+            string CmdString = "SELECT * FROM Products";
+            SqlCommand cmd = new SqlCommand(CmdString, DB.conn);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Products");
+            sda.Fill(dt);
+            dgProducts.ItemsSource = dt.DefaultView;
+
         }
 
         /********************************* Suppliers **********************************/
