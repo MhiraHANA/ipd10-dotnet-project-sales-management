@@ -11,7 +11,7 @@ namespace SMS
         public int ProductID { get; set; }
         public int SupplierID { get; set; }
         public String ProductName { get; set; }
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
         public float CostPrice { get; set; }
         public int UnitInStock { get; set; }
         public int UnitInOrder { get; set; }

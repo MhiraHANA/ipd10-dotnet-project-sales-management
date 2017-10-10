@@ -69,15 +69,15 @@ namespace SMS.Model
         public void AddProduct(Products p)
         {
 
-            string sql = "INSERT INTO Products (SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitInOrder) VALUES "
-                        + " (@SupplierID,@ProductName,@Quantity,@CostPrice,@UnitInStock,@UnitInOrder)";
+            string sql = "INSERT INTO Products (SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitOnOrders) VALUES "
+                        + " (@SupplierID,@ProductName,@Quantity,@CostPrice,@UnitInStock,@UnitOnOrders)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
             insertCommand.Parameters.Add(new SqlParameter("@SupplierID", p.SupplierID));
             insertCommand.Parameters.Add(new SqlParameter("@ProductName", p.ProductName));
             insertCommand.Parameters.Add(new SqlParameter("@Quantity", p.Quantity));
             insertCommand.Parameters.Add(new SqlParameter("@CostPrice", p.CostPrice));
             insertCommand.Parameters.Add(new SqlParameter("@UnitInStock", p.UnitInStock));
-            insertCommand.Parameters.Add(new SqlParameter("@UnitInOrder", p.UnitInOrder));
+            insertCommand.Parameters.Add(new SqlParameter("@UnitOnOrders", p.UnitInOrder));
             insertCommand.ExecuteNonQuery();
 
         }
@@ -93,14 +93,14 @@ namespace SMS.Model
 
         public void UpdateProduct(Products p)
         {
-            string sql = "UPDATE Products SET (SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitInOrder) VALUES (@SupplierID,@ProductName,@Quantity,@CostPrice,@UnitInStock,@UnitInOrder)";
+            string sql = "UPDATE Products SET (SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitOnOrders) VALUES (@SupplierID,@ProductName,@Quantity,@CostPrice,@UnitInStock,@UnitOnOrders)";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.Add(new SqlParameter("@SupplierID", p.SupplierID));
             updateCommand.Parameters.Add(new SqlParameter("@ProductName", p.ProductName));
             updateCommand.Parameters.Add(new SqlParameter("@Quantity", p.Quantity));
             updateCommand.Parameters.Add(new SqlParameter("@CostPrice", p.CostPrice));
             updateCommand.Parameters.Add(new SqlParameter("@UnitInStock", p.UnitInStock));
-            updateCommand.Parameters.Add(new SqlParameter("@UnitInOrder", p.UnitInOrder));
+            updateCommand.Parameters.Add(new SqlParameter("@UnitOnOrders", p.UnitInOrder));
             updateCommand.ExecuteNonQuery();
 
         }

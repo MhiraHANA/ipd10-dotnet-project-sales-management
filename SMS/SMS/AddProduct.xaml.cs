@@ -35,20 +35,34 @@ namespace SMS
             {
 
                 // cmbSuppliers.Items.Add(new { name = Convert.ToString(item.CompanyName), value = Convert.ToString(item.SupplierID) });
-                cmbSuppliers.Items.Add(item);
-               //  cmbSuppliers.DisplayMemberPath = "CompanyName";
-              //  cmbSuppliers.SelectedValuePath = "SupplierID";
-               
+                   cmbSuppliers.Items.Add(item);
+                //  cmbSuppliers.DisplayMemberPath = "CompanyName";
+                  cmbSuppliers.SelectedValuePath = "SupplierID";
 
             }
+           
 
 
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
 
+            //SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitInOrder
+            Products p = new Products();
+            p.ProductName = tbProductName.ToString();
+            p.Quantity = Convert.ToInt64((tbQuantity.Text));
+            p.UnitInOrder = Int32.Parse(tbUnitOnOrder.Text);
+            p.UnitInStock= Int32.Parse(tbUnitInStock.Text);
+            p.CostPrice = float.Parse(tbCostPrice.Text);
+            p.SupplierID = Int32.Parse(cmbSuppliers.SelectedValue.ToString());
+            db.AddProduct(p);
+            MessageBox.Show("Product has been added succefully!");
+            tbProductName.Clear();
+            tbQuantity.Clear();
+            tbUnitOnOrder.Clear();
+            tbUnitInStock.Clear();
+            tbUnitOnOrder.Clear();
 
-          
 
         }
 
