@@ -27,7 +27,6 @@ namespace SMS.Model
             string sql = "INSERT INTO Employees (LastName, FirstName, HireDate, Address, Photo, UserName, Password) VALUES "
                         + " (@LastName,@FirstName,@HireDate,@Address,@Photo,@UserName,@Password)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
-
             insertCommand.Parameters.Add(new SqlParameter("@LastName", emp.LastName));
             insertCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
             insertCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
@@ -37,7 +36,6 @@ namespace SMS.Model
             insertCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             insertCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
             insertCommand.ExecuteNonQuery();
-
         }
 
         public void DeleteEmployee(int Id)
@@ -46,7 +44,6 @@ namespace SMS.Model
             SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
             deleteCommand.Parameters.AddWithValue("@Id", Id);
             deleteCommand.ExecuteNonQuery();
-
         }
 
         public void UpdateEmployee(Employees emp)
@@ -62,7 +59,6 @@ namespace SMS.Model
             updateCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             updateCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
             updateCommand.ExecuteNonQuery();
-
         }
         public Employees GetEmployeeById(int id)
         {
@@ -104,7 +100,6 @@ namespace SMS.Model
             insertCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
             insertCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
             insertCommand.ExecuteNonQuery();
-
         }
 
         public void DeleteCustomer(int Id)
@@ -113,7 +108,6 @@ namespace SMS.Model
             SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
             deleteCommand.Parameters.AddWithValue("@Id", Id);
             deleteCommand.ExecuteNonQuery();
-
         }
 
         public void UpdateCustomer(Customers cust)
@@ -124,7 +118,6 @@ namespace SMS.Model
             updateCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
             updateCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
             updateCommand.ExecuteNonQuery();
-
         }
         public Customers GetCustomerById(int id)
         {
@@ -163,7 +156,6 @@ namespace SMS.Model
             insertCommand.Parameters.Add(new SqlParameter("@UnitInStock", p.UnitInStock));
             insertCommand.Parameters.Add(new SqlParameter("@UnitOnOrders", p.UnitInOrder));
             insertCommand.ExecuteNonQuery();
-
         }
 
         public void DeleteProduct(int Id)
@@ -172,7 +164,6 @@ namespace SMS.Model
             SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
             deleteCommand.Parameters.AddWithValue("@Id", Id);
             deleteCommand.ExecuteNonQuery();
-
         }
 
         public void UpdateProduct(Products p)
