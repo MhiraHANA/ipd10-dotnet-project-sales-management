@@ -147,6 +147,33 @@ namespace SMS.Model
             updateCommand.ExecuteNonQuery();
 
         }
+        public List<Suppliers> GetAllSuppliers()
+        {
+            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Person ORDER BY Id", conn);
+
+            var listOfPerson = new List<Suppliers>();
+
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+
+                while (reader.Read())
+                {
+                    var s = new Suppliers();
+                    //person.Id = Convert.ToInt32(reader["Id"].ToString());
+                    //person.Name = reader["Name"].ToString();
+                    //person.Age = Convert.ToInt32(reader["Age"]);
+                    //person.Height = Convert.ToDouble(reader["Height"]);
+                    s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
+                    s.CompanyName = reader["CompanyName"].ToString();
+                    s.ContactName = reader["ContactName"].ToString();
+                    s.SuppliersAddress = reader["SuppliersAddress"].ToString();
+                    s.SuppliersPhone = reader["SuppliersPhone"].ToString();
+                    listOfPerson.Add(s);
+                }
+            }
+            return listOfPerson;
+
+        }
 
     }
 

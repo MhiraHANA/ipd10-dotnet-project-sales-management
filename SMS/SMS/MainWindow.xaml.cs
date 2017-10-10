@@ -247,9 +247,6 @@ namespace SMS
 
         }
 
-<<<<<<< HEAD
-        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
-=======
 
 
         /********************************* Product **********************************/
@@ -340,9 +337,10 @@ namespace SMS
             }
         }
         private void btnUpdateSupplier_Click(object sender, RoutedEventArgs e)
->>>>>>> 7f468874c0bca8b6c2adfa311258a308d76f49c4
+
         {
 
         }
+       
     }
 }
