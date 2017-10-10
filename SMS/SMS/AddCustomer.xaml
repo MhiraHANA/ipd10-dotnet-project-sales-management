@@ -8,14 +8,14 @@
         Title="Add Customer" Height="307.329" Width="401.628" Background="#04c582" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="29,225,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click" />
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="251,228,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="251,226,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
         <Label x:Name="lblCompanyName" Content="Company Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="98"/>
         <TextBox x:Name="tbCompnayName" HorizontalAlignment="Left" Height="23" Margin="156,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="lblAddress" Content="Address: " HorizontalAlignment="Left" Margin="29,80,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="156,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,135,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="156,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="29,177,0,0" VerticalAlignment="Top" Width="63"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="156,187,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <Label Name="lblEmail"  Content="Email:" HorizontalAlignment="Left" Margin="29,177,0,0" VerticalAlignment="Top" Width="63"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="156,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
     </Grid>
 </Window>
