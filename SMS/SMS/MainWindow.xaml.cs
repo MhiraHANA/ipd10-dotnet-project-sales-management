@@ -122,8 +122,6 @@ namespace SMS
             {
 
 
-
-
             }
             FillDataGridCustomers();
 
@@ -237,18 +235,24 @@ namespace SMS
         }
         private void Show_UpdateEmployee(object sender, RoutedEventArgs e)
         {
-
+           
             object item = dgEmployees.SelectedItem;
             string ID = (dgEmployees.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
             Employees em = DB.GetEmployeeById(id);
             UpdateEmployee inputDialog = new UpdateEmployee();
+            inputDialog.tbFirstName.Text = em.FirstName;
+
+            inputDialog.tbLastName.Text = em.LastName;
+            inputDialog.tbAddress.Text = em.Address;
+            inputDialog.tbHireDate.Text = em.HireDate.ToString();
+            inputDialog.tbUserName.Text = em.UserName;
+            inputDialog.tbPassword.Text = em.Password;
+            inputDialog.tbPhone.Text = em.Phone;
             inputDialog.id = id;
             if (inputDialog.ShowDialog() == true)
             {
-
-             
-
+               
 
             }
             FillDataGrid();

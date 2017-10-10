@@ -47,17 +47,17 @@ namespace SMS.Model
         }
 
         public void UpdateEmployee(Employees emp)
-        {
-            string sql = "UPDATE Employees SET (LastName, FirstName, HireDate, Address, Photo, UserName, Password) VALUES (@LastName,@FirstName,@HireDate,@Address,@Photo,@UserName,@Password)";
+        {//  "UPDATE Customers SET CustomerID = @CustomerID, CompanyName = @CompanyName " 
+            string sql = "UPDATE Employees SET LastName = @LastName, FirstName = @FirstName , HireDate = @HireDate , Address = @Address , Phone = @Phone, Photo = @Photo, UserName = @UserName , Password = @Password";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
-            updateCommand.Parameters.Add(new SqlParameter("@LastName", emp.LastName));
-            updateCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
-            updateCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
-            updateCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
-            updateCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
-            updateCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
-            updateCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
-            updateCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
+            updateCommand.Parameters.AddWithValue("@LastName", emp.LastName);
+            updateCommand.Parameters.AddWithValue("@FirstName", emp.FirstName);
+            updateCommand.Parameters.AddWithValue("@HireDate", emp.HireDate);
+            updateCommand.Parameters.AddWithValue("@Address", emp.Address);
+            updateCommand.Parameters.AddWithValue("@Phone", emp.Phone);
+            updateCommand.Parameters.AddWithValue("@Photo", emp.Photo);
+            updateCommand.Parameters.AddWithValue("@UserName", emp.UserName);
+            updateCommand.Parameters.AddWithValue("@Password", emp.Password);
             updateCommand.ExecuteNonQuery();
         }
         public Employees GetEmployeeById(int id)

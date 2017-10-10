@@ -14,7 +14,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 namespace SMS
 {
     /// <summary>
@@ -22,27 +21,24 @@ namespace SMS
     /// </summary>
     public partial class UpdateEmployee : Window
     {
-       public int id;
+
+
+        public int id;
         Database db = new Database();
         public UpdateEmployee()
         {
             InitializeComponent();
+
+           
+
         }
 
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
 
-           // Employees emp = new Employees();
-            Employees emp = db.GetEmployeeById(id);
-            //dispaly text from database
-            tbFirstName.Text = emp.FirstName;
-            tbLastName.Text = emp.LastName;
-            tbHireDate.Text = emp.HireDate.ToString();
-            tbAddress.Text= emp.Address;
-            tbUserName.Text = emp.UserName;
-            tbPassword.Text = emp.Password;
-
+           Employees emp = new Employees();
+           
             // data after update
             emp.FirstName = tbFirstName.Text;
             emp.LastName = tbLastName.Text;
@@ -50,14 +46,13 @@ namespace SMS
             emp.Address = tbAddress.Text;
             emp.UserName = tbUserName.Text;
             emp.Password = tbPassword.Text;
-           emp.Phone = tbPhone.Text;
+            emp.Phone = tbPhone.Text;
             emp.Photo = ConvertImageToBinary(tbNameImage.Text);
             db.UpdateEmployee(emp);
             MessageBox.Show("Succeful adding employee..");
 
         }
-        private void DatePicker_SelectedDateChanged(object sender,
-     SelectionChangedEventArgs e)
+        private void DatePicker_SelectedDateChanged(object sender,  SelectionChangedEventArgs e)
         {
             // ... Get DatePicker reference.
             var picker = sender as DatePicker;
@@ -75,7 +70,7 @@ namespace SMS
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
 
-            OpenFileDialog op = new OpenFileDialog();
+        OpenFileDialog op = new OpenFileDialog();
             op.Title = "Select a picture";
             op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
               "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
