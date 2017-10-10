@@ -40,10 +40,10 @@ namespace SMS
             emp.Phone = tbPhone.Text;
             emp.Photo = ConvertImageToBinary(tbNameImage.Text);
             db.AddEmployee(emp);
-            MessageBox.Show("Succeful adding employee..");
+            MessageBox.Show("Employee has been added succefully!");
             tbFirstName.Clear();
             tbLastName.Clear();
-           // tbHireDate.ClearValue();
+            //tbHireDate.ClearValue();
             tbAddress.Clear();
             tbUserName.Clear();
             tbPassword.Clear();

@@ -31,12 +31,8 @@ namespace SMS.Model
             insertCommand.Parameters.Add(new SqlParameter("@LastName",  emp.LastName));
             insertCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
             insertCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
-            insertCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
-
-          // insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
-
+            insertCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));        
             insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
-
             insertCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
             insertCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             insertCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
@@ -76,7 +72,6 @@ namespace SMS.Model
             string sql = "INSERT INTO Products (SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitInOrder) VALUES "
                         + " (@SupplierID,@ProductName,@Quantity,@CostPrice,@UnitInStock,@UnitInOrder)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
-
             insertCommand.Parameters.Add(new SqlParameter("@SupplierID", p.SupplierID));
             insertCommand.Parameters.Add(new SqlParameter("@ProductName", p.ProductName));
             insertCommand.Parameters.Add(new SqlParameter("@Quantity", p.Quantity));

@@ -34,7 +34,7 @@ namespace SMS
             s.SuppliersAddress = tbAddress.Text;
             s.SuppliersPhone = tbPhone.Text;
             db.AddSuppliers(s);
-            MessageBox.Show("Succeful adding supplier..");
+            MessageBox.Show("The supplier has been added succefully.");
             tbCompnayName.Clear();
             tbContactName.Clear();
             tbAddress.Clear();
