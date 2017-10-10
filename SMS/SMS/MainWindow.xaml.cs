@@ -290,7 +290,7 @@ namespace SMS
 
         /********************************* Suppliers **********************************/
 
-        private void FillDataGridSupplier()
+        public void FillDataGridSupplier()
         {
 
             string CmdString = "SELECT * FROM Suppliers";
@@ -306,9 +306,10 @@ namespace SMS
             AddSupplier inputDialog = new AddSupplier();
             if (inputDialog.ShowDialog() == true)
             {
-
+                FillDataGridSupplier();
 
             }
+           
         }
         private void btnDeleteSupplier_Click(object sender, RoutedEventArgs e)
         {

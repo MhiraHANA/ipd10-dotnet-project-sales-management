@@ -40,8 +40,8 @@ namespace SMS
             tbAddress.Clear();
        
             tbPhone.Clear();
-        
 
+           
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

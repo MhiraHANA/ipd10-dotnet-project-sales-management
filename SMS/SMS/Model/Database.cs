@@ -149,9 +149,9 @@ namespace SMS.Model
         }
         public List<Suppliers> GetAllSuppliers()
         {
-            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Person ORDER BY Id", conn);
+            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Suppliers ORDER BY SupplierID", conn);
 
-            var listOfPerson = new List<Suppliers>();
+            var listOfSuppliers = new List<Suppliers>();
 
             using (SqlDataReader reader = selectCommand.ExecuteReader())
             {
@@ -159,19 +159,15 @@ namespace SMS.Model
                 while (reader.Read())
                 {
                     var s = new Suppliers();
-                    //person.Id = Convert.ToInt32(reader["Id"].ToString());
-                    //person.Name = reader["Name"].ToString();
-                    //person.Age = Convert.ToInt32(reader["Age"]);
-                    //person.Height = Convert.ToDouble(reader["Height"]);
                     s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
                     s.CompanyName = reader["CompanyName"].ToString();
                     s.ContactName = reader["ContactName"].ToString();
                     s.SuppliersAddress = reader["SuppliersAddress"].ToString();
                     s.SuppliersPhone = reader["SuppliersPhone"].ToString();
-                    listOfPerson.Add(s);
+                    listOfSuppliers.Add(s);
                 }
             }
-            return listOfPerson;
+            return listOfSuppliers;
 
         }
 
