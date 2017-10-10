@@ -22,6 +22,7 @@ namespace SMS
     /// </summary>
     public partial class UpdateEmployee : Window
     {
+       public int id;
         Database db = new Database();
         public UpdateEmployee()
         {
@@ -31,15 +32,25 @@ namespace SMS
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-          
-            Employees emp = new Employees();
+
+           // Employees emp = new Employees();
+            Employees emp = db.GetEmployeeById(id);
+            //dispaly text from database
+            tbFirstName.Text = emp.FirstName;
+            tbLastName.Text = emp.LastName;
+            tbHireDate.Text = emp.HireDate.ToString();
+            tbAddress.Text= emp.Address;
+            tbUserName.Text = emp.UserName;
+            tbPassword.Text = emp.Password;
+
+            // data after update
             emp.FirstName = tbFirstName.Text;
             emp.LastName = tbLastName.Text;
             emp.HireDate = DateTime.Parse(tbHireDate.Text);
             emp.Address = tbAddress.Text;
             emp.UserName = tbUserName.Text;
             emp.Password = tbPassword.Text;
-            //  emp.Phone = tbPhone.Text;
+           emp.Phone = tbPhone.Text;
             emp.Photo = ConvertImageToBinary(tbNameImage.Text);
             db.UpdateEmployee(emp);
             MessageBox.Show("Succeful adding employee..");

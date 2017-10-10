@@ -20,7 +20,7 @@ namespace SMS.Model
             conn.Open();
         }
         /****************************************************************Crud Employee***********************************************/
-
+        Employees emp;
         public void AddEmployee(Employees emp)
         {
 
@@ -51,17 +51,47 @@ namespace SMS.Model
 
         public void UpdateEmployee(Employees emp)
         {
-            string sql = "UPDATE Employees SET (LastName, FirstName, HireDate, Address, Photo, UserName, Password) VALUES (@LastNameName,@FirstName,@HireDate,@Address,@Photo,@UserName,@Password)";
+            string sql = "UPDATE Employees SET (LastName, FirstName, HireDate, Address, Photo, UserName, Password) VALUES (@LastName,@FirstName,@HireDate,@Address,@Photo,@UserName,@Password)";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.Add(new SqlParameter("@LastName", emp.LastName));
             updateCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
             updateCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
             updateCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
+            updateCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
             updateCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
+
+        
             updateCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             updateCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
             updateCommand.ExecuteNonQuery();
 
+        }
+        public Employees GetEmployeeById(int id)
+        {
+
+           // Employees emp;
+            string sqlDelete = "SELECT * FROM Employees WHERE @EmployeeID = EmployeeID;";
+            SqlCommand Command = new SqlCommand(sqlDelete, conn);
+            Command.Parameters.AddWithValue("@EmployeeID", id);
+            using (var reader = Command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                   emp= new Employees
+                    {
+                       LastName = reader["LastName"].ToString(),
+                       FirstName = reader["FirstName"].ToString(),
+                       HireDate = DateTime.Parse( reader["HireDate"].ToString()),
+                       Address = reader["Address"].ToString(),
+                       Phone = reader["Phone"].ToString(),
+                       UserName= reader["UserName"].ToString(),
+                       Password = reader["Password"].ToString()
+                   };
+                }
+
+            }
+
+            return emp;
         }
 
         /****************************************************************Crud Product***********************************************/

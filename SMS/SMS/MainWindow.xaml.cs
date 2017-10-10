@@ -98,7 +98,7 @@ namespace SMS
             if (inputDialog.ShowDialog() == true)
             {
 
-
+             
             }
         }
 
@@ -184,36 +184,26 @@ namespace SMS
 
             }
         }
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        private void Show_UpdateEmployee(object sender, RoutedEventArgs e)
         {
-            Employees emp = new Employees();
+
             object item = dgEmployees.SelectedItem;
             string ID = (dgEmployees.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
-            string querry = "Select * from Employees where EmployeeID = @id";
-            SqlCommand cmd = new SqlCommand(querry, DB.conn);
-            cmd.Parameters.Add("@Id", SqlDbType.Int).Value = id;
-           // cmd.Parameters.AddWithValue("@EmployeeID", id);
-            SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
-            SqlDataReader oReader = cmd.ExecuteReader();
+            Employees em = DB.GetEmployeeById(id);
             UpdateEmployee inputDialog = new UpdateEmployee();
+            inputDialog.id = id;
             if (inputDialog.ShowDialog() == true)
             {
-                while (oReader.Read())
-                {
-                    emp.FirstName = oReader["FirstName"].ToString();
-                    emp.LastName = oReader["LastName"].ToString();
-                    emp.Address = oReader["Address"].ToString();
-                    emp.HireDate=   (DateTime) oReader["HireDate"];
-                    emp.Phone = oReader["Phone"].ToString();
-                    emp.UserName = oReader["UserName"].ToString();
-                    emp.Password = oReader["Password"].ToString();
-                    emp.Photo =( Byte[])oReader["Photo"];
-                }
+
+             
+
 
             }
             FillDataGrid();
         }
+
+      
 
         private void startClock()
         {
@@ -310,10 +300,11 @@ namespace SMS
             AddSupplier inputDialog = new AddSupplier();
             if (inputDialog.ShowDialog() == true)
             {
-                FillDataGridSupplier();
-
+               
             }
-           
+            FillDataGridSupplier();
+
+
         }
         private void btnDeleteSupplier_Click(object sender, RoutedEventArgs e)
         {

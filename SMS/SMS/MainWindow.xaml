@@ -67,7 +67,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"   Click="btnUpdate_Click"
+                                            <Button x:Name="btnUpdate"   Click="Show_UpdateEmployee"
                                >
 
 

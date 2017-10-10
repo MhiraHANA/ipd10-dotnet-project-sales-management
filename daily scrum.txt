@@ -47,6 +47,10 @@ date and name
 2017/10/10 Hana
 1. Create mini project with master detail datagrid
 2.DropdownList with List of suppliers in my database
+3. Fixed the probleme of update function 
+4. add datasheet pdf to each product
 2017/10/10 Hadi
 1.Fixed the probeleme of Update function 
 2. Insert real data to suppliers.
+3.work in customers interface
+4. Users interface design
