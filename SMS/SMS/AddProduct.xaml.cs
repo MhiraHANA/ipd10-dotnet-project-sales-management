@@ -49,7 +49,7 @@ namespace SMS
 
             //SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitInOrder
             Products p = new Products();
-            p.ProductName = tbProductName.ToString();
+            p.ProductName = tbProductName.Text ;
             p.Quantity = Convert.ToInt64((tbQuantity.Text));
             p.UnitInOrder = Int32.Parse(tbUnitOnOrder.Text);
             p.UnitInStock= Int32.Parse(tbUnitInStock.Text);
