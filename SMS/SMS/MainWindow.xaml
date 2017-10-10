@@ -69,7 +69,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"   Click="Show_Update">
+                                            <Button x:Name="btnUpdate"   Click="Show_UpdateEmployee">
 
 
                                                 <Image Width="25" Height="25" Source="Images/edit.png"></Image>
@@ -118,7 +118,7 @@
                             </DockPanel>
                         </Button>
 
-                        <Button Margin="356,51,10,597" Grid.Column="3" Click="SearchEmployee_Click">
+                        <Button Margin="356,51,10,597" Grid.Column="3" Click="SearchCustomer_Click">
                             <DockPanel Height="108">
                                 <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
 
@@ -139,6 +139,7 @@
                                 <DataGridTextColumn Header="Company Name" Width="100" Binding="{Binding CompanyName}"/>
                                 <DataGridTextColumn Header="Address" Width="100" Binding="{Binding Address}"/>
                                 <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Phone}"/>
+                                <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Email}"/>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>

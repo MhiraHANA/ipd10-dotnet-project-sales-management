@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMS.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,8 +31,9 @@ namespace SMS
             Customers cust = new Customers();
             cust.CompanyName = tbCompnayName.Text;
             cust.Address = tbAddress.Text;            
-            cust.Phone = tbPhone.Text;            
-            db.AddCustomers(cust);
+            cust.Phone = tbPhone.Text;
+            cust.Email = tbEmail.Text;
+            db.AddCustomer(cust);
             MessageBox.Show("Customer has been added succefully!");
             tbCompnayName.Clear();
             tbAddress.Clear();

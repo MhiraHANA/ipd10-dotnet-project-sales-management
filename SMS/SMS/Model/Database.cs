@@ -93,12 +93,13 @@ namespace SMS.Model
         public void AddCustomer(Customers cust)
         {
 
-            string sql = "INSERT INTO Customers (CompanyName, Address, Phone) VALUES "
-                        + " (@CompanyName,@Address,@Phone)";
+            string sql = "INSERT INTO Customers (CompanyName, Address, Phone, Email) VALUES "
+                        + " (@CompanyName,@Address,@Phone,@Email)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
             insertCommand.Parameters.Add(new SqlParameter("@CompanyName", cust.CompanyName));
             insertCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
             insertCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
+            insertCommand.Parameters.Add(new SqlParameter("@Email", cust.Email));
             insertCommand.ExecuteNonQuery();
         }
 
@@ -112,11 +113,12 @@ namespace SMS.Model
 
         public void UpdateCustomer(Customers cust)
         {
-            string sql = "UPDATE Customers SET (CompanyName, Address, Phone) VALUES (@CompanyName,@Address,@Phone)";
+            string sql = "UPDATE Customers SET (CompanyName, Address, Phone, Email) VALUES (@CompanyName,@Address,@Phone,@Email)";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.Add(new SqlParameter("@CompanyName", cust.CompanyName));
             updateCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
             updateCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
+            updateCommand.Parameters.Add(new SqlParameter("@Email", cust.Email));
             updateCommand.ExecuteNonQuery();
         }
         public Customers GetCustomerById(int id)
@@ -134,13 +136,34 @@ namespace SMS.Model
                     {
                         CompanyName = reader["CompanyName"].ToString(),
                         Address = reader["Address"].ToString(),
-                        Phone = reader["Phone"].ToString()
+                        Phone = reader["Phone"].ToString(),
+                        Email = reader["Email"].ToString()
                     };
                 }
             }
             return cust;
         }
+        public List<Customers> GetAllCustomers()
+        {
+            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Customers ORDER BY CustomerID", conn);
+            var listOfCustomers = new List<Customers>();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var s = new Customers();
+                    s.CustomerID = Convert.ToInt32(reader["CustomerID"].ToString());
+                    s.CompanyName = reader["CompanyName"].ToString();
+                    s.Address = reader["Address"].ToString();
+                    s.Phone = reader["Phone"].ToString();
+                    s.Email = reader["Email"].ToString();
+                   
+                    listOfCustomers.Add(s);
+                }
+            }
+            return listOfCustomers;
 
+        }
         /****************************************************************Crud Product***********************************************/
 
         public void AddProduct(Products p)

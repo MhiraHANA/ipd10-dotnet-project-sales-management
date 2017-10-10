@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMS.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace SMS
             
             Customers cust = db.GetCustomerById(id);
             //dispaly text from database
-            tbCompnayName.Text = cust.ComanyName;
+            tbCompnayName.Text = cust.CompanyName;
             tbAddress.Text = cust.Address;
             tbPhone.Text = cust.Phone;
             
@@ -40,7 +41,7 @@ namespace SMS
             cust.CompanyName = tbCompnayName.Text;
             cust.Address = tbAddress.Text;            
             cust.Phone = tbPhone.Text;            
-            db.UpdateEmployee(cust);
+            db.UpdateCustomer(cust);
             MessageBox.Show("Succeful adding customer..");
         }
 

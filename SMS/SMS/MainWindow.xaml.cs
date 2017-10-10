@@ -35,6 +35,7 @@ namespace SMS
             startClock();
             FillDataGridSupplier();
             FillDataGridProducts();
+            FillDataGridCustomers();
         }
      
         private void DatePicker_SelectedDateChanged(object sender,
@@ -67,6 +68,7 @@ namespace SMS
 
 
             }
+            FillDataGridCustomers();
         }
 
         //Customer View
@@ -78,7 +80,7 @@ namespace SMS
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Customers");
             sda.Fill(dt);
-            dgEmployees.ItemsSource = dt.DefaultView;
+            dgCustomers.ItemsSource = dt.DefaultView;
 
         }
 
@@ -127,28 +129,18 @@ namespace SMS
 
          }
 
+       
 
-        private void Show_AddOrder(object sender, RoutedEventArgs e)
+        private void SearchCustomer_Click(object sender, RoutedEventArgs e)
         {
-            AddCustomer inputDialog = new AddCustomer();
-            if (inputDialog.ShowDialog() == true)
-            {
-
-
-            }
+            string querry = "Select * from Customers where CompanyName like '%" + tbSearchCustomer.Text + "'";
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);
+            SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dgCustomers.DataContext = dt;
+            dgCustomers.ItemsSource = dt.DefaultView;
         }
-
-        private void Show_AddReport(object sender, RoutedEventArgs e)
-        {
-            AddCustomer inputDialog = new AddCustomer();
-            if (inputDialog.ShowDialog() == true)
-            {
-
-
-            }
-        }
-
-     
 
         /**********************************Employee***************************************/
         private void Show_AddEmployee(object sender, RoutedEventArgs e)
@@ -340,7 +332,8 @@ namespace SMS
             dgProducts.ItemsSource = dt.DefaultView;
 
         }
-
+    
+    
         /********************************* Suppliers **********************************/
 
         public void FillDataGridSupplier()
@@ -394,6 +387,28 @@ namespace SMS
         {
 
         }
-       
+
+        /*************************************Order********************/
+
+        private void Show_AddOrder(object sender, RoutedEventArgs e)
+        {
+            AddCustomer inputDialog = new AddCustomer();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+
+        }
+
+        private void Show_AddReport(object sender, RoutedEventArgs e)
+        {
+            AddCustomer inputDialog = new AddCustomer();
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
     }
 }

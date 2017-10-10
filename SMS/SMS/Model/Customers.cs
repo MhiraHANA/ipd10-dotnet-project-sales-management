@@ -13,7 +13,7 @@ namespace SMS.Model
         private String _phone;
         private String _email;
 
-        public int CompanyID { get; set; }
+        public int CustomerID { get; set; }
         public string CompanyName
         {
             get { return _companyname; }
