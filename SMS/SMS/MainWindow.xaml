@@ -166,8 +166,8 @@
                                 <DataGridTextColumn Header="Product ID" Width="100" Binding="{Binding ProductID}"/>
                                 <DataGridTextColumn Header="Product Name" Width="100" Binding="{Binding ProductName}"/>
                                 <DataGridTextColumn Header="Quantity" Width="100" Binding="{Binding Quantity}"/>
-                            
-                                <DataGridTextColumn Header="CostPrice" Width="100" Binding="{Binding CostPrice}"/>
+
+                                <DataGridTextColumn Header="CostPrice" Width="100" Binding="{Binding CostPrice,  StringFormat=\{0:F2\}}"/>
                                 <DataGridTextColumn Header="UnitInStock" Width="100" Binding="{Binding UnitInStock}"/>
                                 <DataGridTextColumn Header="UnitInOrder" Width="100" Binding="{Binding UnitOnOrders}"/>
                                 <DataGridTextColumn Header="SupplierID" Width="100" Binding="{Binding SupplierID}"/>
