@@ -32,7 +32,6 @@ namespace SMS
         {
             InitializeComponent();
             FillDataGrid();
-            
             startClock();
             FillDataGridSupplier();
         }
