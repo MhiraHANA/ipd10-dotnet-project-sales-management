@@ -57,6 +57,8 @@ namespace SMS
             }
         }
 
+       
+        /**********************************Customer***************************************/
         private void Show_AddCustomer(object sender, RoutedEventArgs e)
         {
             AddCustomer inputDialog = new AddCustomer();
@@ -67,7 +69,63 @@ namespace SMS
             }
         }
 
-     
+        //Customer View
+        private void FillDataGridCustomers()
+        {
+
+            string CmdString = "SELECT * FROM Customers";
+            SqlCommand cmd = new SqlCommand(CmdString, DB.conn);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Customers");
+            sda.Fill(dt);
+            dgEmployees.ItemsSource = dt.DefaultView;
+
+        }
+
+        private void btnDeleteCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "People DB", MessageBoxButton.YesNo);
+
+            object item = dgCustomers.SelectedItem;
+            string ID = (dgCustomers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            if (id < 0)
+            {
+
+                MessageBox.Show("You must select customer.");
+            }
+            else
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    DB.DeleteCustomer(id);
+                    FillDataGridCustomers();
+                    MessageBox.Show("Delete successful.");
+
+                }
+
+            }
+        }
+        private void Show_UpdateCustomer(object sender, RoutedEventArgs e)
+        {
+
+            object item = dgCustomers.SelectedItem;
+            string ID = (dgCustomers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Customers cust = DB.GetCustomerById(id);
+            //UpdateCustomer inputDialog = new UpdateCustomer();
+            //inputDialog.id = id;
+            //if (inputDialog.ShowDialog() == true)
+            //{
+
+
+
+
+            //}
+            FillDataGridCustomers();
+        }
+
 
         private void Show_AddOrder(object sender, RoutedEventArgs e)
         {

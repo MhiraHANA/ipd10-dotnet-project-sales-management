@@ -19,6 +19,7 @@ namespace SMS
     /// </summary>
     public partial class AddCustomer : Window
     {
+        Database db = new Database();
         public AddCustomer()
         {
             InitializeComponent();
@@ -26,7 +27,15 @@ namespace SMS
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            Customers cust = new Customers();
+            cust.CompanyName = tbCompnayName.Text;
+            cust.Address = tbAddress.Text;            
+            cust.Phone = tbPhone.Text;            
+            db.AddCustomers(cust);
+            MessageBox.Show("Employee has been added succefully!");
+            tbCompnayName.Clear();
+            tbAddress.Clear();
+            tbPhone.Clear();            
         }       
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

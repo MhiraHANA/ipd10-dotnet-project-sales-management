@@ -94,6 +94,64 @@ namespace SMS.Model
             return emp;
         }
 
+        /****************************************************************Crud Customer ***********************************************/
+        Customers cust;
+        public void AddCustomer(Customers cust)
+        {
+
+            string sql = "INSERT INTO Customers (CompanyName, Address, Phone) VALUES "
+                        + " (@CompanyName,@Address,@Phone)";
+            SqlCommand insertCommand = new SqlCommand(sql, conn);
+
+            insertCommand.Parameters.Add(new SqlParameter("@CompanyName", cust.CompanyName));
+            insertCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
+            insertCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
+            insertCommand.ExecuteNonQuery();
+
+        }
+
+        public void DeleteCustomer(int Id)
+        {
+            string sqlDelete = "DELETE FROM Customers WHERE @Id = Id;";
+            SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
+            deleteCommand.Parameters.AddWithValue("@Id", Id);
+            deleteCommand.ExecuteNonQuery();
+
+        }
+
+        public void UpdateCustomer(Customers cust)
+        {
+            string sql = "UPDATE Customers SET (CompanyName, Address, Phone) VALUES (@CompanyName,@Address,@Phone)";
+            SqlCommand updateCommand = new SqlCommand(sql, conn);
+            updateCommand.Parameters.Add(new SqlParameter("@CompanyName", cust.CompanyName));
+            updateCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
+            updateCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));            
+            updateCommand.ExecuteNonQuery();
+
+        }
+        public Customers GetCustomerById(int id)
+        {
+
+            //Customers cust;
+            string sqlDelete = "SELECT * FROM Customers WHERE @CustomersID = CustomersID;";
+            SqlCommand Command = new SqlCommand(sqlDelete, conn);
+            Command.Parameters.AddWithValue("@CustomersID", id);
+            using (var reader = Command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    cust = new Customers
+                    {
+                        CompanyName = reader["CompanyName"].ToString(),                        
+                        Address = reader["Address"].ToString(),
+                        Phone = reader["Phone"].ToString()                      
+                    };
+                }
+
+            }
+            return cust;
+        }
+
         /****************************************************************Crud Product***********************************************/
 
         public void AddProduct(Products p)
