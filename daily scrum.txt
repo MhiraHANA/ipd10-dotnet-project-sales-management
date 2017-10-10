@@ -43,3 +43,10 @@ date and name
 2017/10/07 Hana
 
 1.Work in the project calendar 
+
+2017/10/10 Hana
+1. Create mini project with master detail datagrid
+2.DropdownList with List of suppliers in my database
+2017/10/10 Hadi
+1.Fixed the probeleme of Update function 
+2. Insert real data to suppliers.
