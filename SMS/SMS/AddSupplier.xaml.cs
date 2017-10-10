@@ -37,8 +37,7 @@ namespace SMS
             MessageBox.Show("The supplier has been added succefully.");
             tbCompnayName.Clear();
             tbContactName.Clear();
-            tbAddress.Clear();
-       
+            tbAddress.Clear();       
             tbPhone.Clear();
 
            

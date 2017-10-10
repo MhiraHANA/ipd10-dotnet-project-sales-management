@@ -69,7 +69,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdateCustomer"   Click="Show_UpdateCustomer">
+                                            <Button x:Name="btnUpdate"   Click="Show_Update">
 
 
                                                 <Image Width="25" Height="25" Source="Images/edit.png"></Image>
@@ -80,7 +80,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDeleteCustomer" Click="btnDeleteCustomer_Click"
+                                            <Button  x:Name="btnDelete" Click="btnDelete_Click"
                            >
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
 
@@ -153,7 +153,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDelete" Click="btnDelete_Click">
+                                            <Button  x:Name="btnDeleteCustomer" Click="btnDeleteCustomer_Click">
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
 
                                             </Button>

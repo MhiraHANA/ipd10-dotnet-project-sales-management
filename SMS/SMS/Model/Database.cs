@@ -19,7 +19,7 @@ namespace SMS.Model
             conn.ConnectionString = CONN_STRING;
             conn.Open();
         }
-        /****************************************************************Crud Employee***********************************************/
+        /****************************************************************Employee Section ***********************************************/
         Employees emp;
         public void AddEmployee(Employees emp)
         {
@@ -28,10 +28,10 @@ namespace SMS.Model
                         + " (@LastName,@FirstName,@HireDate,@Address,@Photo,@UserName,@Password)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
 
-            insertCommand.Parameters.Add(new SqlParameter("@LastName",  emp.LastName));
+            insertCommand.Parameters.Add(new SqlParameter("@LastName", emp.LastName));
             insertCommand.Parameters.Add(new SqlParameter("@FirstName", emp.FirstName));
             insertCommand.Parameters.Add(new SqlParameter("@HireDate", emp.HireDate));
-            insertCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));        
+            insertCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
             insertCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
             insertCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
             insertCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
@@ -46,7 +46,7 @@ namespace SMS.Model
             SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
             deleteCommand.Parameters.AddWithValue("@Id", Id);
             deleteCommand.ExecuteNonQuery();
-            
+
         }
 
         public void UpdateEmployee(Employees emp)
@@ -59,8 +59,6 @@ namespace SMS.Model
             updateCommand.Parameters.Add(new SqlParameter("@Address", emp.Address));
             updateCommand.Parameters.Add(new SqlParameter("@Phone", emp.Phone));
             updateCommand.Parameters.Add(new SqlParameter("@Photo", emp.Photo));
-
-        
             updateCommand.Parameters.Add(new SqlParameter("@UserName", emp.UserName));
             updateCommand.Parameters.Add(new SqlParameter("@Password", emp.Password));
             updateCommand.ExecuteNonQuery();
@@ -69,7 +67,7 @@ namespace SMS.Model
         public Employees GetEmployeeById(int id)
         {
 
-           // Employees emp;
+            // Employees emp;
             string sqlDelete = "SELECT * FROM Employees WHERE @EmployeeID = EmployeeID;";
             SqlCommand Command = new SqlCommand(sqlDelete, conn);
             Command.Parameters.AddWithValue("@EmployeeID", id);
@@ -77,16 +75,16 @@ namespace SMS.Model
             {
                 if (reader.Read())
                 {
-                   emp= new Employees
+                    emp = new Employees
                     {
-                       LastName = reader["LastName"].ToString(),
-                       FirstName = reader["FirstName"].ToString(),
-                       HireDate = DateTime.Parse( reader["HireDate"].ToString()),
-                       Address = reader["Address"].ToString(),
-                       Phone = reader["Phone"].ToString(),
-                       UserName= reader["UserName"].ToString(),
-                       Password = reader["Password"].ToString()
-                   };
+                        LastName = reader["LastName"].ToString(),
+                        FirstName = reader["FirstName"].ToString(),
+                        HireDate = DateTime.Parse(reader["HireDate"].ToString()),
+                        Address = reader["Address"].ToString(),
+                        Phone = reader["Phone"].ToString(),
+                        UserName = reader["UserName"].ToString(),
+                        Password = reader["Password"].ToString()
+                    };
                 }
 
             }
@@ -94,7 +92,7 @@ namespace SMS.Model
             return emp;
         }
 
-        /****************************************************************Crud Customer ***********************************************/
+        /**************************************************************** Customer Section ***********************************************/
         Customers cust;
         public void AddCustomer(Customers cust)
         {
@@ -102,7 +100,6 @@ namespace SMS.Model
             string sql = "INSERT INTO Customers (CompanyName, Address, Phone) VALUES "
                         + " (@CompanyName,@Address,@Phone)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
-
             insertCommand.Parameters.Add(new SqlParameter("@CompanyName", cust.CompanyName));
             insertCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
             insertCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
@@ -125,7 +122,7 @@ namespace SMS.Model
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.Add(new SqlParameter("@CompanyName", cust.CompanyName));
             updateCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
-            updateCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));            
+            updateCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
             updateCommand.ExecuteNonQuery();
 
         }
@@ -133,21 +130,20 @@ namespace SMS.Model
         {
 
             //Customers cust;
-            string sqlDelete = "SELECT * FROM Customers WHERE @CustomersID = CustomersID;";
+            string sqlDelete = "SELECT * FROM Customers WHERE @CustomerID = CustomerID;";
             SqlCommand Command = new SqlCommand(sqlDelete, conn);
-            Command.Parameters.AddWithValue("@CustomersID", id);
+            Command.Parameters.AddWithValue("@CustomerID", id);
             using (var reader = Command.ExecuteReader())
             {
                 if (reader.Read())
                 {
                     cust = new Customers
                     {
-                        CompanyName = reader["CompanyName"].ToString(),                        
+                        CompanyName = reader["CompanyName"].ToString(),
                         Address = reader["Address"].ToString(),
-                        Phone = reader["Phone"].ToString()                      
+                        Phone = reader["Phone"].ToString()
                     };
                 }
-
             }
             return cust;
         }
@@ -190,29 +186,23 @@ namespace SMS.Model
             updateCommand.Parameters.Add(new SqlParameter("@UnitInStock", p.UnitInStock));
             updateCommand.Parameters.Add(new SqlParameter("@UnitOnOrders", p.UnitInOrder));
             updateCommand.ExecuteNonQuery();
-
         }
         public List<Products> GetAllProducts()
         {
             SqlCommand selectCommand = new SqlCommand("SELECT * FROM Products ORDER BY ProductID", conn);
-
             var listOfProducts = new List<Products>();
-
             using (SqlDataReader reader = selectCommand.ExecuteReader())
             {
-
                 while (reader.Read())
                 {
                     var p = new Products();
                     p.ProductID = Convert.ToInt32(reader["ProductID"].ToString());
                     p.ProductName = reader["ProductName"].ToString();
-                    p.Quantity= Convert.ToInt64(reader["Quantity"].ToString());
+                    p.Quantity = Convert.ToInt64(reader["Quantity"].ToString());
                     p.CostPrice = float.Parse(reader["CostPrice"].ToString());
                     p.UnitInStock = Int32.Parse(reader["UnitInStock"].ToString());
                     p.UnitInOrder = Int32.Parse(reader["UnitOnOrders"].ToString());
-                   
                     listOfProducts.Add(p);
-
                 }
             }
             return listOfProducts;
@@ -226,14 +216,11 @@ namespace SMS.Model
             string sql = "INSERT INTO Suppliers (CompanyName, ContactName, Address, Phone) VALUES "
                         + " (@CompanyName,@ContactName,@Address,@Phone)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
-
             insertCommand.Parameters.Add(new SqlParameter("@CompanyName", s.CompanyName));
             insertCommand.Parameters.Add(new SqlParameter("@ContactName", s.ContactName));
             insertCommand.Parameters.Add(new SqlParameter("@Address", s.SuppliersAddress));
             insertCommand.Parameters.Add(new SqlParameter("@Phone", s.SuppliersPhone));
-          
             insertCommand.ExecuteNonQuery();
-
         }
 
         public void DeleteSuppliers(int Id)
@@ -259,33 +246,21 @@ namespace SMS.Model
         public List<Suppliers> GetAllSuppliers()
         {
             SqlCommand selectCommand = new SqlCommand("SELECT * FROM Suppliers ORDER BY SupplierID", conn);
-
             var listOfSuppliers = new List<Suppliers>();
-
             using (SqlDataReader reader = selectCommand.ExecuteReader())
             {
-
                 while (reader.Read())
                 {
                     var s = new Suppliers();
-           
-                    
-                        s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
-                        s.CompanyName = reader["CompanyName"].ToString();
-                        s.ContactName = reader["ContactName"].ToString();
-                        s.SuppliersAddress = reader["Address"].ToString();
-                        s.SuppliersPhone = reader["Phone"].ToString();
-                        listOfSuppliers.Add(s);
-                    
+                    s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
+                    s.CompanyName = reader["CompanyName"].ToString();
+                    s.ContactName = reader["ContactName"].ToString();
+                    s.SuppliersAddress = reader["Address"].ToString();
+                    s.SuppliersPhone = reader["Phone"].ToString();
+                    listOfSuppliers.Add(s);
                 }
             }
             return listOfSuppliers;
-
         }
-       
-
-        }
-  
-    
-
     }
+}

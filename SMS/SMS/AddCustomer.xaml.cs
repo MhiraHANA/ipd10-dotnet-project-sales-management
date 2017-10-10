@@ -32,7 +32,7 @@ namespace SMS
             cust.Address = tbAddress.Text;            
             cust.Phone = tbPhone.Text;            
             db.AddCustomers(cust);
-            MessageBox.Show("Employee has been added succefully!");
+            MessageBox.Show("Customer has been added succefully!");
             tbCompnayName.Clear();
             tbAddress.Clear();
             tbPhone.Clear();            

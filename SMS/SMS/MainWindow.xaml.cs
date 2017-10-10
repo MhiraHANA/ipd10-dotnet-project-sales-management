@@ -85,7 +85,7 @@ namespace SMS
         private void btnDeleteCustomer_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "People DB", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "SMS DB", MessageBoxButton.YesNo);
 
             object item = dgCustomers.SelectedItem;
             string ID = (dgCustomers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
@@ -114,17 +114,18 @@ namespace SMS
             string ID = (dgCustomers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
             Customers cust = DB.GetCustomerById(id);
-            //UpdateCustomer inputDialog = new UpdateCustomer();
-            //inputDialog.id = id;
-            //if (inputDialog.ShowDialog() == true)
-            //{
+            UpdateCustomer inputDialog = new UpdateCustomer();
+            inputDialog.id = id;
+            if (inputDialog.ShowDialog() == true)
+            {
 
 
 
 
-            //}
+            }
             FillDataGridCustomers();
-        }
+
+         }
 
 
         private void Show_AddOrder(object sender, RoutedEventArgs e)
