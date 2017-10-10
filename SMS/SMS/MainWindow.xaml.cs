@@ -231,22 +231,13 @@ namespace SMS
         private void SearchEmployee_Click(object sender, RoutedEventArgs e)
         {
             string querry = "Select * from Employees where FirstName like '%" + tbSearch.Text + "'";
-            SqlCommand cmd = new SqlCommand(querry, DB.conn);
-          
-
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);        
             SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
-          
             DataTable dt = new DataTable();
-           
             da.Fill(dt);
             dgEmployees.DataContext = dt;
-            dgEmployees.ItemsSource = dt.DefaultView;
-
-
-
+            dgEmployees.ItemsSource = dt.DefaultView;            
         }
-
-
 
         /********************************* Product **********************************/
         private void Show_AddProduct(object sender, RoutedEventArgs e)
@@ -315,7 +306,6 @@ namespace SMS
         {
 
             MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "SMS DB", MessageBoxButton.YesNo);
-
             object item = dgProducts.SelectedItem;
             string ID = (dgSuppliers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
