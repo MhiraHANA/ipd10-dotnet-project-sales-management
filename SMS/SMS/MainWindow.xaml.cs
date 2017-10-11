@@ -111,13 +111,16 @@ namespace SMS
         }
         private void Show_UpdateCustomer(object sender, RoutedEventArgs e)
         {
-
             object item = dgCustomers.SelectedItem;
             string ID = (dgCustomers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
             Customers cust = DB.GetCustomerById(id);
             UpdateCustomer inputDialog = new UpdateCustomer();
             inputDialog.id = id;
+            inputDialog.tbCompnayName.Text = cust.CompanyName;
+            inputDialog.tbAddress.Text = cust.Address;
+            inputDialog.tbPhone.Text = cust.Phone;
+            inputDialog.tbEmail.Text = cust.Email;
             if (inputDialog.ShowDialog() == true)
             {
 

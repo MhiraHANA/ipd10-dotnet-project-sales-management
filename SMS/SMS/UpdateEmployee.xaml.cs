@@ -50,7 +50,7 @@ namespace SMS
             emp.Phone = tbPhone.Text;
             emp.Photo = ConvertImageToBinary(tbNameImage.Text);
             db.UpdateEmployee(emp);
-            MessageBox.Show("Succeful adding employee..");
+            MessageBox.Show("The Employee has been successfully updated");
 
         }
         private void DatePicker_SelectedDateChanged(object sender,  SelectionChangedEventArgs e)
