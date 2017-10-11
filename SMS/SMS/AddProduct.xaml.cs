@@ -60,8 +60,11 @@ namespace SMS
             tbProductName.Clear();
             tbQuantity.Clear();
             tbUnitOnOrder.Clear();
+            tbCostPrice.Clear();
             tbUnitInStock.Clear();
             tbUnitOnOrder.Clear();
+            cmbSuppliers.SelectedIndex = -1;
+
 
 
         }

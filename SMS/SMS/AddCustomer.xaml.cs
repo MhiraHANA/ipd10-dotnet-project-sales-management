@@ -37,7 +37,8 @@ namespace SMS
             MessageBox.Show("Customer has been added succefully!");
             tbCompnayName.Clear();
             tbAddress.Clear();
-            tbPhone.Clear();            
+            tbPhone.Clear();
+            tbEmail.Clear();
         }       
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
