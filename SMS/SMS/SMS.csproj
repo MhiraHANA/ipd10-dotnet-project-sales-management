@@ -211,5 +211,8 @@
   <ItemGroup>
     <Resource Include="Images\addProduct.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProductsPDF\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
