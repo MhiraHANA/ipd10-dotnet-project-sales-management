@@ -54,3 +54,13 @@ date and name
 2. Insert real data to suppliers.
 3.work in customers interface
 4. Users interface design
+
+2017/10/11 Hana
+1. Fixed the probleme of update function 
+2. add datasheet pdf to each product
+3. Dispay photo from database
+
+2017/10/11 Hadi
+1. Insert real data to product.
+3. work in mini project about reporting.
+2. Users interface design

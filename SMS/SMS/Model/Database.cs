@@ -48,7 +48,8 @@ namespace SMS.Model
 
         public void UpdateEmployee(Employees emp)
         {//  "UPDATE Customers SET CustomerID = @CustomerID, CompanyName = @CompanyName " 
-            string sql = "UPDATE Employees SET LastName = @LastName, FirstName = @FirstName , HireDate = @HireDate , Address = @Address , Phone = @Phone, Photo = @Photo, UserName = @UserName , Password = @Password";
+            //UPDATE Employees SET LastName = @LastName, FirstName = @FirstName , HireDate = @HireDate , Address = @Address , Phone = @Phone, Photo = @Photo, UserName = @UserName , Password = @Password";
+            string sql = "UPDATE Employees SET(LastName,FirstName,HireDate,Address,Phone,Photo,UserName,Password) VALUES(@LastName,@FirstName,@HireDate,@Address,@Phone,@Photo,@UserName,@Password)";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.AddWithValue("@LastName", emp.LastName);
             updateCommand.Parameters.AddWithValue("@FirstName", emp.FirstName);

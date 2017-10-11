@@ -64,7 +64,7 @@
                                 <DataGridTextColumn Header="Address" Width="100" Binding="{Binding Address}"/>
                                 <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Phone}"/>
                                 <DataGridTextColumn Header="Photo" Width="100" Binding="{Binding Photo}"/>
-                                <DataGridTextColumn Header="User Name" Width="100" Binding="{Binding UserName}"/>
+                                <DataGridTextColumn Header="User Name" Width="100" Binding="{Binding Username}"/>
                                 <DataGridTextColumn Header="Password" Width="100" Binding="{Binding Password}"/>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
