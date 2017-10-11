@@ -80,6 +80,9 @@
     <Compile Include="UpdateEmployee.xaml.cs">
       <DependentUpon>UpdateEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateProduct.xaml.cs">
+      <DependentUpon>UpdateProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

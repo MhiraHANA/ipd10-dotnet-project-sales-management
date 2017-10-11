@@ -193,7 +193,7 @@
 
                             </DockPanel>
                         </Button>
-                        <Button Margin="861,18,10,634" Click="SearchEmployee_Click">
+                        <Button Margin="861,18,10,634" Click="SearchProduct_Click">
                             <DockPanel Height="108">
                                 <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
 
@@ -223,7 +223,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"   Click="btnUpdateProduct_Click"
+                                            <Button x:Name="btnUpdate"   Click="Show_UpdateProduct"
                                >
 
 

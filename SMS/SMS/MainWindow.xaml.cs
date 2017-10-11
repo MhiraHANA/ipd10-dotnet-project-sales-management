@@ -322,6 +322,31 @@ namespace SMS
 
             }
         }
+
+        private void Show_UpdateProduct(object sender, RoutedEventArgs e)
+        {
+
+            object item = dgProducts.SelectedItem;
+            string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Products p = DB.GetProductsById(id);
+            UpdateProduct inputDialog = new UpdateProduct();
+            inputDialog.id = id;
+            inputDialog.tbProductName.Text = p.ProductName;
+
+            inputDialog.tbQuantity.Text = p.Quantity.ToString();
+            inputDialog.tbCostPrice.Text = p.CostPrice.ToString();
+            inputDialog.tbUnitInStock.Text = p.UnitInStock.ToString();
+            inputDialog.tbUnitOnOrder.Text = p.UnitInOrder.ToString();
+           
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+            FillDataGridProducts();
+        }
+
         private void btnUpdateProduct_Click(object sender, RoutedEventArgs e)
         {
             FillDataGridProducts();
@@ -337,8 +362,18 @@ namespace SMS
             dgProducts.ItemsSource = dt.DefaultView;
 
         }
-    
-    
+
+        
+        private void SearchProduct_Click(object sender, RoutedEventArgs e)
+        {
+            string querry = "Select * from Products where CompanyName like '%" + tbProductSearch.Text + "'";
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);
+            SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dgProducts.DataContext = dt;
+            dgProducts.ItemsSource = dt.DefaultView;
+        }
         /********************************* Suppliers **********************************/
 
         public void FillDataGridSupplier()
