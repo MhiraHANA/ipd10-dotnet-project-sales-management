@@ -46,7 +46,6 @@ namespace SMS
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
             //SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitInOrder
             Products p = new Products();
             p.ProductName = tbProductName.Text ;
@@ -64,9 +63,6 @@ namespace SMS
             tbUnitInStock.Clear();
             tbUnitOnOrder.Clear();
             cmbSuppliers.SelectedIndex = -1;
-
-
-
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
