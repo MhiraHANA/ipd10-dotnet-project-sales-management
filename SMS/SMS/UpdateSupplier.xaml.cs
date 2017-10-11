@@ -16,31 +16,27 @@ using System.Windows.Shapes;
 namespace SMS
 {
     /// <summary>
-    /// Interaction logic for AddSupplier.xaml
+    /// Interaction logic for UpdateSupplier.xaml
     /// </summary>
-    public partial class AddSupplier : Window
+    public partial class UpdateSupplier : Window
     {
+        public int id;
         Database db = new Database();
-        public AddSupplier()
+        public UpdateSupplier()
         {
             InitializeComponent();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Suppliers s = new Suppliers();
-            s.CompanyName = tbCompnayName.Text;
-            s.ContactName = tbContactName.Text;
-            s.SuppliersAddress = tbAddress.Text;
-            s.SuppliersPhone = tbPhone.Text;
-            db.AddSupplier(s);
-            MessageBox.Show("The supplier has been added succefully.");
-            tbCompnayName.Clear();
-            tbContactName.Clear();
-            tbAddress.Clear();       
-            tbPhone.Clear();
-
-           
+            Suppliers sup = db.GetSupplierById(id);
+            sup.SupplierID = id;
+            sup.CompanyName = tbCompnayName.Text;
+            sup.ContactName = tbContactName.Text;
+            sup.SuppliersAddress = tbAddress.Text;
+            sup.SuppliersPhone = tbPhone.Text;            
+            db.UpdateSupplier(sup);
+            MessageBox.Show("The supplier has been successfully updated");
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

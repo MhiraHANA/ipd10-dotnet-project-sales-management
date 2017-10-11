@@ -337,12 +337,10 @@ namespace SMS
             UpdateProduct inputDialog = new UpdateProduct();
             inputDialog.id = id;
             inputDialog.tbProductName.Text = p.ProductName;
-
             inputDialog.tbQuantity.Text = p.Quantity.ToString();
             inputDialog.tbCostPrice.Text = p.CostPrice.ToString();
             inputDialog.tbUnitInStock.Text = p.UnitInStock.ToString();
-            inputDialog.tbUnitOnOrder.Text = p.UnitInOrder.ToString();
-           
+            inputDialog.tbUnitOnOrder.Text = p.UnitInOrder.ToString();           
             if (inputDialog.ShowDialog() == true)
             {
 
@@ -407,6 +405,28 @@ namespace SMS
 
 
         }
+        private void Show_UpdateSupplier(object sender, RoutedEventArgs e)
+        {
+
+            object item = dgSuppliers.SelectedItem;
+            string ID = (dgSuppliers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Suppliers sup = DB.GetSupplierById(id);
+            UpdateSupplier inputDialog = new UpdateSupplier();
+            inputDialog.id = id;
+            inputDialog.tbCompnayName.Text = sup.CompanyName;
+            inputDialog.tbContactName.Text = sup.ContactName;
+            inputDialog.tbAddress.Text = sup.SuppliersAddress;
+            inputDialog.tbPhone.Text = sup.SuppliersPhone;            
+            
+            if (inputDialog.ShowDialog() == true)
+            {
+
+            }
+            FillDataGridSupplier();
+
+
+        }
         private void btnDeleteSupplier_Click(object sender, RoutedEventArgs e)
         {
 
@@ -423,7 +443,7 @@ namespace SMS
             {
                 if (result == MessageBoxResult.Yes)
                 {
-                    DB.DeleteSuppliers(id);
+                    DB.DeleteSupplier(id);
                     FillDataGridSupplier();
                     MessageBox.Show("Delete successful.");
 
@@ -434,11 +454,26 @@ namespace SMS
         private void btnUpdateSupplier_Click(object sender, RoutedEventArgs e)
 
         {
+            FillDataGridSupplier();
+        }      
 
+        
+        private void SearchSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            string querry = "Select * from Suppliers where CompanyName like '%" + tbSupplierSearch.Text + "'";
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);
+            SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dgProducts.DataContext = dt;
+            dgProducts.ItemsSource = dt.DefaultView;
         }
+           
+  
 
-        /*************************************Order********************/
+    /*************************************Order********************/
 
+<<<<<<< HEAD
         public void FillDataGridOrder()
         {
 
@@ -451,6 +486,9 @@ namespace SMS
 
         }
         private void Show_AddOrder(object sender, RoutedEventArgs e)
+=======
+    private void Show_AddOrder(object sender, RoutedEventArgs e)
+>>>>>>> 29b5794a24fea87a08615744e3079e3eaa500df5
         {
             AddOrder inputDialog = new AddOrder();
             if (inputDialog.ShowDialog() == true)

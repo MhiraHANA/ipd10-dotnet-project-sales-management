@@ -89,6 +89,9 @@
     <Compile Include="UpdateProduct.xaml.cs">
       <DependentUpon>UpdateProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateSupplier.xaml.cs">
+      <DependentUpon>UpdateSupplier.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,10 +226,14 @@
     <Resource Include="Images\addProduct.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="Images\iconePdf.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\addOrder.png" />
+=======
+    <Folder Include="ProductsPDF\" />
+>>>>>>> 29b5794a24fea87a08615744e3079e3eaa500df5
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
