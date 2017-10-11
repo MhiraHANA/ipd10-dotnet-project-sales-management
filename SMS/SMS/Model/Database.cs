@@ -81,7 +81,8 @@ namespace SMS.Model
                         Address = reader["Address"].ToString(),
                         Phone = reader["Phone"].ToString(),
                         UserName = reader["UserName"].ToString(),
-                        Password = reader["Password"].ToString()
+                        Password = reader["Password"].ToString(),
+                        Photo = (Byte[])reader["Photo"]
                     };
                 }
 
@@ -106,6 +107,7 @@ namespace SMS.Model
                     emp.Phone= reader["Phone"].ToString();
                     emp.UserName= reader["UserName"].ToString();
                     emp.Password = reader["Password"].ToString();
+                    emp.Photo = (Byte[])reader["Photo"];
 
                     listOfEmployees.Add(emp);
                 }

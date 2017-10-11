@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:SMS"
              StartupUri="Login.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#FF4169AA" />
+        <SolidColorBrush x:Key="PrimaryFont" Color="White" />
+        
     </Application.Resources>
 </Application>
