@@ -80,8 +80,13 @@
     <Compile Include="UpdateEmployee.xaml.cs">
       <DependentUpon>UpdateEmployee.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="UpdateSupplier.xaml.cs">
       <DependentUpon>UpdateSupplier.xaml</DependentUpon>
+=======
+    <Compile Include="UpdateProduct.xaml.cs">
+      <DependentUpon>UpdateProduct.xaml</DependentUpon>
+>>>>>>> 80996457b6b15ba51b376ffcdc2486b889824031
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -134,7 +139,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="UpdateSupplier.xaml">
+=======
+    <Page Include="UpdateProduct.xaml">
+>>>>>>> 80996457b6b15ba51b376ffcdc2486b889824031
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

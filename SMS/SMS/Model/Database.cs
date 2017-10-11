@@ -168,7 +168,7 @@ namespace SMS.Model
 
         }
         /****************************************************************Crud Product***********************************************/
-
+        Products prod;
         public void AddProduct(Products p)
         {
 
@@ -194,8 +194,9 @@ namespace SMS.Model
 
         public void UpdateProduct(Products p)
         {
-            string sql = "UPDATE Products SET (SupplierID, ProductName, Quantity, CostPrice, UnitInStock, UnitOnOrders) VALUES (@SupplierID,@ProductName,@Quantity,@CostPrice,@UnitInStock,@UnitOnOrders)";
+            string sql = "UPDATE Products SET SupplierID=@SupplierID, ProductName=@ProductName, Quantity=@Quantity, CostPrice=@CostPrice, UnitInStock=@UnitInStock, UnitOnOrders=@UnitOnOrders  WHERE @ProductID= ProductID";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
+            updateCommand.Parameters.AddWithValue("@ProductID", p.ProductID);
             updateCommand.Parameters.Add(new SqlParameter("@SupplierID", p.SupplierID));
             updateCommand.Parameters.Add(new SqlParameter("@ProductName", p.ProductName));
             updateCommand.Parameters.Add(new SqlParameter("@Quantity", p.Quantity));
@@ -223,6 +224,36 @@ namespace SMS.Model
                 }
             }
             return listOfProducts;
+
+        }
+
+        public Products GetProductsById(int id)
+        {
+
+            string sql = "SELECT * FROM Products WHERE @ProductID = ProductID;";
+            SqlCommand Command = new SqlCommand(sql, conn);
+            Command.Parameters.AddWithValue("@ProductID", id);
+            using (var reader = Command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    prod = new Products
+                    {
+        
+                        ProductName = reader["ProductName"].ToString(),
+                        Quantity = Convert.ToInt64(reader["Quantity"].ToString()),
+                        CostPrice = float.Parse(reader["Quantity"].ToString()),
+                        UnitInStock = Int32.Parse(reader["Quantity"].ToString()),
+                        UnitInOrder = Int32.Parse(reader["Quantity"].ToString())
+
+
+                    };
+                }
+               
+            }
+
+
+            return prod;
 
         }
         /****************************************************************Crud Suppliers***********************************************/
