@@ -35,14 +35,14 @@
 
                         <Button Margin="22,0,117,597" Height="58" VerticalAlignment="Bottom" Click="Show_AddEmployee" Grid.ColumnSpan="3">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="88"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
+                                <Image Source="/Images/addEmployee.png"  Width="88"  RenderTransformOrigin="0.665,0.5" ToolTip="Add Employee" Margin="0,0,0,69" />
 
                             </DockPanel>
                         </Button>
 
-                        <Button Margin="356,51,10,597" Grid.Column="4" Click="SearchEmployee_Click">
+                        <Button Margin="356,51,10,597" Grid.Column="4" Click="SearchEmployee_Click" ToolTip="Serach">
                             <DockPanel Height="108">
-                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
+                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" Margin="0,0,0,69"/>
 
                             </DockPanel>
 
@@ -57,19 +57,19 @@
                                 </TransformGroup>
                             </DataGrid.RenderTransform>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Employee ID" Width="100" Binding="{Binding EmployeeID}"/>
-                                <DataGridTextColumn Header="First Name" Width="100" Binding="{Binding FirstName}"/>
-                                <DataGridTextColumn Header="Last Name" Width="100" Binding="{Binding LastName}"/>
-                                <DataGridTextColumn Header="Hire Date" Width="100" Binding="{Binding HireDate}"/>
-                                <DataGridTextColumn Header="Address" Width="100" Binding="{Binding Address}"/>
-                                <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Phone}"/>
+                                <DataGridTextColumn Header="Employee ID" Width="80" Binding="{Binding EmployeeID}" />
+                                <DataGridTextColumn Header="First Name" Width="85" Binding="{Binding FirstName}"/>
+                                <DataGridTextColumn Header="Last Name" Width="85" Binding="{Binding LastName}"/>
+                                <DataGridTextColumn Header="Hire Date" Width="130" Binding="{Binding HireDate}"/>
+                                <DataGridTextColumn Header="Address" Width="150" Binding="{Binding Address}"/>
+                                <DataGridTextColumn Header="Phone" Width="80" Binding="{Binding Phone}"/>
                                 <DataGridTextColumn Header="Photo" Width="100" Binding="{Binding Photo}"/>
-                                <DataGridTextColumn Header="User Name" Width="100" Binding="{Binding Username}"/>
-                                <DataGridTextColumn Header="Password" Width="100" Binding="{Binding Password}"/>
+                                <DataGridTextColumn Header="User Name" Width="80" Binding="{Binding Username}"/>
+                                <DataGridTextColumn Header="Password" Width="80" Binding="{Binding Password}"/>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"   Click="Show_UpdateEmployee">
+                                            <Button x:Name="btnUpdate"   Click="Show_UpdateEmployee" ToolTip="Update">
 
 
                                                 <Image Width="25" Height="25" Source="Images/edit.png"></Image>
@@ -80,7 +80,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDelete" Click="btnDelete_Click"
+                                            <Button  x:Name="btnDelete" Click="btnDelete_Click" ToolTip="Delete"
                            >
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
 
@@ -112,16 +112,16 @@
                             <ColumnDefinition Width="482*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Margin="19,0,117,597" Height="58" VerticalAlignment="Bottom" Click="Show_AddCustomer" Grid.ColumnSpan="2" Grid.Column="1">
+                        <Button Margin="19,0,117,597" Height="58" VerticalAlignment="Bottom" Click="Show_AddCustomer" Grid.ColumnSpan="2" Grid.Column="1" ToolTip="Add">
                             <DockPanel Height="122">
                                 <Image Source="/Images/addEmployee.png"  Width="88"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
 
                             </DockPanel>
                         </Button>
 
-                        <Button Margin="356,51,10,597" Grid.Column="4" Click="SearchCustomer_Click">
+                        <Button Margin="356,51,10,597" Grid.Column="4" Click="SearchCustomer_Click" ToolTip="Search">
                             <DockPanel Height="108">
-                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
+                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" Margin="0,0,0,69"/>
 
                             </DockPanel>
 
@@ -137,14 +137,14 @@
                             </DataGrid.RenderTransform>
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Customer ID" Width="100" Binding="{Binding CustomerID}"/>
-                                <DataGridTextColumn Header="Company Name" Width="100" Binding="{Binding CompanyName}"/>
-                                <DataGridTextColumn Header="Address" Width="100" Binding="{Binding Address}"/>
+                                <DataGridTextColumn Header="Company Name" Width="180" Binding="{Binding CompanyName}"/>
+                                <DataGridTextColumn Header="Address" Width="320" Binding="{Binding Address}"/>
                                 <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Phone}"/>
-                                <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Email}"/>
+                                <DataGridTextColumn Header="Email" Width="150" Binding="{Binding Email}"/>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"  Click="Show_UpdateCustomer">
+                                            <Button x:Name="btnUpdate"  Click="Show_UpdateCustomer" ToolTip="Update">
 
 
                                                 <Image Width="25" Height="25" Source="Images/edit.png"></Image>
@@ -155,7 +155,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDeleteCustomer" Click="btnDeleteCustomer_Click">
+                                            <Button  x:Name="btnDeleteCustomer" Click="btnDeleteCustomer_Click" ToolTip="Delete">
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
 
                                             </Button>
@@ -178,15 +178,15 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Button Margin="21,0,818,622" Height="58" VerticalAlignment="Bottom" Click="Show_AddOrder">
+                        <Button Margin="21,0,818,622" Height="58" VerticalAlignment="Bottom" Click="Show_AddOrder" ToolTip="Add">
                             <DockPanel Height="122">
                                 <Image Source="/Images/addOrder.png"  Width="108" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
-                        <Button Margin="861,18,10,634" Click="SearchOrder_Click">
+                        <Button Margin="861,18,10,634" Click="SearchOrder_Click" ToolTip="Search">
                             <DockPanel Height="108">
-                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Search Order" Margin="0,0,0,69"/>
+                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" Margin="0,0,0,69"/>
 
                             </DockPanel>
 
@@ -214,7 +214,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"   Click="Show_OrderUpdate" ToolTip="Update"
+                                            <Button x:Name="btnUpdate"   Click="Show_OrderUpdate" ToolTip="Update" 
                                >
 
 
@@ -226,7 +226,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDelete" Click="btnDeleteOrder_Click" ToolTip="delete"
+                                            <Button  x:Name="btnDelete" Click="btnDeleteOrder_Click" ToolTip="Delete"
                            >
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
 
@@ -249,9 +249,15 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Button Margin="21,0,818,622" Height="58" VerticalAlignment="Bottom" Click="Show_AddProduct">
+                        <Button Margin="21,0,818,622" Height="58" VerticalAlignment="Bottom" Click="Show_AddProduct" ToolTip="Add">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addProduct.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
+                                <Image Source="/Images/addProduct.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5"/>
+
+                            </DockPanel>
+                        </Button>
+                        <Button Height="58" VerticalAlignment="Bottom" Click="ImportFromXMLFile" Margin="236,0,618,622" ToolTip="Import from XML File">
+                            <DockPanel Height="122">
+                                <Image Source="/Images/xml.png"  Width="88" Margin="0,0,0,63" RenderTransformOrigin="0.665,0.5" />
 
                             </DockPanel>
                         </Button>
@@ -273,8 +279,8 @@
                                 </TransformGroup>
                             </DataGrid.RenderTransform>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Product ID" Width="100" Binding="{Binding ProductID}"/>
-                                <DataGridTextColumn Header="Product Name" Width="100" Binding="{Binding ProductName}"/>
+                                <DataGridTextColumn Header="Product ID" Width="100" Binding="{Binding ProductID}" />
+                                <DataGridTextColumn Header="Product Name" Width="200" Binding="{Binding ProductName}"/>
                                 <DataGridTextColumn Header="Quantity" Width="100" Binding="{Binding Quantity}"/>
 
                                 <DataGridTextColumn Header="CostPrice" Width="100" Binding="{Binding CostPrice,  StringFormat=\{0:F2\}}"/>
@@ -297,7 +303,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDelete" Click="btnDeleteProduct_Click" ToolTip="delete"
+                                            <Button  x:Name="btnDelete" Click="btnDeleteProduct_Click" ToolTip="Delete"
                            >
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
 
@@ -349,15 +355,15 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Button Margin="21,0,828,625" Height="58" VerticalAlignment="Bottom" Click="Show_AddSupplier">
+                        <Button Margin="21,0,828,625" Height="58" VerticalAlignment="Bottom" Click="Show_AddSupplier" ToolTip="Add">
                             <DockPanel Height="122">
                                 <Image Source="/Images/addEmployee.png"  Width="88" Margin="0,0,0,67" RenderTransformOrigin="0.665,0.5" ToolTip="Add"/>
 
                             </DockPanel>
                         </Button>
-                        <Button Margin="855,23,10,625" Click="SearchEmployee_Click">
+                        <Button Margin="855,23,10,625" Click="SearchEmployee_Click" ToolTip="Search">
                             <DockPanel Height="108">
-                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" ToolTip="Add" Margin="0,0,0,69"/>
+                                <Image Source="/Images/Search.png"  Width="108"  RenderTransformOrigin="0.665,0.5" Margin="0,0,0,69"/>
 
                             </DockPanel>
 
@@ -373,16 +379,20 @@
                                 </TransformGroup>
                             </DataGrid.RenderTransform>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Supplier ID" Width="100" Binding="{Binding SupplierID}"/>
-                                <DataGridTextColumn Header="Company Name" Width="100" Binding="{Binding CompanyName}"/>
-                                <DataGridTextColumn Header="Contact Name" Width="100" Binding="{Binding ContactName}"/>
-                                <DataGridTextColumn Header="Address" Width="100" Binding="{Binding Address}"/>
-                                <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Phone}"/>
+                                
 
+
+                                <DataGridTextColumn Header="Supplier ID" Width="100" Binding="{Binding SupplierID}" />                             
+                                                     
+                                <DataGridTextColumn Header="Company Name" Width="200" Binding="{Binding CompanyName}"/>
+                                <DataGridTextColumn Header="Contact Name" Width="130" Binding="{Binding ContactName}"/>
+                                <DataGridTextColumn Header="Address" Width="330" Binding="{Binding Address}"/>
+                                <DataGridTextColumn Header="Phone" Width="100" Binding="{Binding Phone}"/>
+                                       
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"   Click="Show_UpdateSupplier"
+                                            <Button x:Name="btnUpdate"   Click="Show_UpdateSupplier" ToolTip="Update"
                                >
 
 
@@ -394,7 +404,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDelete" Click="btnDeleteSupplier_Click"
+                                            <Button  x:Name="btnDelete" Click="btnDeleteSupplier_Click" ToolTip="Delete"
                            >
                                                 <Image Width="25" Height="25" Source="Images/delete.png"></Image>
 

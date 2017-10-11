@@ -1,2 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-
+<Products>
+  <Product ProductID="101">
+    <ProductName>E526HNA-100314</ProductName>
+    <Quantity>290</Quantity>
+    <CostPrice>4.75</CostPrice>
+    <UnitInStock>270</UnitInStock>
+    <UnitInOrder>20</UnitInOrder>
+  </Product>
+  <Product ProductID="102">
+    <ProductName>E558HN-100099</ProductName>
+    <Quantity>490</Quantity>
+    <CostPrice>6.55</CostPrice>
+    <UnitInStock>460</UnitInStock>
+    <UnitInOrder>30</UnitInOrder>
+  </Product>
+  <Product ProductID="103">
+    <ProductName>E540SNA-15002</ProductName>
+    <Quantity>289</Quantity>
+    <CostPrice>2.95</CostPrice>
+    <UnitInStock>264</UnitInStock>
+    <UnitInOrder>25</UnitInOrder>
+  </Product>
+  <Product ProductID="104">
+    <ProductName>A7BRS-T1040Z</ProductName>
+    <Quantity>369</Quantity>
+    <CostPrice>3.95</CostPrice>
+    <UnitInStock>339</UnitInStock>
+    <UnitInOrder>30</UnitInOrder>
+  </Product>
+  <Product ProductID="105">
+    <ProductName>A119ANS-T1038Z</ProductName>
+    <Quantity>374</Quantity>
+    <CostPrice>1.95</CostPrice>
+    <UnitInStock>354</UnitInStock>
+    <UnitInOrder>20</UnitInOrder>
+  </Product>
+  <Product ProductID="106">
+    <ProductName>E558CN-100020</ProductName>
+    <Quantity>540</Quantity>
+    <CostPrice>2.95</CostPrice>
+    <UnitInStock>500</UnitInStock>
+    <UnitInOrder>40</UnitInOrder>
+  </Product>
+  <Product ProductID="107">
+    <ProductName>E526HN-100109</ProductName>
+    <Quantity>385</Quantity>
+    <CostPrice>3.55</CostPrice>
+    <UnitInStock>355</UnitInStock>
+    <UnitInOrder>30</UnitInOrder>
+  </Product>
+  <Product ProductID="108">
+    <ProductName>292SNS-T1366Z</ProductName>
+    <Quantity>266</Quantity>
+    <CostPrice>4.85</CostPrice>
+    <UnitInStock>236</UnitInStock>
+    <UnitInOrder>30</UnitInOrder>
+  </Product>
+  <Product ProductID="109">
+    <ProductName>614BN-9220Z</ProductName>
+    <Quantity>456</Quantity>
+    <CostPrice>6.95</CostPrice>
+    <UnitInStock>426</UnitInStock>
+    <UnitInOrder>30</UnitInOrder>
+  </Product>
+  <Product ProductID="110">
+    <ProductName>294SN-T1014Z</ProductName>
+    <Quantity>236</Quantity>
+    <CostPrice>1.95</CostPrice>
+    <UnitInStock>200</UnitInStock>
+    <UnitInOrder>36</UnitInOrder>
+  </Product>
+  <Product ProductID="111">
+    <ProductName>294SN-T1013Z</ProductName>
+    <Quantity>850</Quantity>
+    <CostPrice>0.95</CostPrice>
+    <UnitInStock>800</UnitInStock>
+    <UnitInOrder>50</UnitInOrder>
+  </Product>
+  <Product ProductID="112">
+    <ProductName>E526HN-100315</ProductName>
+    <Quantity>355</Quantity>
+    <CostPrice>1.95</CostPrice>
+    <UnitInStock>290</UnitInStock>
+    <UnitInOrder>65</UnitInOrder>
+  </Product>
+</Products>

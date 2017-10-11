@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Xml;
+using System.Xml.XPath;
 
 namespace SMS
 {
@@ -379,7 +382,7 @@ namespace SMS
         //SeeMore_Click
         private void SeeMore_Click(object sender, RoutedEventArgs e)
         {
-            
+            Process.Start("ProductsPDF\\P01-04.pdf");
         }
         /********************************* Suppliers **********************************/
 
@@ -473,7 +476,6 @@ namespace SMS
 
     /*************************************Order********************/
 
-<<<<<<< HEAD
         public void FillDataGridOrder()
         {
 
@@ -485,10 +487,9 @@ namespace SMS
             dgOrders.ItemsSource = dt.DefaultView;
 
         }
-        private void Show_AddOrder(object sender, RoutedEventArgs e)
-=======
+     
     private void Show_AddOrder(object sender, RoutedEventArgs e)
->>>>>>> 29b5794a24fea87a08615744e3079e3eaa500df5
+
         {
             AddOrder inputDialog = new AddOrder();
             if (inputDialog.ShowDialog() == true)
@@ -567,6 +568,36 @@ namespace SMS
             {
 
 
+            }
+        }
+
+        private void ImportFromXMLFile(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(openFileDialog.FileName);
+
+                    try
+                    {
+                        XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
+                        
+                           //need to work on this part : MJ Hadi 
+                                                
+                    }
+                    catch (XPathException ex)
+                    {
+                        MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

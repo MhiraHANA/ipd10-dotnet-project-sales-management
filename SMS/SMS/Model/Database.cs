@@ -245,7 +245,7 @@ namespace SMS.Model
             }
             return sup;
         }
-        public List<Suppliers> GetAllSuppliers()
+        public List<Suppliers> GetAllSupplier()
         {
             SqlCommand selectCommand = new SqlCommand("SELECT * FROM Suppliers ORDER BY SupplierID", conn);
             var listOfSuppliers = new List<Suppliers>();
@@ -354,7 +354,7 @@ namespace SMS.Model
             return prod;
 
         }
-<<<<<<< HEAD
+
         /****************************************************************Crud Suppliers***********************************************/
 
         public void AddSuppliers(Suppliers s)
@@ -495,9 +495,6 @@ namespace SMS.Model
             return order;
 
         }
-=======
-        
-       
->>>>>>> 29b5794a24fea87a08615744e3079e3eaa500df5
+
     }
 }
