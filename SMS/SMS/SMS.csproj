@@ -232,18 +232,13 @@
     <Resource Include="Images\addProduct.png" />
   </ItemGroup>
   <ItemGroup>
-
-
-
     <Resource Include="Images\iconePdf.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\addOrder.png" />
-
-
-    <Folder Include="ProductsPDF\" />
-
-
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\xml.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
