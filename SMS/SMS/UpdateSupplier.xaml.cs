@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMS.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace SMS
     /// </summary>
     public partial class UpdateSupplier : Window
     {
+        public int id;
+        Database db = new Database();
         public UpdateSupplier()
         {
             InitializeComponent();
@@ -30,8 +33,8 @@ namespace SMS
             sup.SupplierID = id;
             sup.CompanyName = tbCompnayName.Text;
             sup.ContactName = tbContactName.Text;
-            sup.Address = tbAddress.Text;
-            sup.Phone = tbPhone.Text;            
+            sup.SuppliersAddress = tbAddress.Text;
+            sup.SuppliersPhone = tbPhone.Text;            
             db.UpdateSupplier(sup);
             MessageBox.Show("The supplier has been successfully updated");
         }

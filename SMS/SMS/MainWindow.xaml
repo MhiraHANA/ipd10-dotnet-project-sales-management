@@ -309,7 +309,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnUpdate"   Click="btnUpdateSupplier_Click"
+                                            <Button x:Name="btnUpdate"   Click="Show_UpdateSupplier"
                                >
 
 

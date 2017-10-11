@@ -167,6 +167,82 @@ namespace SMS.Model
             return listOfCustomers;
 
         }
+
+        /**************************************************************** Supplier Section ***********************************************/
+        Suppliers sup;
+        public void AddSupplier(Suppliers sup)
+        {
+
+            string sql = "INSERT INTO Suppliers (CompanyName, ContactName, Address, Phone ) VALUES "
+                        + " (@CompanyName,@ContactName,@Address,@Phone)";
+            SqlCommand insertCommand = new SqlCommand(sql, conn);
+            insertCommand.Parameters.Add(new SqlParameter("@CompanyName", sup.CompanyName));
+            insertCommand.Parameters.Add(new SqlParameter("@ContactName", sup.ContactName));
+            insertCommand.Parameters.Add(new SqlParameter("@Address", sup.SuppliersAddress));
+            insertCommand.Parameters.Add(new SqlParameter("@Phone", sup.SuppliersPhone));            
+            insertCommand.ExecuteNonQuery();
+        }
+
+        public void DeleteSupplier(int Id)
+        {
+            string sqlDelete = "DELETE FROM Suppliers WHERE @Id = Id;";
+            SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
+            deleteCommand.Parameters.AddWithValue("@Id", Id);
+            deleteCommand.ExecuteNonQuery();
+        }
+
+        public void UpdateSupplier(Suppliers sup)
+        {
+            string sql = "UPDATE Suppliers SET CompanyName = @CompanyName, ContactName = @ContactName, Address = @Address, Phone = @Phone WHERE @SupplierID = SupplierID"; ;
+            SqlCommand updateCommand = new SqlCommand(sql, conn);
+            updateCommand.Parameters.AddWithValue("@SupplierID", sup.SupplierID);
+            updateCommand.Parameters.AddWithValue("@CompanyName", sup.CompanyName);
+            updateCommand.Parameters.AddWithValue("@ContactName", sup.ContactName);
+            updateCommand.Parameters.AddWithValue("@Address", sup.SuppliersAddress);
+            updateCommand.Parameters.AddWithValue("@Phone", sup.SuppliersPhone);
+            updateCommand.ExecuteNonQuery();
+        }
+        public Suppliers GetSupplierById(int id)
+        {
+
+            string sqlDelete = "SELECT * FROM Suppliers WHERE @SupplierID = SupplierID;";
+            SqlCommand Command = new SqlCommand(sqlDelete, conn);
+            Command.Parameters.AddWithValue("@SupplierID", id);
+            using (var reader = Command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    sup = new Suppliers
+                    {
+                        CompanyName = reader["CompanyName"].ToString(),
+                        ContactName = reader["ContactName"].ToString(),
+                        SuppliersAddress = reader["Address"].ToString(),
+                        SuppliersPhone = reader["Phone"].ToString()                        
+                    };
+                }
+            }
+            return sup;
+        }
+        public List<Suppliers> GetAllSuppliers()
+        {
+            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Suppliers ORDER BY SupplierID", conn);
+            var listOfSuppliers = new List<Suppliers>();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var s = new Suppliers();
+                    s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
+                    s.CompanyName = reader["CompanyName"].ToString();
+                    s.ContactName = reader["ContactName"].ToString();
+                    s.SuppliersAddress = reader["Address"].ToString();
+                    s.SuppliersPhone = reader["Phone"].ToString();                
+                    listOfSuppliers.Add(s);
+                }
+            }
+            return listOfSuppliers;
+
+        }
         /****************************************************************Crud Product***********************************************/
         Products prod;
         public void AddProduct(Products p)
@@ -256,59 +332,7 @@ namespace SMS.Model
             return prod;
 
         }
-        /****************************************************************Crud Suppliers***********************************************/
-
-        public void AddSuppliers(Suppliers s)
-        {
-
-            string sql = "INSERT INTO Suppliers (CompanyName, ContactName, Address, Phone) VALUES "
-                        + " (@CompanyName,@ContactName,@Address,@Phone)";
-            SqlCommand insertCommand = new SqlCommand(sql, conn);
-            insertCommand.Parameters.Add(new SqlParameter("@CompanyName", s.CompanyName));
-            insertCommand.Parameters.Add(new SqlParameter("@ContactName", s.ContactName));
-            insertCommand.Parameters.Add(new SqlParameter("@Address", s.SuppliersAddress));
-            insertCommand.Parameters.Add(new SqlParameter("@Phone", s.SuppliersPhone));
-            insertCommand.ExecuteNonQuery();
-        }
-
-        public void DeleteSuppliers(int Id)
-        {
-            string sqlDelete = "DELETE FROM Suppliers WHERE @Id = Id;";
-            SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
-            deleteCommand.Parameters.AddWithValue("@Id", Id);
-            deleteCommand.ExecuteNonQuery();
-
-        }
-
-        public void UpdateSuppliers(Suppliers s)
-        {
-            string sql = "UPDATE Suppliers SET (CompanyName, ContactName, Address, CostPrice, Phone, UnitInOrder) VALUES (@CompanyName,@ContactName,@Address,@Phone)";
-            SqlCommand updateCommand = new SqlCommand(sql, conn);
-            updateCommand.Parameters.Add(new SqlParameter("@CompanyName", s.CompanyName));
-            updateCommand.Parameters.Add(new SqlParameter("@ContactName", s.ContactName));
-            updateCommand.Parameters.Add(new SqlParameter("@Address", s.SuppliersAddress));
-            updateCommand.Parameters.Add(new SqlParameter("@Phone", s.SuppliersPhone));
-            updateCommand.ExecuteNonQuery();
-
-        }
-        public List<Suppliers> GetAllSuppliers()
-        {
-            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Suppliers ORDER BY SupplierID", conn);
-            var listOfSuppliers = new List<Suppliers>();
-            using (SqlDataReader reader = selectCommand.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    var s = new Suppliers();
-                    s.SupplierID = Convert.ToInt32(reader["SupplierID"].ToString());
-                    s.CompanyName = reader["CompanyName"].ToString();
-                    s.ContactName = reader["ContactName"].ToString();
-                    s.SuppliersAddress = reader["Address"].ToString();
-                    s.SuppliersPhone = reader["Phone"].ToString();
-                    listOfSuppliers.Add(s);
-                }
-            }
-            return listOfSuppliers;
-        }
+        
+       
     }
 }

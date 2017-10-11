@@ -20,6 +20,9 @@
         <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="156,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="lblContactName" Content="Contact Name: " HorizontalAlignment="Left" Margin="29,83,0,0" VerticalAlignment="Top" Width="98"/>
         <TextBox x:Name="tbContactName" HorizontalAlignment="Left" Height="23" Margin="156,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        
+
+
     </Grid>
+        
+    
 </Window>

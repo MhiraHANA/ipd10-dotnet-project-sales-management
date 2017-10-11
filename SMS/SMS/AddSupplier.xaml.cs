@@ -33,7 +33,7 @@ namespace SMS
             s.ContactName = tbContactName.Text;
             s.SuppliersAddress = tbAddress.Text;
             s.SuppliersPhone = tbPhone.Text;
-            db.AddSuppliers(s);
+            db.AddSupplier(s);
             MessageBox.Show("The supplier has been added succefully.");
             tbCompnayName.Clear();
             tbContactName.Clear();
