@@ -89,7 +89,29 @@ namespace SMS.Model
 
             return emp;
         }
+        public List<Employees> GetAllEmployees()
+        {
+            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Employees ORDER BY EmployeeID", conn);
+            var listOfEmployees = new List<Employees>();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                     emp = new Employees();
+                    emp.EmployeeID = Convert.ToInt32(reader["EmployeeID"].ToString());
+                    emp.LastName = reader["LastName"].ToString();
+                    emp.FirstName = reader["FirstName"].ToString();
+                    emp.HireDate =(DateTime) reader["HireDate"];
+                    emp.Address = reader["Address"].ToString();
+                    emp.Phone= reader["Phone"].ToString();
+                    emp.UserName= reader["UserName"].ToString();
+                    emp.Password = reader["Password"].ToString();
 
+                    listOfEmployees.Add(emp);
+                }
+            }
+            return listOfEmployees;
+        }
         /**************************************************************** Customer Section ***********************************************/
         Customers cust;
         public void AddCustomer(Customers cust)
@@ -309,6 +331,92 @@ namespace SMS.Model
                 }
             }
             return listOfSuppliers;
+        }
+        /****************************************************************Crud Product***********************************************/
+        Orders order;
+        public void AddOrders(Orders o)
+        {
+
+            string sql = "INSERT INTO Orders (OrderDate, CustomerID, EmployeeID, Address) VALUES "
+                        + " (@OrderDate,@CustomerID,@EmployeeID,@Address)";
+            SqlCommand insertCommand = new SqlCommand(sql, conn);
+            insertCommand.Parameters.Add(new SqlParameter("@CustomerID", o.CustomerID));
+            insertCommand.Parameters.Add(new SqlParameter("@OrderDate", o.OrderDate));
+            insertCommand.Parameters.Add(new SqlParameter("@EmployeeID", o.EmployeeID));
+            insertCommand.Parameters.Add(new SqlParameter("@Address", o.Address));
+           
+            insertCommand.ExecuteNonQuery();
+        }
+
+        public void DeleteOrders(int Id)
+        {
+            string sqlDelete = "DELETE FROM Orders WHERE @Id = Id;";
+            SqlCommand deleteCommand = new SqlCommand(sqlDelete, conn);
+            deleteCommand.Parameters.AddWithValue("@Id", Id);
+            deleteCommand.ExecuteNonQuery();
+        }
+
+        public void UpdateOrders(Orders p)
+        {
+            string sql = "UPDATE Orders SET OrderDate=@OrderDate, CustomerID=@CustomerID, EmployeeID=@EmployeeID, Address=@Address  WHERE @OrderID= OrderID";
+            SqlCommand updateCommand = new SqlCommand(sql, conn);
+            updateCommand.Parameters.AddWithValue("@OrderID", p.OrderID);
+            updateCommand.Parameters.Add(new SqlParameter("@OrderDate", p.OrderDate));
+            updateCommand.Parameters.Add(new SqlParameter("@CustomerID", p.CustomerID));
+            updateCommand.Parameters.Add(new SqlParameter("@EmployeeID", p.EmployeeID));
+            updateCommand.Parameters.Add(new SqlParameter("@Address", p.Address));
+       
+            updateCommand.ExecuteNonQuery();
+        }
+        public List<Orders> GetAllOrders()
+        {
+            SqlCommand selectCommand = new SqlCommand("SELECT * FROM Orders ORDER BY OrderID", conn);
+            var listOfOrders = new List<Orders>();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var p = new Orders();
+                    p.OrderID = Convert.ToInt32(reader["OrderID"].ToString());
+                    p.CustomerID = Convert.ToInt32(reader["CustomerID"].ToString());
+                    p.EmployeeID = Convert.ToInt32(reader["EmployeeID"].ToString());
+                    p.OrderDate = (DateTime)reader["OrderDate"];
+                    p.Address = reader["Address"].ToString();
+
+                    listOfOrders.Add(p);
+                }
+            }
+            return listOfOrders;
+
+        }
+
+        public Orders GetOrdersById(int id)
+        {
+
+            string sql = "SELECT * FROM Orders WHERE @OrderID = OrderID;";
+            SqlCommand Command = new SqlCommand(sql, conn);
+            Command.Parameters.AddWithValue("@OrderID", id);
+            using (var reader = Command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    order = new Orders
+                    {
+                        CustomerID= Convert.ToInt32(reader["CustomerID"].ToString()),
+                        EmployeeID = Convert.ToInt32(reader["EmployeeID"].ToString()),
+                        OrderDate = (DateTime)reader["OrderDate"],
+                        Address = reader["Address"].ToString()
+                      
+
+
+                    };
+                }
+
+            }
+
+
+            return order;
+
         }
     }
 }

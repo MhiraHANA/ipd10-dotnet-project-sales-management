@@ -34,9 +34,8 @@ namespace SMS
             foreach (var item in listOfSuppliers)
             {
 
-                // cmbSuppliers.Items.Add(new { name = Convert.ToString(item.CompanyName), value = Convert.ToString(item.SupplierID) });
                    cmbSuppliers.Items.Add(item);
-                //  cmbSuppliers.DisplayMemberPath = "CompanyName";
+               
                   cmbSuppliers.SelectedValuePath = "SupplierID";
 
             }

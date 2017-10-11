@@ -26,6 +26,18 @@ namespace SMS
         public UpdateProduct()
         {
             InitializeComponent();
+            var listOfSuppliers = new List<Suppliers>();
+            listOfSuppliers = db.GetAllSuppliers();
+        
+            foreach (var item in listOfSuppliers)
+            {
+
+               
+                cmbSuppliers.Items.Add(item);
+               
+                cmbSuppliers.SelectedValuePath = "SupplierID";
+
+            }
         }
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {

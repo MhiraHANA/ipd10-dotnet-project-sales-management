@@ -36,6 +36,7 @@ namespace SMS
             FillDataGridSupplier();
             FillDataGridProducts();
             FillDataGridCustomers();
+            FillDataGridOrder();
         }
      
         private void DatePicker_SelectedDateChanged(object sender,
@@ -369,13 +370,18 @@ namespace SMS
         
         private void SearchProduct_Click(object sender, RoutedEventArgs e)
         {
-            string querry = "Select * from Products where CompanyName like '%" + tbProductSearch.Text + "'";
+            string querry = "Select * from Products where ProductName like '%" + tbProductSearch.Text + "'";
             SqlCommand cmd = new SqlCommand(querry, DB.conn);
             SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dgProducts.DataContext = dt;
             dgProducts.ItemsSource = dt.DefaultView;
+        }
+        //SeeMore_Click
+        private void SeeMore_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
         /********************************* Suppliers **********************************/
 
@@ -433,17 +439,89 @@ namespace SMS
 
         /*************************************Order********************/
 
+        public void FillDataGridOrder()
+        {
+
+            string CmdString = "SELECT * FROM Orders";
+            SqlCommand cmd = new SqlCommand(CmdString, DB.conn);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Orders");
+            sda.Fill(dt);
+            dgOrders.ItemsSource = dt.DefaultView;
+
+        }
         private void Show_AddOrder(object sender, RoutedEventArgs e)
         {
-            AddCustomer inputDialog = new AddCustomer();
+            AddOrder inputDialog = new AddOrder();
             if (inputDialog.ShowDialog() == true)
             {
 
 
             }
+            FillDataGridOrder();
 
         }
+        private void btnDeleteOrder_Click(object sender, RoutedEventArgs e)
+        {
 
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete?", "SMS DB", MessageBoxButton.YesNo);
+
+            object item = dgOrders.SelectedItem;
+            string ID = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            if (id < 0)
+            {
+
+                MessageBox.Show("You must select Orders.");
+            }
+            else
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    DB.DeleteOrders(id);
+                    FillDataGridOrder();
+                    MessageBox.Show("Delete successful.");
+
+                }
+
+            }
+        }
+
+        private void Show_OrderUpdate(object sender, RoutedEventArgs e)
+        {
+
+            object item = dgProducts.SelectedItem;
+            string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Products p = DB.GetProductsById(id);
+            UpdateOrder inputDialog = new UpdateOrder();
+            //inputDialog.id = id;
+            //inputDialog.tbProductName.Text = p.ProductName;
+
+            //inputDialog.tbQuantity.Text = p.Quantity.ToString();
+            //inputDialog.tbCostPrice.Text = p.CostPrice.ToString();
+            //inputDialog.tbUnitInStock.Text = p.UnitInStock.ToString();
+            //inputDialog.tbUnitOnOrder.Text = p.UnitInOrder.ToString();
+
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+            FillDataGridProducts();
+        }
+        private void SearchOrder_Click(object sender, RoutedEventArgs e)
+        {
+            string querry = "Select * from Orders where OrderDate like '%" + tbProductSearch.Text + "'";
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);
+            SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dgOrders.DataContext = dt;
+            dgOrders.ItemsSource = dt.DefaultView;
+        }
+
+        /***************************Repport *************************************/
         private void Show_AddReport(object sender, RoutedEventArgs e)
         {
             AddCustomer inputDialog = new AddCustomer();

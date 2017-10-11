@@ -1,0 +1,41 @@
+﻿<Window x:Class="SMS.AddOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMS"
+        mc:Ignorable="d"
+        Title="AddOrder" Height="486.15" Width="392" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/bac.jpg" />
+    </Window.Background>
+    <Grid>
+        <Label Content="Customer Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="102"/>
+        <ComboBox x:Name="cmbCustomers"
+            ItemsSource="{Binding listOfCustomers}"
+            
+          Text="{Binding SelectedBroker, Mode=TwoWay}"
+            SelectedValue="{Binding Path=CustomerID}" 
+
+            DisplayMemberPath="CompanyName" 
+            SelectedValuePath="CustomerID"  Margin="124,19,39,406"/>
+        <Label Content="Employee Name" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="102"/>
+        <ComboBox x:Name="cmbEmployees"
+            ItemsSource="{Binding listOfEmployees}"
+            
+          Text="{Binding SelectedBroker, Mode=TwoWay}"
+            SelectedValue="{Binding Path=EmployeeID}" 
+
+            DisplayMemberPath="FirstName" 
+            SelectedValuePath="EmployeeID"  Margin="124,69,39,356"/>
+        <Label Content="Order Date" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Width="102"/>
+        <DatePicker x:Name="tbOrderDate" HorizontalAlignment="Left"
+                    Margin="124,118,0,0"
+                    VerticalAlignment="Top"
+                    SelectedDateChanged="DatePicker_SelectedDateChanged" Width="241" Height="35"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="19,190,0,0" VerticalAlignment="Top" Width="59"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="124,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
+        <Button FontWeight="Bold" x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="65,326,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
+        <Button FontWeight="Bold" x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="261,326,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+    </Grid>
+</Window>
