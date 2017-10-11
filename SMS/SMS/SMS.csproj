@@ -226,14 +226,14 @@
     <Resource Include="Images\addProduct.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+
     <Resource Include="Images\iconePdf.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\addOrder.png" />
-=======
+
     <Folder Include="ProductsPDF\" />
->>>>>>> 29b5794a24fea87a08615744e3079e3eaa500df5
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
