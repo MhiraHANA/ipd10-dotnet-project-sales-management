@@ -241,6 +241,7 @@ namespace SMS
             int id = Convert.ToInt32(ID);
             Employees em = DB.GetEmployeeById(id);
             UpdateEmployee inputDialog = new UpdateEmployee();
+            inputDialog.id = id;
             inputDialog.tbFirstName.Text = em.FirstName;
 
             inputDialog.tbLastName.Text = em.LastName;
@@ -249,7 +250,7 @@ namespace SMS
             inputDialog.tbUserName.Text = em.UserName;
             inputDialog.tbPassword.Text = em.Password;
             inputDialog.tbPhone.Text = em.Phone;
-            inputDialog.id = id;
+          
             if (inputDialog.ShowDialog() == true)
             {
                

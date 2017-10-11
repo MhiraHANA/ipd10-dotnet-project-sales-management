@@ -37,9 +37,10 @@ namespace SMS
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
 
-           Employees emp = new Employees();
-           
+            // Employees emp = new Employees();
+            Employees emp = db.GetEmployeeById(id);
             // data after update
+            emp.EmployeeID = id;
             emp.FirstName = tbFirstName.Text;
             emp.LastName = tbLastName.Text;
             emp.HireDate = DateTime.Parse(tbHireDate.Text);
