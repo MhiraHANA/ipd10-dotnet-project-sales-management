@@ -20,7 +20,7 @@ namespace SMS
     /// </summary>
     public partial class UpdateCustomer : Window
     {
-        public int id;
+        public int id;        
         Database db = new Database();
         public UpdateCustomer()
         {
@@ -29,20 +29,14 @@ namespace SMS
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            
-            Customers cust = db.GetCustomerById(id);
-            //dispaly text from database
-            tbCompnayName.Text = cust.CompanyName;
-            tbAddress.Text = cust.Address;
-            tbPhone.Text = cust.Phone;
-            
-
-            // data after update
+            Customers cust = db.GetCustomerById(id);            
+            cust.CustomerID = id;
             cust.CompanyName = tbCompnayName.Text;
-            cust.Address = tbAddress.Text;            
-            cust.Phone = tbPhone.Text;            
+            cust.Address = tbAddress.Text;
+            cust.Phone = tbPhone.Text;
+            cust.Email = tbEmail.Text;
             db.UpdateCustomer(cust);
-            MessageBox.Show("Succeful adding customer..");
+            MessageBox.Show("The customer has been successfully updated");           
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

@@ -57,7 +57,7 @@ namespace SMS.Model
             get { return _email; }
             set
             {
-                if (value.Length < 10 || value.Length > 20)
+                if (value.Length < 10 || value.Length > 150)
                 {
                     throw new ArgumentOutOfRangeException("Email must be between 1 and 150 characters long.");
                 }

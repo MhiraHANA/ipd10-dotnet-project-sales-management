@@ -49,7 +49,6 @@ namespace SMS.Model
         public void UpdateEmployee(Employees emp)
         {
        
-           // string sql = "UPDATE Employees SET(LastName,FirstName,HireDate,Address,Phone,Photo,UserName,Password) VALUES(@LastName,@FirstName,@HireDate,@Address,@Phone,@Photo,@UserName,@Password)";
             string sql = "UPDATE Employees SET LastName=@LastName, FirstName=@FirstName , HireDate=@HireDate , Address=@Address , Phone=@Phone, Photo=@Photo, UserName=@UserName , Password=@Password  WHERE @EmployeeID = EmployeeID";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
@@ -116,12 +115,13 @@ namespace SMS.Model
 
         public void UpdateCustomer(Customers cust)
         {
-            string sql = "UPDATE Customers SET (CompanyName, Address, Phone, Email) VALUES (@CompanyName,@Address,@Phone,@Email)";
+            string sql = "UPDATE Customers SET CompanyName = @CompanyName, Address = @Address, Phone = @Phone WHERE @CustomerID = CustomerID"; ;
             SqlCommand updateCommand = new SqlCommand(sql, conn);
-            updateCommand.Parameters.Add(new SqlParameter("@CompanyName", cust.CompanyName));
-            updateCommand.Parameters.Add(new SqlParameter("@Address", cust.Address));
-            updateCommand.Parameters.Add(new SqlParameter("@Phone", cust.Phone));
-            updateCommand.Parameters.Add(new SqlParameter("@Email", cust.Email));
+            updateCommand.Parameters.AddWithValue("@CustomerID", cust.CustomerID);
+            updateCommand.Parameters.AddWithValue("@CompanyName", cust.CompanyName);
+            updateCommand.Parameters.AddWithValue("@Address", cust.Address);
+            updateCommand.Parameters.AddWithValue("@Phone", cust.Phone);
+            updateCommand.Parameters.AddWithValue("@Email", cust.Email);
             updateCommand.ExecuteNonQuery();
         }
         public Customers GetCustomerById(int id)
