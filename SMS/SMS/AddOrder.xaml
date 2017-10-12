@@ -18,7 +18,7 @@
             SelectedValue="{Binding Path=CustomerID}" 
 
             DisplayMemberPath="CompanyName" 
-            SelectedValuePath="CustomerID"  Margin="124,19,39,406"/>
+            SelectedValuePath="CustomerID"  Margin="124,10,39,419"/>
         <Label Content="Employee Name" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="102"/>
         <ComboBox x:Name="cmbEmployees"
             ItemsSource="{Binding listOfEmployees}"
@@ -27,15 +27,30 @@
             SelectedValue="{Binding Path=EmployeeID}" 
 
             DisplayMemberPath="FirstName" 
-            SelectedValuePath="EmployeeID"  Margin="124,69,39,356"/>
-        <Label Content="Order Date" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Width="102"/>
+            SelectedValuePath="EmployeeID"  Margin="124,59,39,372"/>
+        <Label Content="Order Date" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="102"/>
         <DatePicker x:Name="tbOrderDate" HorizontalAlignment="Left"
-                    Margin="124,118,0,0"
+                    Margin="124,137,0,0"
                     VerticalAlignment="Top"
                     SelectedDateChanged="DatePicker_SelectedDateChanged" Width="241" Height="35"/>
-        <Label Content="Address" HorizontalAlignment="Left" Margin="19,190,0,0" VerticalAlignment="Top" Width="59"/>
-        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="124,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
-        <Button FontWeight="Bold" x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="65,326,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
-        <Button FontWeight="Bold" x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="261,326,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Label Content="Address" HorizontalAlignment="Left" Margin="19,192,0,0" VerticalAlignment="Top" Width="59"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="32" Margin="124,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
+        <Button FontWeight="Bold" x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="53,415,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
+        <Button FontWeight="Bold" x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="249,415,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Label Content="Selling price" HorizontalAlignment="Left" Margin="19,238,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="tbSellingPrice" HorizontalAlignment="Left" Height="20" Margin="124,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
+        <Label Content="Quantity" HorizontalAlignment="Left" Margin="19,283,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="tbQuantity" HorizontalAlignment="Left" Height="25" Margin="124,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
+        <Label Content="Discount" HorizontalAlignment="Left" Margin="19,335,0,0" VerticalAlignment="Top" Width="78"/>
+        <TextBox x:Name="tbDiscount" HorizontalAlignment="Left" Height="23" Margin="124,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221"/>
+        <Label Content="Product Name" HorizontalAlignment="Left" Margin="19,102,0,0" VerticalAlignment="Top" Width="93"/>
+        <ComboBox x:Name="cmbProducts"
+            ItemsSource="{Binding listOfProducts}"
+            
+          Text="{Binding SelectedBroker, Mode=TwoWay}"
+            SelectedValue="{Binding Path=ProductID}" 
+
+            DisplayMemberPath="ProductName" 
+            SelectedValuePath="ProductID" Margin="124,100,39,329" />
     </Grid>
 </Window>

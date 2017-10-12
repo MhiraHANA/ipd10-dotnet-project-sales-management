@@ -416,14 +416,18 @@ namespace SMS.Model
         public void AddOrders(Orders o)
         {
 
-            string sql = "INSERT INTO Orders (OrderDate, CustomerID, EmployeeID, Address) VALUES "
-                        + " (@OrderDate,@CustomerID,@EmployeeID,@Address)";
+            string sql = "INSERT INTO Orders (OrderDate, CustomerID, EmployeeID, Address, ProductID, SellingPrice, Quantity, Discount) VALUES "
+                        + " (@OrderDate,@CustomerID,@EmployeeID,@Address,@ProductID,@SellingPrice,@Quantity,@Discount)";
             SqlCommand insertCommand = new SqlCommand(sql, conn);
             insertCommand.Parameters.Add(new SqlParameter("@CustomerID", o.CustomerID));
             insertCommand.Parameters.Add(new SqlParameter("@OrderDate", o.OrderDate));
             insertCommand.Parameters.Add(new SqlParameter("@EmployeeID", o.EmployeeID));
             insertCommand.Parameters.Add(new SqlParameter("@Address", o.Address));
-           
+            insertCommand.Parameters.Add(new SqlParameter("@ProductID", o.ProductID));
+            insertCommand.Parameters.Add(new SqlParameter("@SellingPrice", o.SellingPrice));
+            insertCommand.Parameters.Add(new SqlParameter("@Quantity", o.Quantity));
+            insertCommand.Parameters.Add(new SqlParameter("@Discount", o.Discount));
+
             insertCommand.ExecuteNonQuery();
         }
 
@@ -437,14 +441,18 @@ namespace SMS.Model
 
         public void UpdateOrders(Orders p)
         {
-            string sql = "UPDATE Orders SET OrderDate=@OrderDate, CustomerID=@CustomerID, EmployeeID=@EmployeeID, Address=@Address  WHERE @OrderID= OrderID";
+            string sql = "UPDATE Orders SET OrderDate=@OrderDate, CustomerID=@CustomerID, EmployeeID=@EmployeeID, Address=@Address, ProductID=@ProductID, SellingPrice=@SellingPrice, Quantity=@Quantity, Discount=@Discount  WHERE @OrderID= OrderID";
             SqlCommand updateCommand = new SqlCommand(sql, conn);
             updateCommand.Parameters.AddWithValue("@OrderID", p.OrderID);
             updateCommand.Parameters.Add(new SqlParameter("@OrderDate", p.OrderDate));
             updateCommand.Parameters.Add(new SqlParameter("@CustomerID", p.CustomerID));
             updateCommand.Parameters.Add(new SqlParameter("@EmployeeID", p.EmployeeID));
             updateCommand.Parameters.Add(new SqlParameter("@Address", p.Address));
-       
+            updateCommand.Parameters.Add(new SqlParameter("@ProductID", p.ProductID));
+            updateCommand.Parameters.Add(new SqlParameter("@SellingPrice", p.SellingPrice));
+            updateCommand.Parameters.Add(new SqlParameter("@Quantity", p.Quantity));
+            updateCommand.Parameters.Add(new SqlParameter("@Discount", p.Discount));
+
             updateCommand.ExecuteNonQuery();
         }
         public List<Orders> GetAllOrders()
@@ -461,7 +469,10 @@ namespace SMS.Model
                     p.EmployeeID = Convert.ToInt32(reader["EmployeeID"].ToString());
                     p.OrderDate = (DateTime)reader["OrderDate"];
                     p.Address = reader["Address"].ToString();
-
+                    p.ProductID= Convert.ToInt32(reader["ProductID"].ToString());
+                    p.Quantity = Convert.ToInt32(reader["Quantity"].ToString());
+                    p.SellingPrice = float.Parse(reader["SellingPrice"].ToString());
+                    p.Discount = Convert.ToInt32(reader["Discount"].ToString());
                     listOfOrders.Add(p);
                 }
             }
@@ -484,11 +495,14 @@ namespace SMS.Model
                         CustomerID= Convert.ToInt32(reader["CustomerID"].ToString()),
                         EmployeeID = Convert.ToInt32(reader["EmployeeID"].ToString()),
                         OrderDate = (DateTime)reader["OrderDate"],
-                        Address = reader["Address"].ToString()
-                      
+                        Address = reader["Address"].ToString(),
+                       ProductID = Convert.ToInt32(reader["ProductID"].ToString()),
+                       Quantity = Convert.ToInt32(reader["Quantity"].ToString()),
+                       SellingPrice = float.Parse(reader["SellingPrice"].ToString()),
+                        Discount = Convert.ToInt32(reader["Discount"].ToString())
 
 
-                    };
+                };
                 }
 
             }

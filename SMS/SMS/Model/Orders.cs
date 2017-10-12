@@ -12,6 +12,10 @@ namespace SMS.Model
         public DateTime OrderDate { get; set; }
         public int CustomerID { get; set; }
         public int EmployeeID { get; set; }
+        public int ProductID { get; set; }
+        public float SellingPrice { get; set; }
+        public int Quantity { get; set; }
+        public float Discount { get; set; }
         private String _address;
         public String Address
         {

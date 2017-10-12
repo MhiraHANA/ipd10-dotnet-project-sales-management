@@ -529,25 +529,28 @@ namespace SMS
         private void Show_OrderUpdate(object sender, RoutedEventArgs e)
         {
 
-            object item = dgProducts.SelectedItem;
-            string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            object item = dgOrders.SelectedItem;
+            string ID = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
-            Products p = DB.GetProductsById(id);
+          
+            Orders o = DB.GetOrdersById(id);
             UpdateOrder inputDialog = new UpdateOrder();
-            //inputDialog.id = id;
-            //inputDialog.tbProductName.Text = p.ProductName;
-
-            //inputDialog.tbQuantity.Text = p.Quantity.ToString();
-            //inputDialog.tbCostPrice.Text = p.CostPrice.ToString();
-            //inputDialog.tbUnitInStock.Text = p.UnitInStock.ToString();
-            //inputDialog.tbUnitOnOrder.Text = p.UnitInOrder.ToString();
+            inputDialog.id = id;
+            inputDialog.tbAddress.Text = o.Address;
+            inputDialog.tbQuantity.Text = o.Quantity.ToString();
+            inputDialog.tbSellingPrice.Text = o.SellingPrice.ToString();
+            inputDialog.tbDiscount.Text = o.Discount.ToString();
+            inputDialog.cmbCustomers.SelectedValue = o.CustomerID;
+            inputDialog.cmbEmployees.SelectedValue = o.EmployeeID;
+            inputDialog.cmbProducts.SelectedValue = o.ProductID;
+            
 
             if (inputDialog.ShowDialog() == true)
             {
 
 
             }
-            FillDataGridProducts();
+            FillDataGridOrder();
         }
         private void SearchOrder_Click(object sender, RoutedEventArgs e)
         {

@@ -64,3 +64,13 @@ date and name
 1. Insert real data to product.
 3. work in mini project about reporting.
 2. Users interface design
+
+2017/10/12 Hana
+1. Work in the crud orders .
+2.  Do master detail grid in the order interface
+
+
+2017/10/12  Hadi 
+1. Do the function see more in the product to see pdf file .
+2. work in the design 
+
