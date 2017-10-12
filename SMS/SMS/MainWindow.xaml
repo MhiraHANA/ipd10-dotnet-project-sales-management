@@ -265,6 +265,7 @@
                                 <DataGridTextColumn Header="SellingPrice" Width="100" Binding="{Binding SellingPrice}"/>
                                 <DataGridTextColumn Header="Quantity" Width="100" Binding="{Binding Quantity}"/>
                                 <DataGridTextColumn Header="Discount" Width="100" Binding="{Binding Discount}"/>
+                             
 
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>

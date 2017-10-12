@@ -381,14 +381,19 @@ namespace SMS
         }
         //SeeMore_Click
         private void SeeMore_Click(object sender, RoutedEventArgs e)
-        {
+        {System.Diagnostics.Process process = new System.Diagnostics.Process(); 
             object item = dgProducts.SelectedItem;
             string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int ProductID = Convert.ToInt32(ID);
             switch (ProductID)
             {
                 case 1:
-                    Process.Start("/ProductsPDF/P01-04.pdf");
+                    String fileName = @"/ProductsPDF/P01-04.pdf";
+                   
+                    process.StartInfo.FileName = fileName;
+                    process.Start();
+                    process.WaitForExit();
+                   // Process.Start("/ProductsPDF/P01-04.pdf");
                     break;
                 case 2:
                     Process.Start("ProductsPDF/P01-04.pdf");
