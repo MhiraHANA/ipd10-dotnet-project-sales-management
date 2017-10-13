@@ -16,6 +16,13 @@ namespace SMS.Model
         public float SellingPrice { get; set; }
         public int Quantity { get; set; }
         public float Discount { get; set; }
+        public float Total
+        {
+            get
+            {
+                return Quantity * SellingPrice - Quantity * SellingPrice * Discount;
+            }
+        }
         private String _address;
         public String Address
         {

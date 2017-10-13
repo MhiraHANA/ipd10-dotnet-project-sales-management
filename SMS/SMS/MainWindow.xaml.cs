@@ -533,14 +533,14 @@ namespace SMS
         }
         public void FillDataGridOrderDetailsProduct()
         {
-         //   object item = dgOrders.SelectedItem;
-         //   string ID = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-         //   int id = Convert.ToInt32(ID);
-         //   Products prod = DB.GetProductByOrderIdProductId(id);
-         //   DataSet dataSet = new DataSet();
-         //   DataTable dt = new DataTable("Products");
-         ////   dataSet.Tables.Add(dt);
-         //   dataSet.Tables["Products"].Rows.Add(prod);
+            object item = dgOrders.SelectedItem;
+            string ID = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Products prod = DB.GetProductByOrderIdProductId(id);
+            DataSet dataSet = new DataSet();
+            DataTable dt = new DataTable("Products");
+            //   dataSet.Tables.Add(dt);
+            dataSet.Tables["Products"].Rows.Add(prod);
 
         }
         private void Show_AddOrder(object sender, RoutedEventArgs e)
@@ -616,6 +616,31 @@ namespace SMS
             da.Fill(dt);
             dgOrders.DataContext = dt;
             dgOrders.ItemsSource = dt.DefaultView;
+        }
+
+
+        private void ShowMoreDetailProduct(object sender, RoutedEventArgs e)
+
+        {
+            object item = dgOrders.SelectedItem;
+            string ID = (dgOrders.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Products prod = DB.GetProductsById(id);
+            // TODOD add oemploye details 
+            DetailProduct inputDialog = new DetailProduct();
+
+            inputDialog.tbProductName.Text = prod.ProductName;
+            inputDialog.tbCostPrice.Text = prod.CostPrice.ToString();
+            inputDialog.tbQuantity.Text = prod.Quantity.ToString();
+            inputDialog.tbUnitInStock.Text = prod.UnitInStock.ToString();
+            inputDialog.tbUnitOnOrder.Text = prod.UnitInOrder.ToString();
+            if (inputDialog.ShowDialog() == true)
+            {
+                
+
+            }
+         
+
         }
 
         /***************************Repport *************************************/

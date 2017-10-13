@@ -258,10 +258,10 @@
 
                                 <DataGridTextColumn Header="Address" Width="100" Binding="{Binding Address}"/>
 
-                                <DataGridTextColumn Header="SellingPrice" Width="100" Binding="{Binding SellingPrice}"/>
+                                <DataGridTextColumn Header="SellingPrice" Width="100" Binding="{Binding SellingPrice,  StringFormat=\{0:F2\}}"/>
                                 <DataGridTextColumn Header="Quantity" Width="100" Binding="{Binding Quantity}"/>
-                                <DataGridTextColumn Header="Discount" Width="100" Binding="{Binding Discount}"/>
-
+                                <DataGridTextColumn Header="Discount" Width="100" Binding="{Binding Discount,  StringFormat=\{0:F2\}}"/>
+                                <DataGridTextColumn Header="Total" Width="100" Binding="{Binding Total , StringFormat=\{0:F2\}}"/>
 
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
@@ -286,9 +286,19 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button  x:Name="btnDetails" Click="ShowMoreDetailProduct" ToolTip="Delete"
+                           >
+                                                <Image Width="25" Height="25" Source="Images/Information.png"></Image>
 
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
                             </DataGrid.Columns>
-                            <DataGrid.RowDetailsTemplate >
+                            <!--<DataGrid.RowDetailsTemplate >
                                 <DataTemplate >
                                     <DataGrid  Name="dgOrdersProducts" >
                                         <DataGridTextColumn Header="Product Name" Width="200" Binding="{Binding ProductName}"/>
@@ -300,7 +310,7 @@
 
                                     </DataGrid>
                                 </DataTemplate>
-                            </DataGrid.RowDetailsTemplate>
+                            </DataGrid.RowDetailsTemplate>-->
                         </DataGrid>
 
                     </DockPanel>

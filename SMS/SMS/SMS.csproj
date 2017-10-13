@@ -73,6 +73,9 @@
     <Compile Include="AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetailProduct.xaml.cs">
+      <DependentUpon>DetailProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Invoice.xaml.cs">
       <DependentUpon>Invoice.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddSupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DetailProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,6 +260,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Information.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
