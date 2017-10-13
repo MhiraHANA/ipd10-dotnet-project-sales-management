@@ -34,6 +34,7 @@ namespace SMS
         public MainWindow()
         {
             InitializeComponent();
+           
             FillDataGrid();
           //  startClock();
             FillDataGridSupplier();
@@ -634,6 +635,16 @@ namespace SMS
             inputDialog.tbQuantity.Text = prod.Quantity.ToString();
             inputDialog.tbUnitInStock.Text = prod.UnitInStock.ToString();
             inputDialog.tbUnitOnOrder.Text = prod.UnitInOrder.ToString();
+
+
+             String idCustomer = (dgOrders.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+            int custId = Convert.ToInt32(idCustomer);
+            Customers cust = DB.GetCustomerById(custId);
+
+            inputDialog.tbCompnayName.Text = cust.CompanyName.ToString();
+            inputDialog.tbAddress.Text = cust.Address.ToString();
+            inputDialog.tbPhone.Text = cust.Phone.ToString();
+            inputDialog.tbEmail.Text = cust.Email.ToString();
             if (inputDialog.ShowDialog() == true)
             {
                 
@@ -654,35 +665,35 @@ namespace SMS
             }
         }
 
-        private void ImportFromXMLFile(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(openFileDialog.FileName);
+        //private void ImportFromXMLFile(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        OpenFileDialog openFileDialog = new OpenFileDialog();
+        //        openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
+        //        if (openFileDialog.ShowDialog() == true)
+        //        {
+        //            XmlDocument xmlDoc = new XmlDocument();
+        //            xmlDoc.Load(openFileDialog.FileName);
 
-                    try
-                    {
-                        XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
+        //            try
+        //            {
+        //                XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
                         
-                           //need to work on this part : MJ Hadi 
+        //                   //need to work on this part : MJ Hadi 
                                                 
-                    }
-                    catch (XPathException ex)
-                    {
-                        MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    }
-                }
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
+        //            }
+        //            catch (XPathException ex)
+        //            {
+        //                MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //            }
+        //        }
+        //    }
+        //    catch (IOException ex)
+        //    {
+        //        MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //    }
+        //}
 
        
     }

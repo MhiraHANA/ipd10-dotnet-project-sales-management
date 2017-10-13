@@ -7,7 +7,7 @@
    
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Sales Managment System" Height="594.286" Width="977.157" WindowStartupLocation="CenterScreen" >
+        Title="Sales Managment System" Height="508.02" Width="980.441" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
 
     <Window.Resources>
         <Style x:Key="AltCol" TargetType="DataGridCell">
@@ -153,7 +153,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
-                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgCustomers"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="5" Margin="-2,0,2,121">
+                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgCustomers"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="5" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
@@ -233,7 +233,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
-                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgOrders"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,121">
+                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgOrders"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
@@ -249,7 +249,9 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </DataGrid.RenderTransform>
+                           
                             <DataGrid.Columns>
+                              
                                 <DataGridTextColumn Header="Order ID" Width="100" Binding="{Binding OrderID}"/>
                                 <DataGridTextColumn Header="Employee ID" Width="100" Binding="{Binding EmployeeID}"/>
                                 <DataGridTextColumn Header="Customer ID" Width="100" Binding="{Binding CustomerID}"/>
@@ -345,7 +347,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
-                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgProducts"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,121">
+                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgProducts"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
@@ -443,7 +445,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
-                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgSuppliers"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,56">
+                        <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgSuppliers"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
