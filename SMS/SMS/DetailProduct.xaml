@@ -5,22 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="DetailProduct" Height="480.172" Width="416">
+        Title="DetailProduct" Height="380.172" Width="416" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="Images/bac.jpg" />
     </Window.Background>
     <Grid>
-      
-        <Label x:Name="lblProductName" Content="Product Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="98"/>
-        <TextBox x:Name="tbProductName" HorizontalAlignment="Left" Height="23" Margin="156,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblCostPrice" Content="Cost Price: " HorizontalAlignment="Left" Margin="29,131,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="tbCostPrice" HorizontalAlignment="Left" Height="23" Margin="156,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblUnitInStock" Content="Unit In Stock:" HorizontalAlignment="Left" Margin="29,186,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="tbUnitInStock" HorizontalAlignment="Left" Height="23" Margin="156,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblQuantity" Content="Quantity:" HorizontalAlignment="Left" Margin="29,83,0,0" VerticalAlignment="Top" Width="98"/>
-        <TextBox x:Name="tbQuantity" HorizontalAlignment="Left" Height="23" Margin="156,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
-        <Label x:Name="lblUnitOnOrder" Content="Unit On Order:" HorizontalAlignment="Left" Margin="29,244,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="tbUnitOnOrder" HorizontalAlignment="Left" Height="23" Margin="156,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <TabControl>
+            <TabItem Header="Details Product" Margin="-2,-2,-83,0">
+                <Grid>
+
+                    <Label x:Name="lblProductName" Content="Product Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="98"/>
+                    <TextBox x:Name="tbProductName" HorizontalAlignment="Left" Height="23" Margin="156,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    <Label x:Name="lblCostPrice" Content="Cost Price: " HorizontalAlignment="Left" Margin="29,131,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox x:Name="tbCostPrice" HorizontalAlignment="Left" Height="23" Margin="156,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    <Label x:Name="lblUnitInStock" Content="Unit In Stock:" HorizontalAlignment="Left" Margin="29,186,0,0" VerticalAlignment="Top" Width="85"/>
+                    <TextBox x:Name="tbUnitInStock" HorizontalAlignment="Left" Height="23" Margin="156,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    <Label x:Name="lblQuantity" Content="Quantity:" HorizontalAlignment="Left" Margin="29,83,0,0" VerticalAlignment="Top" Width="98"/>
+                    <TextBox x:Name="tbQuantity" HorizontalAlignment="Left" Height="23" Margin="156,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    <Label x:Name="lblUnitOnOrder" Content="Unit On Order:" HorizontalAlignment="Left" Margin="29,244,0,0" VerticalAlignment="Top" Width="85"/>
+                    <TextBox x:Name="tbUnitOnOrder" HorizontalAlignment="Left" Height="23" Margin="156,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Details Customer" Margin="84,-2,-208,0" >
+                <Grid>
+                    <Label x:Name="lblCompanyName" Content="Company Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="98"/>
+                    <TextBox x:Name="tbCompnayName" HorizontalAlignment="Left" Height="23" Margin="156,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    <Label x:Name="lblAddress" Content="Address: " HorizontalAlignment="Left" Margin="29,80,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="156,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    <Label x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,135,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="156,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+                    <Label Name="lblEmail"  Content="Email:" HorizontalAlignment="Left" Margin="29,177,0,0" VerticalAlignment="Top" Width="63"/>
+                    <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="156,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+                </Grid>
+            </TabItem>
+            <!--<TabItem Header="Details Employe" Margin="47,-2,-117,0" >
+            </TabItem>-->
+        </TabControl>
+        
         
        
 
