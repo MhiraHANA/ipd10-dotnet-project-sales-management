@@ -74,3 +74,9 @@ date and name
 1. Do the function see more in the product to see pdf file .
 2. work in the design 
 
+2017/10/13 Hana
+1.Determine master detail grid in the order interface.
+2. See the pie chart
+
+2017/10/13 Hadi
+1. Work in the facture of order
