@@ -381,22 +381,23 @@ namespace SMS
         }
         //SeeMore_Click
         private void SeeMore_Click(object sender, RoutedEventArgs e)
-        {System.Diagnostics.Process process = new System.Diagnostics.Process(); 
+        {
+            //Process process = new Process(); 
             object item = dgProducts.SelectedItem;
             string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int ProductID = Convert.ToInt32(ID);
             switch (ProductID)
             {
                 case 1:
-                    String fileName = @"/ProductsPDF/P01-04.pdf";
+                    //String fileName = @"/ProductsPDF/P01-04.pdf";
                    
-                    process.StartInfo.FileName = fileName;
-                    process.Start();
-                    process.WaitForExit();
-                   // Process.Start("/ProductsPDF/P01-04.pdf");
+                    //process.StartInfo.FileName = fileName;
+                    //process.Start();
+                    //process.WaitForExit();
+                    Process.Start("@ProductsPDF/P01-04.pdf");
                     break;
                 case 2:
-                    Process.Start("ProductsPDF/P01-04.pdf");
+                    Process.Start("ProductsPDF\\P01-04.pdf");
                     break;
                 case 3:
                     Process.Start("ProductsPDF\\P01-04.pdf");
@@ -656,32 +657,35 @@ namespace SMS
 
         private void ImportFromXMLFile(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(openFileDialog.FileName);
+            //try
+            //{
+            //    OpenFileDialog openFileDialog = new OpenFileDialog();
+            //    openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
+            //    if (openFileDialog.ShowDialog() == true)
+            //    {
+            //        XmlDocument xmlDoc = new XmlDocument();
+            //        xmlDoc.Load(openFileDialog.FileName);
 
-                    try
-                    {
-                        XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
+            //        try
+            //        {
+            //            XmlNodeList dataFile = xmlDoc.SelectNodes("/catalog/book");
+
+            //            foreach (XmlNode node in dataFile)
+            //            {
+                            
+            //            }
                         
-                           //need to work on this part : MJ Hadi 
-                                                
-                    }
-                    catch (XPathException ex)
-                    {
-                        MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    }
-                }
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            //        }
+            //        catch (XPathException ex)
+            //        {
+            //            MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //        }
+            //    }
+            //}
+            //catch (IOException ex)
+            //{
+            //    MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //}
         }
 
        

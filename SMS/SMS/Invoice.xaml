@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Invoice" Height="300" Width="300">
-    <Grid>
-        
+        Title="Invoice" Height="842" Width="595">
+    <Grid RenderTransformOrigin="0.498,0.476">
+
+        <Label Content="INVOICE" HorizontalAlignment="Center" Margin="201,36,197,0" VerticalAlignment="Top" Width="149" FontSize="28" FontStyle="Oblique"/>
+        <Label Content="Company Name:  " HorizontalAlignment="Center" Margin="18,97,369,0" VerticalAlignment="Top" Width="200" FontSize="18" FontStyle="Oblique"/>
+        <Label Content="Address:  " HorizontalAlignment="Center" Margin="18,144,347,0" VerticalAlignment="Top" Width="222" FontSize="18" FontStyle="Oblique"/>
+        <Label Content="Phone:  " HorizontalAlignment="Center" Margin="18,195,347,0" VerticalAlignment="Top" Width="222" FontSize="18" FontStyle="Oblique"/>
+        <Label Content="Email: " HorizontalAlignment="Center" Margin="18,248,347,0" VerticalAlignment="Top" Width="222" FontSize="18" FontStyle="Oblique"/>
+        <Label Content="Order ID: " HorizontalAlignment="Center" Margin="355,97,147,0" VerticalAlignment="Top" Width="85" FontSize="18" FontStyle="Oblique"/>
+        <Label Content="Date: " HorizontalAlignment="Center" Margin="355,144,175,0" VerticalAlignment="Top" Width="57" FontSize="18" FontStyle="Oblique"/>
+        <Label Content="Employee Name: " HorizontalAlignment="Center" Margin="355,195,86,0" VerticalAlignment="Top" Width="146" FontSize="18" FontStyle="Oblique"/>
+        <Label Content="..." x:Name="lblCompnayNameContent" HorizontalAlignment="Center" Margin="168,99,256,0" VerticalAlignment="Top" Width="163" FontSize="18" FontStyle="Oblique" Height="34"/>
+        <Label Content="..." x:Name="lblAddressContent" HorizontalAlignment="Center" Margin="127,144,297,0" VerticalAlignment="Top" Width="163" FontSize="18" FontStyle="Oblique" Height="34"/>
+        <Label Content="..." x:Name="lblPhoneContent" HorizontalAlignment="Center" Margin="127,195,297,0" VerticalAlignment="Top" Width="163" FontSize="18" FontStyle="Oblique" Height="34"/>
+        <Label Content="..." x:Name="lblEmailContent" HorizontalAlignment="Center" Margin="127,248,297,0" VerticalAlignment="Top" Width="163" FontSize="18" FontStyle="Oblique" Height="34"/>
+        <Label Content="..." x:Name="lblOrderIDContent" HorizontalAlignment="Center" Margin="445,97,22,0" VerticalAlignment="Top" Width="120" FontSize="18" FontStyle="Oblique" Height="34"/>
+        <Label Content="..." x:Name="lblDateContent" HorizontalAlignment="Center" Margin="445,144,22,0" VerticalAlignment="Top" Width="120" FontSize="18" FontStyle="Oblique" Height="34"/>
+        <Label Content="..." x:Name="lblEmployeeIDContent" HorizontalAlignment="Center" Margin="506,195,10,0" VerticalAlignment="Top" Width="71" FontSize="18" FontStyle="Oblique" Height="34"/>
+        <ListView x:Name="lsvInvoice" HorizontalAlignment="Left" Height="433" Margin="18,295,0,0" VerticalAlignment="Top" Width="547">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Item" Width="50" DisplayMemberBinding="{Binding Path=Id}"/>
+                    <GridViewColumn Header="Product Name" Width="150" DisplayMemberBinding="{Binding Path=ProductName}"/>
+                    <GridViewColumn Header="Quantity" Width="80" DisplayMemberBinding="{Binding Path=Quantity}"/>
+                    <GridViewColumn Header="Price" Width="80" DisplayMemberBinding="{Binding Path=Price}"/>
+                    <GridViewColumn Header="Discount" Width="80" DisplayMemberBinding="{Binding Path=Discount}"/>
+                    <GridViewColumn Header="Total" Width="80" DisplayMemberBinding="{Binding Path=Total}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="56,756,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+        <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="256,756,0,0" VerticalAlignment="Top" Width="75" Click="btnPrint_Click"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="445,756,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.95,0.427" Click="btnClose_Click"/>
+
+
     </Grid>
 </Window>
