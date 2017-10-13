@@ -666,7 +666,7 @@ namespace SMS
             }
         }
 
-<<<<<<< HEAD
+
         private void ImportFromXMLFile(object sender, RoutedEventArgs e)
         {
             //try
@@ -699,7 +699,7 @@ namespace SMS
             //    MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             //}
         }
-=======
+
         //private void ImportFromXMLFile(object sender, RoutedEventArgs e)
         //{
         //    try
@@ -729,7 +729,7 @@ namespace SMS
         //        MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
         //    }
         //}
->>>>>>> 2af395126a27504238a81e06aedf3bebc7eca06f
+
 
        
     }
