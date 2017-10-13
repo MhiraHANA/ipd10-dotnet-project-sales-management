@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Login" Height="300" Width="400" Background="#04c582" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="300" Width="400" Background="#9befec" WindowStartupLocation="CenterScreen">
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         <StackPanel Margin="20">
             <Label Content="Login" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>

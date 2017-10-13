@@ -512,5 +512,34 @@ namespace SMS.Model
 
         }
 
+        public Products GetProductByOrderIdProductId(int id)
+        {
+
+            string sql = "SELECT Products.ProductName, Products.CostPrice , Products.UnitInStock  FROM Products INNER JOIN  Orders On Products.ProductID= Orders.ProductID WHERE Orders.OrderID= @OrderID;";
+            SqlCommand Command = new SqlCommand(sql, conn);
+            Command.Parameters.AddWithValue("@OrderID", id);
+            using (var reader = Command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    prod = new Products
+                    {
+
+                        ProductName = reader["ProductName"].ToString(),
+                        Quantity = Convert.ToInt64(reader["Quantity"].ToString()),
+                        CostPrice = float.Parse(reader["Quantity"].ToString()),
+                        UnitInStock = Int32.Parse(reader["Quantity"].ToString()),
+                        UnitInOrder = Int32.Parse(reader["Quantity"].ToString())
+
+
+                    };
+                }
+
+            }
+
+
+            return prod;
+        }
+
     }
 }

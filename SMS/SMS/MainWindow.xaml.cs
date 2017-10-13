@@ -35,7 +35,7 @@ namespace SMS
         {
             InitializeComponent();
             FillDataGrid();
-            startClock();
+          //  startClock();
             FillDataGridSupplier();
             FillDataGridProducts();
             FillDataGridCustomers();
@@ -268,19 +268,19 @@ namespace SMS
 
       
 
-        private void startClock()
-        {
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += tickevent;
-            timer.Start();
+        //private void startClock()
+        //{
+        //    DispatcherTimer timer = new DispatcherTimer();
+        //    timer.Interval = TimeSpan.FromSeconds(1);
+        //    timer.Tick += tickevent;
+        //    timer.Start();
 
-        }
-        private void tickevent(Object sender, EventArgs e)
-        {
+        //}
+        //private void tickevent(Object sender, EventArgs e)
+        //{
 
-            datelbl.Text = DateTime.Now.ToString();
-        }
+        //    datelbl.Text = DateTime.Now.ToString();
+        //}
 
         private void SearchEmployee_Click(object sender, RoutedEventArgs e)
         {
@@ -531,8 +531,19 @@ namespace SMS
             dgOrders.ItemsSource = dt.DefaultView;
 
         }
-     
-    private void Show_AddOrder(object sender, RoutedEventArgs e)
+        public void FillDataGridOrderDetailsProduct()
+        {
+         //   object item = dgOrders.SelectedItem;
+         //   string ID = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+         //   int id = Convert.ToInt32(ID);
+         //   Products prod = DB.GetProductByOrderIdProductId(id);
+         //   DataSet dataSet = new DataSet();
+         //   DataTable dt = new DataTable("Products");
+         ////   dataSet.Tables.Add(dt);
+         //   dataSet.Tables["Products"].Rows.Add(prod);
+
+        }
+        private void Show_AddOrder(object sender, RoutedEventArgs e)
 
         {
             AddOrder inputDialog = new AddOrder();

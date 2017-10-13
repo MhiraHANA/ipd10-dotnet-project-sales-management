@@ -45,6 +45,7 @@ namespace SMS
                     MainWindow dashboard = new MainWindow();
                     dashboard.Show();
                     this.Close();
+                   
                 }
                 else
                 {

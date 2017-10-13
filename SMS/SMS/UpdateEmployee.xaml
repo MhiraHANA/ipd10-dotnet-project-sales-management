@@ -27,8 +27,8 @@
         <TextBox x:Name="tbUserName" HorizontalAlignment="Left" Height="23" Margin="124,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Label FontWeight="Bold" x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,321,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="124,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
-        <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="318,427,0,-6" Name="btnBrowse" VerticalAlignment="Top" Width="142" Click="btnBrowse_Click" />
-        <Image Height="228" HorizontalAlignment="Left" Margin="29,397,0,-181" x:Name="imageEmployee" Stretch="Fill" VerticalAlignment="Top" Width="259" />
+        <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="238,427,0,-6" Name="btnBrowse" VerticalAlignment="Top" Width="142" Click="btnBrowse_Click" />
+        <Image Height="198" HorizontalAlignment="Left" Margin="29,427,0,-181" x:Name="imageEmployee" Stretch="Fill" VerticalAlignment="Top" Width="153" />
         <TextBox x:Name="tbNameImage" HorizontalAlignment="Left" Height="23" Margin="29,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="431"/>
         <Label FontWeight="Bold" x:Name="lbPassword" Content="Password:  " HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Height="23" Margin="124,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>

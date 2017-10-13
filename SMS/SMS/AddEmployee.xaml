@@ -10,8 +10,8 @@
         <ImageBrush ImageSource="Images/bac.jpg" />
     </Window.Background>
     <Grid Margin="0,0,0,-44" Height="444" VerticalAlignment="Top">
-        <Button FontWeight="Bold" x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="65,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click"/>
-        <Button FontWeight="Bold" x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="261,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" />
+        <Button FontWeight="Bold" x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="65,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.5,0.455" Click="btnSave_Click" Background="#FF7F90FC" BorderBrush="#95FFFFFF"/>
+        <Button FontWeight="Bold" x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="261,644,0,-220" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-1.255,3.574" Click="btnCancel_Click" Background="#FF7F90FC" BorderBrush="#95FFFFFF" />
         <Label FontWeight="Bold" x:Name="lblFirstName" Content="First Name: " HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="124,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Label FontWeight="Bold" x:Name="lblLastName" Content="Last Name: " HorizontalAlignment="Left" Margin="29,80,0,0" VerticalAlignment="Top" Width="75"/>
@@ -28,11 +28,11 @@
         <Label FontWeight="Bold" x:Name="lblPhone" Content="Phone:  " HorizontalAlignment="Left" Margin="29,321,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="124,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="318,427,0,-6" Name="btnBrowse" VerticalAlignment="Top" Width="142" Click="btnBrowse_Click" />
-        <Image Height="228" HorizontalAlignment="Left" Margin="29,397,0,-181" x:Name="imageEmployee" Stretch="Fill" VerticalAlignment="Top" Width="259" />
-        <TextBox x:Name="tbNameImage" HorizontalAlignment="Left" Height="23" Margin="29,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="431"/>
+        <Image Height="210" HorizontalAlignment="Left" Margin="52,415,0,-181" x:Name="imageEmployee" Stretch="Fill" VerticalAlignment="Top" Width="179" />
+        <TextBox x:Name="tbNameImage" HorizontalAlignment="Left" Height="23" Margin="124,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="241"/>
         <Label FontWeight="Bold" x:Name="lbPassword" Content="Password:  " HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbPassword" HorizontalAlignment="Left" Height="23" Margin="124,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
-           <Label FontWeight="Bold" x:Name="lbPhoto" Content="Photo:  " HorizontalAlignment="Left" Margin="29,374,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label FontWeight="Bold" x:Name="lbPhoto" Content="Photo:  " HorizontalAlignment="Left" Margin="29,374,0,0" VerticalAlignment="Top" Width="75"/>
 
 
     </Grid>
