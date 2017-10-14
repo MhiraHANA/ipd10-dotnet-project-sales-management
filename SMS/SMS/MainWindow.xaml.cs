@@ -743,6 +743,36 @@ namespace SMS
             //}
         }
 
+        private void tbSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbSearch.Text = "";
+            tbSearch.Foreground = Brushes.Black;
+        }
+
+        private void tbSearchCustomer_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbSearchCustomer.Text = "";
+            tbSearchCustomer.Foreground = Brushes.Black;
+        }
+
+        private void tbOrderSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbOrderSearch.Text = "";
+            tbOrderSearch.Foreground = Brushes.Black;
+        }
+
+        private void tbProductSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbProductSearch.Text = "";
+            tbProductSearch.Foreground = Brushes.Black;
+        }
+
+        private void tbSupplierSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbSupplierSearch.Text = "";
+            tbSupplierSearch.Foreground = Brushes.Black;
+        }
+
         //private void ImportFromXMLFile(object sender, RoutedEventArgs e)
         //{
         //    try
@@ -757,9 +787,9 @@ namespace SMS
         //            try
         //            {
         //                XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
-                        
+
         //                   //need to work on this part : MJ Hadi 
-                                                
+
         //            }
         //            catch (XPathException ex)
         //            {
@@ -774,6 +804,6 @@ namespace SMS
         //}
 
 
-       
+
     }
 }
