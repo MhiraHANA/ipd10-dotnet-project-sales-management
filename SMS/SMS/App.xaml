@@ -6,6 +6,9 @@
     <Application.Resources>
         <SolidColorBrush x:Key="PrimaryBrush" Color="#FF4169AA" />
         <SolidColorBrush x:Key="PrimaryFont" Color="White" />
-       
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Green"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

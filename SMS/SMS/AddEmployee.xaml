@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
         Title="Add Employee" Height="730.787" Width="500.093" WindowStartupLocation="CenterScreen">
+  
     <Window.Background>
         <ImageBrush ImageSource="Images/bac.jpg" />
     </Window.Background>
