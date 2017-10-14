@@ -232,6 +232,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Images\icon_image" />
     <None Include="packages.config" />
     <None Include="ProductsPDF\P01-04.pdf" />
     <None Include="ProductsPDF\P05.pdf" />
@@ -291,6 +292,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Exportpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FileExport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\import.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

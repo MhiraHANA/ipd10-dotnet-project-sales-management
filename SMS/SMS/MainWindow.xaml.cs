@@ -305,6 +305,25 @@ namespace SMS
             }
             FillDataGridProducts();
         }
+        private void Show_ExportExcel(object sender, RoutedEventArgs e)
+        {
+            ExportToExcel();
+        }
+
+        private void ExportToExcel()
+        {
+            dgProducts.SelectAllCells();
+            dgProducts.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+            ApplicationCommands.Copy.Execute(null, dgProducts);
+            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+            String result = (string)Clipboard.GetData(DataFormats.Text);
+            dgProducts.UnselectAllCells();
+            System.IO.StreamWriter file = new System.IO.StreamWriter(@"../../FileExport/Products.xls");
+            file.WriteLine(result.Replace(',', ' '));
+            file.Close();
+
+            MessageBox.Show(" Exporting DataGrid data to Excel file created");
+        }
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
 
@@ -712,35 +731,35 @@ namespace SMS
 
         private void ImportFromXMLFile(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    OpenFileDialog openFileDialog = new OpenFileDialog();
-            //    openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
-            //    if (openFileDialog.ShowDialog() == true)
-            //    {
-            //        XmlDocument xmlDoc = new XmlDocument();
-            //        xmlDoc.Load(openFileDialog.FileName);
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(openFileDialog.FileName);
 
-            //        try
-            //        {
-            //            XmlNodeList dataFile = xmlDoc.SelectNodes("/catalog/book");
+                    try
+                    {
+                        XmlNodeList dataFile = xmlDoc.SelectNodes("/catalog/book");
 
-            //            foreach (XmlNode node in dataFile)
-            //            {
-                            
-            //            }
-                        
-            //        }
-            //        catch (XPathException ex)
-            //        {
-            //            MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            //        }
-            //    }
-            //}
-            //catch (IOException ex)
-            //{
-            //    MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            //}
+                        foreach (XmlNode node in dataFile)
+                        {
+
+                        }
+
+                    }
+                    catch (XPathException ex)
+                    {
+                        MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void tbSearch_GotFocus(object sender, RoutedEventArgs e)
