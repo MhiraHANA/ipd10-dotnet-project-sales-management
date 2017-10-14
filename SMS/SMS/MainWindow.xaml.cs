@@ -383,52 +383,51 @@ namespace SMS
         //SeeMore_Click
         private void SeeMore_Click(object sender, RoutedEventArgs e)
         {
-            //Process process = new Process(); 
             object item = dgProducts.SelectedItem;
             string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int ProductID = Convert.ToInt32(ID);
             switch (ProductID)
             {
                 case 1:
-                    //String fileName = @"/ProductsPDF/P01-04.pdf";
-                   
-                    //process.StartInfo.FileName = fileName;
-                    //process.Start();
-                    //process.WaitForExit();
-                    Process.Start("@ProductsPDF/P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 2:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 3:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 4:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 5:
-                    Process.Start("ProductsPDF\\P05.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P05.pdf"));
                     break;
                 case 6:
-                    Process.Start("ProductsPDF\\P06.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P06.pdf"));
                     break;
                 case 7:
-                    Process.Start("ProductsPDF\\P07-08.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P07-08.pdf"));
                     break;
                 case 8:
-                    Process.Start("ProductsPDF\\P07-08.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P07-08.pdf"));
                     break;
                 case 9:
-                    Process.Start("ProductsPDF\\P09.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P09.pdf"));
                     break;
                 case 10:
-                    Process.Start("ProductsPDF\\P10.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P10.pdf"));
                     break;
                 default:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
-            }           
-            
+            }
+
+        }
+        private string getPhysicalPath(string relativePath)
+        {
+
+            return System.IO.Path.GetFullPath(relativePath);
         }
         /********************************* Suppliers **********************************/
 
