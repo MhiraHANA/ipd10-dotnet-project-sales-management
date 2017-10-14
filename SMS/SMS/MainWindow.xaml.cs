@@ -654,7 +654,51 @@ namespace SMS
          
 
         }
+        
+             private void ShowInvoice(object sender, RoutedEventArgs e)
+        {
 
+            /*Product*/
+            object item = dgOrders.SelectedItem;
+            string ID = (dgOrders.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Products prod = DB.GetProductsById(id);
+            /*Orders*/
+            string idOrders = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int idOd= Convert.ToInt32(idOrders);
+            Orders o = DB.GetOrdersById(idOd);
+            /*Employe*/
+            string idEmp= (dgOrders.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+            int idemp= Convert.ToInt32(idEmp);
+            Employees emp = DB.GetEmployeeById(idemp);
+            /**Customers*/
+            string idCust = (dgOrders.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+            int idcust = Convert.ToInt32(idEmp);
+            Customers c = DB.GetCustomerById(idcust);
+
+            /*Products*/
+            string idProd = (dgOrders.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+            int idprod = Convert.ToInt32(idProd);
+            Products p = DB.GetProductsById(idprod);
+
+            Invoice inputDialog = new Invoice();
+            inputDialog.lblOrderIDContent.Content = idOrders;
+            inputDialog.lblCompnayNameContent.Content = c.CompanyName.ToString();
+            inputDialog.lblAddressContent.Content = c.Address.ToString();
+            inputDialog.lblPhoneContent.Content = c.Phone.ToString();
+            inputDialog.lblDateContent.Content = (dgOrders.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+            inputDialog.lblEmployeeIDContent.Content = emp.FirstName.ToString() + " " + emp.LastName.ToString();
+            Products t = DB.GetProductsById(idprod);
+           
+           
+                inputDialog.lsvInvoice.Items.Add(p);
+          
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
         /***************************Repport *************************************/
         private void Show_AddReport(object sender, RoutedEventArgs e)
         {

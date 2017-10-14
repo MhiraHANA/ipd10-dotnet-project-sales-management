@@ -7,7 +7,7 @@
    
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-        Title="Sales Managment System" Height="508.02" Width="980.441" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
+        Title="Sales Managment System" Height="508.02" Width="990" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
 
     <Window.Resources>
         <Style x:Key="AltCol" TargetType="DataGridCell">
@@ -26,7 +26,8 @@
         </Style>
     </Window.Resources>
 
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,0,41">
+    <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,0,41">-->
+    <DockPanel>
         <TabControl Grid.ColumnSpan="2" Height="482" VerticalAlignment="Top" Width="956">
             <TabItem Margin="-2,-2,-7,0" >
                 <TabItem.Header>
@@ -36,6 +37,7 @@
                 </TabItem.Header>
                 <DockPanel>
                     <Canvas DockPanel.Dock="Top" Height="82">
+                        
                         <Button Height="67" VerticalAlignment="Bottom" Click="Show_AddEmployee" Grid.ColumnSpan="3" Canvas.Top="5">
                             <DockPanel Height="122">
                                 <Image Source="/Images/addEmployee.png"  Width="124"  RenderTransformOrigin="0.665,0.5" ToolTip="Add Employee" Margin="0,4,0,65" />
@@ -55,7 +57,8 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
-                        <DataGrid  CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgEmployees"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="5" Margin="-2,0,2,0">
+                        <Label FontSize="14"  FontWeight="Bold" DockPanel.Dock="Top">List of Employees: </Label>
+                        <DataGrid DockPanel.Dock="Bottom" CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgEmployees"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="5" Margin="-2,0,2,0">
 
                             <DataGrid.ColumnHeaderStyle>
 
@@ -153,6 +156,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
+                        <Label FontSize="14"  FontWeight="Bold" DockPanel.Dock="Top">List of Customers:</Label>
                         <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgCustomers"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="5" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -233,6 +237,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
+                        <Label FontSize="14"  FontWeight="Bold" DockPanel.Dock="Top">List of Orders:</Label>
                         <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgOrders"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -291,9 +296,20 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  x:Name="btnDetails" Click="ShowMoreDetailProduct" ToolTip="Delete"
+                                            <Button  x:Name="btnDetails" Click="ShowMoreDetailProduct" ToolTip="See More information"
                            >
                                                 <Image Width="25" Height="25" Source="Images/Information.png"></Image>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button  x:Name="btnDetails" Click="ShowInvoice" ToolTip="Invoice"
+                           >
+                                                <Image Width="25" Height="25" Source="Images/invoice.png"></Image>
 
                                             </Button>
                                         </DataTemplate>
@@ -347,6 +363,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
+                        <Label FontSize="14"  FontWeight="Bold" DockPanel.Dock="Top">List of Products:</Label>
                         <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgProducts"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -445,6 +462,7 @@
                     <!--<Button DockPanel.Dock="Bottom" Height="50">Bottom</Button>-->
 
                     <DockPanel Margin="0,21,0,0">
+                        <Label FontSize="14"  FontWeight="Bold" DockPanel.Dock="Top">List of Suppliers:</Label>
                         <DataGrid CanUserAddRows="False" AlternatingRowBackground="DeepSkyBlue" Name="dgSuppliers"  AutoGenerateColumns="False"   IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-2,0,2,10">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -522,6 +540,7 @@
                 </TabItem.Header>
 
             </TabItem>
+          
         </TabControl>
-    </ScrollViewer>
+    </DockPanel>
 </Window>
