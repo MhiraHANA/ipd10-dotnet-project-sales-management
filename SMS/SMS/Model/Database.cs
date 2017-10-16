@@ -500,9 +500,9 @@ namespace SMS.Model
                        Quantity = Convert.ToInt32(reader["Quantity"].ToString()),
                        SellingPrice = float.Parse(reader["SellingPrice"].ToString()),
                         Discount = Convert.ToInt32(reader["Discount"].ToString())
+                          //Total = float.Parse(reader["Total"].ToString())
 
-
-                };
+                    };
                 }
 
             }
@@ -530,7 +530,7 @@ namespace SMS.Model
                         CostPrice = float.Parse(reader["Quantity"].ToString()),
                         UnitInStock = Int32.Parse(reader["Quantity"].ToString()),
                         UnitInOrder = Int32.Parse(reader["Quantity"].ToString())
-
+                      
 
                     };
                 }

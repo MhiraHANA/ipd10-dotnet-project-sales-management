@@ -22,7 +22,9 @@ namespace SMS.Model
             {
                 return Quantity * SellingPrice - Quantity * SellingPrice * Discount;
             }
+           
         }
+ 
         private String _address;
         public String Address
         {

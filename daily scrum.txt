@@ -80,3 +80,11 @@ date and name
 
 2017/10/13 Hadi
 1. Work in the facture of order
+
+2017/10/14 Hana
+1.fixe the design 
+2. add button to export datagrid product to excel files
+
+2017/10/14 Hadi
+1. Work in pdf file
+

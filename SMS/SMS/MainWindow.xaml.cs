@@ -305,6 +305,25 @@ namespace SMS
             }
             FillDataGridProducts();
         }
+        private void Show_ExportExcel(object sender, RoutedEventArgs e)
+        {
+            ExportToExcel();
+        }
+
+        private void ExportToExcel()
+        {
+            dgProducts.SelectAllCells();
+            dgProducts.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+            ApplicationCommands.Copy.Execute(null, dgProducts);
+            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+            String result = (string)Clipboard.GetData(DataFormats.Text);
+            dgProducts.UnselectAllCells();
+            System.IO.StreamWriter file = new System.IO.StreamWriter(@"../../FileExport/Products.xls");
+            file.WriteLine(result.Replace(',', ' '));
+            file.Close();
+
+            MessageBox.Show(" Exporting DataGrid data to Excel file created");
+        }
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
 
@@ -383,52 +402,51 @@ namespace SMS
         //SeeMore_Click
         private void SeeMore_Click(object sender, RoutedEventArgs e)
         {
-            //Process process = new Process(); 
             object item = dgProducts.SelectedItem;
             string ID = (dgProducts.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int ProductID = Convert.ToInt32(ID);
             switch (ProductID)
             {
                 case 1:
-                    //String fileName = @"/ProductsPDF/P01-04.pdf";
-                   
-                    //process.StartInfo.FileName = fileName;
-                    //process.Start();
-                    //process.WaitForExit();
-                    Process.Start("@ProductsPDF/P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 2:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 3:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 4:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
                 case 5:
-                    Process.Start("ProductsPDF\\P05.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P05.pdf"));
                     break;
                 case 6:
-                    Process.Start("ProductsPDF\\P06.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P06.pdf"));
                     break;
                 case 7:
-                    Process.Start("ProductsPDF\\P07-08.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P07-08.pdf"));
                     break;
                 case 8:
-                    Process.Start("ProductsPDF\\P07-08.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P07-08.pdf"));
                     break;
                 case 9:
-                    Process.Start("ProductsPDF\\P09.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P09.pdf"));
                     break;
                 case 10:
-                    Process.Start("ProductsPDF\\P10.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P10.pdf"));
                     break;
                 default:
-                    Process.Start("ProductsPDF\\P01-04.pdf");
+                    Process.Start(getPhysicalPath(@"../../ProductsPDF/P01-04.pdf"));
                     break;
-            }           
-            
+            }
+
+        }
+        private string getPhysicalPath(string relativePath)
+        {
+
+            return System.IO.Path.GetFullPath(relativePath);
         }
         /********************************* Suppliers **********************************/
 
@@ -654,7 +672,51 @@ namespace SMS
          
 
         }
+        
+             private void ShowInvoice(object sender, RoutedEventArgs e)
+        {
 
+            /*Product*/
+            object item = dgOrders.SelectedItem;
+            string ID = (dgOrders.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+            int id = Convert.ToInt32(ID);
+            Products prod = DB.GetProductsById(id);
+            /*Orders*/
+            string idOrders = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            int idOd= Convert.ToInt32(idOrders);
+            Orders o = DB.GetOrdersById(idOd);
+            /*Employe*/
+            string idEmp= (dgOrders.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+            int idemp= Convert.ToInt32(idEmp);
+            Employees emp = DB.GetEmployeeById(idemp);
+            /**Customers*/
+            string idCust = (dgOrders.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+            int idcust = Convert.ToInt32(idEmp);
+            Customers c = DB.GetCustomerById(idcust);
+
+            /*Products*/
+            string idProd = (dgOrders.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+            int idprod = Convert.ToInt32(idProd);
+            Products p = DB.GetProductsById(idprod);
+
+            Invoice inputDialog = new Invoice();
+            inputDialog.lblOrderIDContent.Content = idOrders;
+            inputDialog.lblCompnayNameContent.Content = c.CompanyName.ToString();
+            inputDialog.lblAddressContent.Content = c.Address.ToString();
+            inputDialog.lblPhoneContent.Content = c.Phone.ToString();
+            inputDialog.lblDateContent.Content = (dgOrders.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+            inputDialog.lblEmployeeIDContent.Content = emp.FirstName.ToString() + " " + emp.LastName.ToString();
+            Products t = DB.GetProductsById(idprod);
+           
+           
+                inputDialog.lsvInvoice.Items.Add(p);
+          
+            if (inputDialog.ShowDialog() == true)
+            {
+
+
+            }
+        }
         /***************************Repport *************************************/
         private void Show_AddReport(object sender, RoutedEventArgs e)
         {
@@ -669,35 +731,65 @@ namespace SMS
 
         private void ImportFromXMLFile(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    OpenFileDialog openFileDialog = new OpenFileDialog();
-            //    openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
-            //    if (openFileDialog.ShowDialog() == true)
-            //    {
-            //        XmlDocument xmlDoc = new XmlDocument();
-            //        xmlDoc.Load(openFileDialog.FileName);
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(openFileDialog.FileName);
 
-            //        try
-            //        {
-            //            XmlNodeList dataFile = xmlDoc.SelectNodes("/catalog/book");
+                    try
+                    {
+                        XmlNodeList dataFile = xmlDoc.SelectNodes("/catalog/book");
 
-            //            foreach (XmlNode node in dataFile)
-            //            {
-                            
-            //            }
-                        
-            //        }
-            //        catch (XPathException ex)
-            //        {
-            //            MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            //        }
-            //    }
-            //}
-            //catch (IOException ex)
-            //{
-            //    MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            //}
+                        foreach (XmlNode node in dataFile)
+                        {
+
+                        }
+
+                    }
+                    catch (XPathException ex)
+                    {
+                        MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void tbSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbSearch.Text = "";
+            tbSearch.Foreground = Brushes.Black;
+        }
+
+        private void tbSearchCustomer_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbSearchCustomer.Text = "";
+            tbSearchCustomer.Foreground = Brushes.Black;
+        }
+
+        private void tbOrderSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbOrderSearch.Text = "";
+            tbOrderSearch.Foreground = Brushes.Black;
+        }
+
+        private void tbProductSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbProductSearch.Text = "";
+            tbProductSearch.Foreground = Brushes.Black;
+        }
+
+        private void tbSupplierSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbSupplierSearch.Text = "";
+            tbSupplierSearch.Foreground = Brushes.Black;
         }
 
         //private void ImportFromXMLFile(object sender, RoutedEventArgs e)
@@ -714,9 +806,9 @@ namespace SMS
         //            try
         //            {
         //                XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
-                        
+
         //                   //need to work on this part : MJ Hadi 
-                                                
+
         //            }
         //            catch (XPathException ex)
         //            {
@@ -731,6 +823,6 @@ namespace SMS
         //}
 
 
-       
+
     }
 }
