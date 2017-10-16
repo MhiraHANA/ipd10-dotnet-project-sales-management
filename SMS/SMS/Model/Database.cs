@@ -541,5 +541,29 @@ namespace SMS.Model
             return prod;
         }
 
+        public List<Products> BestSellingProduct()
+        {
+            string sql = "SELECT TOP(5) ProductID, SUM(Quantity),Products.ProductName FROM Products INNER JOIN  Orders On Products.ProductID= Orders.ProductID GROUP BY ProductID ORDER BY SUM(Quantity) DESC; ";
+            SqlCommand Command = new SqlCommand(sql, conn);
+            List<Products> list = new List<Products>();
+            using (var reader = Command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var p = new Products();
+                    p.ProductID = Convert.ToInt32(reader["ProductID"].ToString());
+                    p.ProductName = reader["ProductName"].ToString();
+                    p.Quantity = Convert.ToInt64(reader["Quantity"].ToString());
+                    p.CostPrice = float.Parse(reader["CostPrice"].ToString());
+                    p.UnitInStock = Int32.Parse(reader["UnitInStock"].ToString());
+                    p.UnitInOrder = Int32.Parse(reader["UnitOnOrders"].ToString());
+                    list.Add(p);
+                }
+
+            }
+
+            return list;
+        }
+
     }
 }

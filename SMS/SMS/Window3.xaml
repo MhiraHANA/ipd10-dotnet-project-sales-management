@@ -1,0 +1,21 @@
+﻿<Window x:Class="SMS.Window3"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMS"
+        mc:Ignorable="d"
+        Title="Window3" Height="300" Width="300"
+         
+        
+        >
+    <Grid>
+        <lvc:PieChart x:Name="lineChartProduct" LegendLocation="Bottom" Hoverable="False"  DataClick="Chart_OnDataClick">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries Title="{Binding Path=ProductName}" Values="{Binding Path=ProductID}" DataLabels="True"/>
+
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
+    </Grid>
+</Window>
