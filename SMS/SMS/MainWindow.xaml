@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMS"
         mc:Ignorable="d"
-
-        Title="Sales Managment System" Height="508.02" Width="1050.11" WindowStartupLocation="CenterScreen"   ResizeMode="NoResize">
+ xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        Title="Sales Managment System" Height="528.02" Width="1050.11" WindowStartupLocation="CenterScreen"   ResizeMode="NoResize">
 
 
     <Window.Resources>
@@ -580,7 +580,9 @@
 
                     </StackPanel>
                 </TabItem.Header>
-
+                <lvc:PieChart x:Name="lineChartProduct" LegendLocation="Bottom" Hoverable="False"  >
+                   
+                </lvc:PieChart>
             </TabItem>
             <TabItem >
                 <TabItem.Header>

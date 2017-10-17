@@ -21,7 +21,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Xml;
 using System.Xml.XPath;
-
+using LiveCharts;
+using LiveCharts.Wpf;
 namespace SMS
 {
     /// <summary>
@@ -29,7 +30,8 @@ namespace SMS
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        //PointLabel = chartPoint =>
+        //    string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
         Database DB = new Database();
         public MainWindow()
         {
@@ -41,8 +43,32 @@ namespace SMS
             FillDataGridProducts();
             FillDataGridCustomers();
             FillDataGridOrder();
-        }
 
+
+
+            ShowAccountCart();
+        }
+        public void ShowAccountCart()
+        {
+            Func<ChartPoint, string> labelPoint = chartPoint =>
+                string.Format(" {0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+
+
+            lineChartProduct.Series.Clear();
+            foreach (var entry in DB.getSellingProduct())
+            {
+                lineChartProduct.Series.Add(new PieSeries
+                {
+                    Title = entry.Key,
+                    Values = new ChartValues<double> { entry.Value },
+                    DataLabels = true,
+                    LabelPoint = labelPoint
+
+
+                });
+                lineChartProduct.LegendLocation = LegendLocation.Bottom;
+            }
+        }
         private void DatePicker_SelectedDateChanged(object sender,
            SelectionChangedEventArgs e)
         {
@@ -737,7 +763,7 @@ namespace SMS
             {
                 using (StreamReader XmlFile = new StreamReader(openFileDialog.OpenFile()))
                 {
-<<<<<<< HEAD
+
                    
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(openFileDialog.FileName);
@@ -756,12 +782,12 @@ namespace SMS
                     {
                         MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
-=======
+
                     DataSet dataSet = new DataSet();
                     dataSet.ReadXml(XmlFile);
                     DataView dataView = new DataView(dataSet.Tables[0]);
                     dgProducts.ItemsSource = dataView;
->>>>>>> 7e72e603fd2ab0e0d0aa16876b51cc5daf4a81dc
+
                 }
                 
             }
@@ -800,9 +826,9 @@ namespace SMS
         {
             tbSupplierSearch.Text = "";
             tbSupplierSearch.Foreground = Brushes.Black;
-        }   
+        }
 
-
+       
 
     }
 }
