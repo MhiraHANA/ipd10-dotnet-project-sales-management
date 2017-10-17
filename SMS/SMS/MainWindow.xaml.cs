@@ -742,10 +742,12 @@ namespace SMS
                     DataView dataView = new DataView(dataSet.Tables[0]);
                     dgProducts.ItemsSource = dataView;
                 }
+                
             }
             else
             {
-                MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("There is a problem in Reading the File!", "File Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -777,37 +779,7 @@ namespace SMS
         {
             tbSupplierSearch.Text = "";
             tbSupplierSearch.Foreground = Brushes.Black;
-        }
-
-        //private void ImportFromXMLFile(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        OpenFileDialog openFileDialog = new OpenFileDialog();
-        //        openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
-        //        if (openFileDialog.ShowDialog() == true)
-        //        {
-        //            XmlDocument xmlDoc = new XmlDocument();
-        //            xmlDoc.Load(openFileDialog.FileName);
-
-        //            try
-        //            {
-        //                XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
-
-        //                   //need to work on this part : MJ Hadi 
-
-        //            }
-        //            catch (XPathException ex)
-        //            {
-        //                MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-        //            }
-        //        }
-        //    }
-        //    catch (IOException ex)
-        //    {
-        //        MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-        //    }
-        //}
+        }   
 
 
 
