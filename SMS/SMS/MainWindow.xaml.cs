@@ -607,7 +607,7 @@ namespace SMS
             object item = dgOrders.SelectedItem;
             string ID = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
-          
+
             Orders o = DB.GetOrdersById(id);
             UpdateOrder inputDialog = new UpdateOrder();
             inputDialog.id = id;
@@ -618,7 +618,7 @@ namespace SMS
             inputDialog.cmbCustomers.SelectedValue = o.CustomerID;
             inputDialog.cmbEmployees.SelectedValue = o.EmployeeID;
             inputDialog.cmbProducts.SelectedValue = o.ProductID;
-            
+
 
             if (inputDialog.ShowDialog() == true)
             {
@@ -656,7 +656,7 @@ namespace SMS
             inputDialog.tbUnitOnOrder.Text = prod.UnitInOrder.ToString();
 
 
-             String idCustomer = (dgOrders.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+            String idCustomer = (dgOrders.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
             int custId = Convert.ToInt32(idCustomer);
             Customers cust = DB.GetCustomerById(custId);
 
@@ -683,11 +683,11 @@ namespace SMS
             Products prod = DB.GetProductsById(id);
             /*Orders*/
             string idOrders = (dgOrders.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-            int idOd= Convert.ToInt32(idOrders);
+            int idOd = Convert.ToInt32(idOrders);
             Orders o = DB.GetOrdersById(idOd);
             /*Employe*/
-            string idEmp= (dgOrders.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-            int idemp= Convert.ToInt32(idEmp);
+            string idEmp = (dgOrders.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+            int idemp = Convert.ToInt32(idEmp);
             Employees emp = DB.GetEmployeeById(idemp);
             /**Customers*/
             string idCust = (dgOrders.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
@@ -707,10 +707,10 @@ namespace SMS
             inputDialog.lblDateContent.Content = (dgOrders.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
             inputDialog.lblEmployeeIDContent.Content = emp.FirstName.ToString() + " " + emp.LastName.ToString();
             Products t = DB.GetProductsById(idprod);
-           
-           
-                inputDialog.lsvInvoice.Items.Add(p);
-          
+
+
+            inputDialog.lsvInvoice.Items.Add(p);
+
             if (inputDialog.ShowDialog() == true)
             {
 

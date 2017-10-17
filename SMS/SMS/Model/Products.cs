@@ -15,6 +15,7 @@ namespace SMS
         public float CostPrice { get; set; }
         public int UnitInStock { get; set; }
         public int UnitInOrder { get; set; }
+        public int TotalQuantity { get; set; }
         //UnitinStock > Unitinorder
     }
 }
