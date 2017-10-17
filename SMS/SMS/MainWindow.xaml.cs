@@ -742,13 +742,20 @@ namespace SMS
 
                     try
                     {
-                        XmlNodeList dataFile = xmlDoc.SelectNodes("/catalog/book");
+                        XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
 
                         foreach (XmlNode node in dataFile)
                         {
-
+                            string ProductName = node.SelectSingleNode("ProductName").InnerText;
+                            int Quantity = Convert.ToInt32(node.SelectSingleNode("Quantitye").InnerText);
+                            decimal CostPrice = Convert.ToDecimal(node.SelectSingleNode("CostPrice").InnerText);
+                            int UnitInStock = Convert.ToInt32(node.SelectSingleNode("UnitInStock").InnerText);
+                            int UnitInOrder = Convert.ToInt32(node.SelectSingleNode("UnitInOrder").InnerText);
+                            //Product p = new Book(0, ProductName, Quantity, CostPrice, UnitInStock, UnitInOrder);
+                            //DB.addProduct(p);
                         }
-
+                        //lvProducts.ItemsSource = DB.getProductsList();
+                        //lvProducts.Items.Refresh();
                     }
                     catch (XPathException ex)
                     {
