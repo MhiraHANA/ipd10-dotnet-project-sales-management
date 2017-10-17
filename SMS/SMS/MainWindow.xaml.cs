@@ -737,6 +737,7 @@ namespace SMS
                 openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
                 if (openFileDialog.ShowDialog() == true)
                 {
+                   
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(openFileDialog.FileName);
 
