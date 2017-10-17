@@ -34,15 +34,15 @@ namespace SMS
         public MainWindow()
         {
             InitializeComponent();
-           
+
             FillDataGrid();
-          //  startClock();
+            //  startClock();
             FillDataGridSupplier();
             FillDataGridProducts();
             FillDataGridCustomers();
             FillDataGridOrder();
         }
-     
+
         private void DatePicker_SelectedDateChanged(object sender,
            SelectionChangedEventArgs e)
         {
@@ -63,7 +63,7 @@ namespace SMS
             }
         }
 
-       
+
         /**********************************Customer***************************************/
         private void Show_AddCustomer(object sender, RoutedEventArgs e)
         {
@@ -133,9 +133,9 @@ namespace SMS
             }
             FillDataGridCustomers();
 
-         }
+        }
 
-       
+
 
         private void SearchCustomer_Click(object sender, RoutedEventArgs e)
         {
@@ -155,7 +155,7 @@ namespace SMS
             if (inputDialog.ShowDialog() == true)
             {
 
-             
+
             }
         }
 
@@ -236,14 +236,14 @@ namespace SMS
                     DB.DeleteEmployee(id);
                     FillDataGrid();
                     MessageBox.Show("Delete successful.");
-                  
+
                 }
 
             }
         }
         private void Show_UpdateEmployee(object sender, RoutedEventArgs e)
         {
-           
+
             object item = dgEmployees.SelectedItem;
             string ID = (dgEmployees.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             int id = Convert.ToInt32(ID);
@@ -258,16 +258,16 @@ namespace SMS
             inputDialog.tbUserName.Text = em.UserName;
             inputDialog.tbPassword.Text = em.Password;
             inputDialog.tbPhone.Text = em.Phone;
-          
+
             if (inputDialog.ShowDialog() == true)
             {
-               
+
 
             }
             FillDataGrid();
         }
 
-      
+
 
         //private void startClock()
         //{
@@ -286,12 +286,12 @@ namespace SMS
         private void SearchEmployee_Click(object sender, RoutedEventArgs e)
         {
             string querry = "Select * from Employees where FirstName like '%" + tbSearch.Text + "'";
-            SqlCommand cmd = new SqlCommand(querry, DB.conn);        
+            SqlCommand cmd = new SqlCommand(querry, DB.conn);
             SqlDataAdapter da = new SqlDataAdapter(querry, DB.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dgEmployees.DataContext = dt;
-            dgEmployees.ItemsSource = dt.DefaultView;            
+            dgEmployees.ItemsSource = dt.DefaultView;
         }
 
         /********************************* Product **********************************/
@@ -363,7 +363,7 @@ namespace SMS
             inputDialog.tbQuantity.Text = p.Quantity.ToString();
             inputDialog.tbCostPrice.Text = p.CostPrice.ToString();
             inputDialog.tbUnitInStock.Text = p.UnitInStock.ToString();
-            inputDialog.tbUnitOnOrder.Text = p.UnitInOrder.ToString();           
+            inputDialog.tbUnitOnOrder.Text = p.UnitInOrder.ToString();
             if (inputDialog.ShowDialog() == true)
             {
 
@@ -388,7 +388,7 @@ namespace SMS
 
         }
 
-        
+
         private void SearchProduct_Click(object sender, RoutedEventArgs e)
         {
             string querry = "Select * from Products where ProductName like '%" + tbProductSearch.Text + "'";
@@ -466,7 +466,7 @@ namespace SMS
             AddSupplier inputDialog = new AddSupplier();
             if (inputDialog.ShowDialog() == true)
             {
-               
+
             }
             FillDataGridSupplier();
 
@@ -484,8 +484,8 @@ namespace SMS
             inputDialog.tbCompnayName.Text = sup.CompanyName;
             inputDialog.tbContactName.Text = sup.ContactName;
             inputDialog.tbAddress.Text = sup.SuppliersAddress;
-            inputDialog.tbPhone.Text = sup.SuppliersPhone;            
-            
+            inputDialog.tbPhone.Text = sup.SuppliersPhone;
+
             if (inputDialog.ShowDialog() == true)
             {
 
@@ -522,9 +522,9 @@ namespace SMS
 
         {
             FillDataGridSupplier();
-        }      
+        }
 
-        
+
         private void SearchSupplier_Click(object sender, RoutedEventArgs e)
         {
             string querry = "Select * from Suppliers where CompanyName like '%" + tbSupplierSearch.Text + "'";
@@ -535,10 +535,10 @@ namespace SMS
             dgProducts.DataContext = dt;
             dgProducts.ItemsSource = dt.DefaultView;
         }
-           
-  
 
-    /*************************************Order********************/
+
+
+        /*************************************Order********************/
 
         public void FillDataGridOrder()
         {
@@ -666,14 +666,14 @@ namespace SMS
             inputDialog.tbEmail.Text = cust.Email.ToString();
             if (inputDialog.ShowDialog() == true)
             {
-                
+
 
             }
-         
+
 
         }
-        
-             private void ShowInvoice(object sender, RoutedEventArgs e)
+
+        private void ShowInvoice(object sender, RoutedEventArgs e)
         {
 
             /*Product*/
@@ -731,12 +731,13 @@ namespace SMS
 
         private void ImportFromXMLFile(object sender, RoutedEventArgs e)
         {
-            try
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
             {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
-                if (openFileDialog.ShowDialog() == true)
+                using (StreamReader XmlFile = new StreamReader(openFileDialog.OpenFile()))
                 {
+<<<<<<< HEAD
                    
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(openFileDialog.FileName);
@@ -755,11 +756,19 @@ namespace SMS
                     {
                         MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
+=======
+                    DataSet dataSet = new DataSet();
+                    dataSet.ReadXml(XmlFile);
+                    DataView dataView = new DataView(dataSet.Tables[0]);
+                    dgProducts.ItemsSource = dataView;
+>>>>>>> 7e72e603fd2ab0e0d0aa16876b51cc5daf4a81dc
                 }
+                
             }
-            catch (IOException ex)
+            else
             {
-                MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("There is a problem in Reading the File!", "File Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -791,37 +800,7 @@ namespace SMS
         {
             tbSupplierSearch.Text = "";
             tbSupplierSearch.Foreground = Brushes.Black;
-        }
-
-        //private void ImportFromXMLFile(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        OpenFileDialog openFileDialog = new OpenFileDialog();
-        //        openFileDialog.Filter = "XML files (*.XML)|*.xml|All files (*.*)|*.*";
-        //        if (openFileDialog.ShowDialog() == true)
-        //        {
-        //            XmlDocument xmlDoc = new XmlDocument();
-        //            xmlDoc.Load(openFileDialog.FileName);
-
-        //            try
-        //            {
-        //                XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
-
-        //                   //need to work on this part : MJ Hadi 
-
-        //            }
-        //            catch (XPathException ex)
-        //            {
-        //                MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-        //            }
-        //        }
-        //    }
-        //    catch (IOException ex)
-        //    {
-        //        MessageBox.Show("There is a problem in Reading the File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-        //    }
-        //}
+        }   
 
 
 

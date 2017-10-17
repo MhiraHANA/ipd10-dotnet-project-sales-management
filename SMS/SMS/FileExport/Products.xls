@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Product ID	Product Name	Quantity	Cost Price	Unit In Stock	Unit In Order	SupplierID			
+=======
+Product ID	Product Name	Quantity	CostPrice	UnitInStock	UnitInOrder	SupplierID			
+>>>>>>> 7e72e603fd2ab0e0d0aa16876b51cc5daf4a81dc
 1	KAL25FB10R0	200	200	200	200	5			
 2	KAL25FB5R01	355	355	355	355	5			
 3	KAL25FB5R00	400	400	400	400	5			
