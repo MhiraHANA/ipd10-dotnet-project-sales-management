@@ -739,7 +739,6 @@ namespace SMS
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(openFileDialog.FileName);
-
                     try
                     {
                         XmlNodeList dataFile = xmlDoc.SelectNodes("/Products/Product");
