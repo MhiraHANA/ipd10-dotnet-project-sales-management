@@ -542,8 +542,10 @@ namespace SMS.Model
         }
         public Dictionary<String, double> getSellingProduct()
         {
-            // string sql = "SELECT TOP(5) ProductID, SUM(Quantity),Products.ProductName FROM Products INNER JOIN  Orders On Products.ProductID= Orders.ProductID GROUP BY ProductID ORDER BY SUM(Quantity) DESC; ";
-            string sql = "SELECT  SUM(o.Quantity), p.ProductName FROM Orders as o INNER JOIN  Products as p on o.ProductID= p.ProductID GROUP BY  p.ProductName ORDER BY SUM(o.Quantity) DESC; ";
+            // string sql = "SELECT TOP(5) ProductID, SUM(Quantity),Products.ProductName FROM Products INNER JOIN  
+            //Orders On Products.ProductID= Orders.ProductID GROUP BY ProductID ORDER BY SUM(Quantity) DESC; ";
+            string sql = "SELECT  SUM(o.Quantity), p.ProductName FROM Orders as o INNER JOIN  Products as " +
+                "p on o.ProductID= p.ProductID GROUP BY  p.ProductName ORDER BY SUM(o.Quantity) DESC; ";
             SqlCommand Command = new SqlCommand(sql, conn);
             Dictionary<String, double> dictionary = new Dictionary<String, double>();
            
