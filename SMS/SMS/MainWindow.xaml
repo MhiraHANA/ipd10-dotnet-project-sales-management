@@ -229,7 +229,7 @@
                     <Canvas DockPanel.Dock="Top" Height="82">
                         <Button Height="67" VerticalAlignment="Bottom" Click="Show_AddOrder" Grid.ColumnSpan="3" Canvas.Top="5">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addOrder.png"  Width="124"  RenderTransformOrigin="0.665,0.5" ToolTip="Add Employee" Margin="0,4,0,65" />
+                                <Image Source="/Images/addOrder.png"  Width="124"  RenderTransformOrigin="0.665,0.5" ToolTip="Add Order" Margin="0,4,0,65" />
 
                             </DockPanel>
                         </Button>
@@ -496,7 +496,7 @@
                     <Canvas DockPanel.Dock="Top" Height="82">
                         <Button Height="67" VerticalAlignment="Bottom" Click="Show_AddSupplier" Grid.ColumnSpan="3" Canvas.Top="5">
                             <DockPanel Height="122">
-                                <Image Source="/Images/addEmployee.png"  Width="124"  RenderTransformOrigin="0.665,0.5" ToolTip="Add Supplier" Margin="0,4,0,65" />
+                                <Image Source="/Images/supplier.png"  Width="124"  RenderTransformOrigin="0.665,0.5" ToolTip="Add Supplier" Margin="0,4,0,65" />
 
                             </DockPanel>
                         </Button>
