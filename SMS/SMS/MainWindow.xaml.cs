@@ -762,34 +762,12 @@ namespace SMS
             if (openFileDialog.ShowDialog() == true)
             {
                 using (StreamReader XmlFile = new StreamReader(openFileDialog.OpenFile()))
-                {
-
-                   
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(openFileDialog.FileName);
-
-                    try
-                    {
-                        XmlNodeList dataFile = xmlDoc.SelectNodes("/catalog/book");
-
-                        foreach (XmlNode node in dataFile)
-                        {
-
-                        }
-
-                    }
-                    catch (XPathException ex)
-                    {
-                        MessageBox.Show("There is a problem in Reading the XML File!", "File Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    }
-
+                {                  
                     DataSet dataSet = new DataSet();
                     dataSet.ReadXml(XmlFile);
                     DataView dataView = new DataView(dataSet.Tables[0]);
                     dgProducts.ItemsSource = dataView;
-
-                }
-                
+                }                
             }
             else
             {
